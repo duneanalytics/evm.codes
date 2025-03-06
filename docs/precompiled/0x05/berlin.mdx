@@ -4,8 +4,8 @@
     words = (max_length + 7) / 8
     multiplication_complexity = words**2
 
-    iteration_count = 0
-    if Esize <= 32 and exponent == 0: iteration_count = 0
+    calculate_iteration_count = 0
+    if Esize <= 32 and exponent == 0: calculate_iteration_count = 0
     elif Esize <= 32: iteration_count = exponent.bit_length() - 1
     elif Esize > 32: iteration_count = (8 * (Esize - 32)) + ((exponent & (2**256 - 1)).bit_length() - 1)
     calculate_iteration_count = max(iteration_count, 1)
