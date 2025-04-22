@@ -4,6 +4,10 @@ fork: Byzantium
 
 ## Notes
 
+In the group $G_1$, points on the base field $F_p$ consist of (x, y) coordinates, where each coordinate is encoded as 32 bytes.
+
+In the group $G_2$, points on the extension field $F_{p^2}$ are represented with coordinates (x, y) where `x = x_c0 + x_c1 * i` and `y = y_c0 + y_c1 * i`, with each component (x_c1, x_c0, y_c1, y_c0) encoded as 32 bytes.
+
 The point at infinity is encoded with both field `x` and `y` at `0`.
 
 ## Inputs
@@ -12,12 +16,12 @@ The input must always be a multiple of 6 32-byte values. 0 inputs is valid and r
 
 | Byte range | Name |
 |-----------:|-----:|
-| `[0; 31]` (32 bytes) | x1 |
-| `[32; 63]` (32 bytes) | y1 |
-| `[64; 95]` (32 bytes) | x2 |
-| `[96; 127]` (32 bytes) | y2 |
-| `[128; 159]` (32 bytes) | x3 |
-| `[160; 191]` (32 bytes) | y3 |
+| `[0; 31]` (32 bytes) | g1_x |
+| `[32; 63]` (32 bytes) | g1_y |
+| `[64; 95]` (32 bytes) | g2_x_c1 |
+| `[96; 127]` (32 bytes) | g2_x_c0 |
+| `[128; 159]` (32 bytes) | g2_y_c1 |
+| `[160; 191]` (32 bytes) | g2_y_c0 |
 
 ## Output
 
