@@ -930,18 +930,42 @@ const getCommonParam = (
   topic: string,
   name: string,
 ): bigint => {
-  if (common instanceof Common) {
-    return common.param(topic, name)
-  } else {
-    let formattedName = name
-    if (!name.endsWith('Gas')) {
-      formattedName = name
-        .replace('Cost', '')
-        .replace('Price', '')
-        .replace('Gas', '')
-        .concat('Gas')
-    }
-    // @ts-ignore it's warn on ide, but technically it's work
-    return (common as EOFCommon).param(formattedName)
+  const paramNameMap: { [key: string]: string } = {
+    ecRecover: 'ecRecoverGas',
+    sha256: 'sha256Gas',
+    sha256Word: 'sha256WordGas',
+    ripemd160: 'ripemd160Gas',
+    ripemd160Word: 'ripemd160WordGas',
+    identity: 'identityGas',
+    identityWord: 'identityWordGas',
+    modexpGquaddivisor: 'modexpGquaddivisorGas',
+    ecAdd: 'bn254AddGas',
+    ecMul: 'bn254MulGas',
+    ecPairing: 'bn254PairingGas',
+    ecPairingWord: 'bn254PairingWordGas',
+    blake2Round: 'blake2RoundGas',
+    kzgPointEvaluationGasPrecompilePrice: 'kzgPointEvaluationPrecompileGas',
+    memory: 'memoryGas',
+    quadCoeffDiv: 'quadCoefficientDivGas',
+    coldaccountaccess: 'coldaccountaccessGas',
+    warmstorageread: 'warmstoragereadGas',
+    coldsload: 'coldsloadGas',
+    sstoreSet: 'sstoreSetGas',
+    sstoreReset: 'sstoreResetGas',
+    sstoreRefund: 'sstoreRefundGas',
+    createData: 'createDataGas',
+    initCodeWordCost: 'initCodeWordGas',
+    callValueTransfer: 'callValueTransferGas',
+    callStipend: 'callStipendGas',
+    callNewAccount: 'callNewAccountGas',
+    selfdestructRefund: 'selfdestructRefundGas',
+    expByte: 'expByteGas',
+    logTopic: 'logTopicGas',
+    logData: 'logDataGas',
+    keccak256Word: 'keccak256WordGas',
+    copy: 'copyGas',
   }
+
+  const v10Name = paramNameMap[name] || name
+  return common.param(v10Name)
 }
