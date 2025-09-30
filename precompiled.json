@@ -154,5 +154,77 @@
     "input": "bytes",
     "output": "bytes",
     "description": "Verify p(z) = y given commitment that corresponds to the polynomial p(x) and a KZG proof. Also verify that the provided commitment matches the provided versioned_hash."
+  },
+  "0x0b": {
+    "name": "BLS12_G1ADD",
+    "input": "x1 | y1 | x2 | y2",
+    "output": "x | y",
+    "description": "BLS12-381 G1 point addition"
+  },
+  "0x0c": {
+    "name": "BLS12_G1MSM",
+    "input": "k1 | x1 | y1 | k2 | x2 | y2 | ...",
+    "output": "x | y",
+    "description": "BLS12-381 G1 multi-scalar multiplication",
+    "dynamicFee": {
+      "prague": {
+        "inputs": {
+          "size": {
+            "type": "number",
+            "label": "Byte size of data"
+          }
+        }
+      }
+    }
+  },
+  "0x0d": {
+    "name": "BLS12_G2ADD",
+    "input": "x1_c0 | x1_c1 | y1_c0 | y1_c1 | x2_c0 | x2_c1 | y2_c0 | y2_c1",
+    "output": "x_c0 | x_c1 | y_c0 | y_c1",
+    "description": "BLS12-381 G2 point addition"
+  },
+  "0x0e": {
+    "name": "BLS12_G2MSM",
+    "input": "k1 | x1_c0 | x1_c1 | y1_c0 | y1_c1 | k2 | x2_c0 | x2_c1 | y2_c0 | y2_c1 | ...",
+    "output": "x_c0 | x_c1 | y_c0 | y_c1",
+    "description": "BLS12-381 G2 multi-scalar multiplication",
+    "dynamicFee": {
+      "prague": {
+        "inputs": {
+          "size": {
+            "type": "number",
+            "label": "Byte size of data"
+          }
+        }
+      }
+    }
+  },
+  "0x0f": {
+    "name": "BLS12_PAIRING_CHECK",
+    "input": "g1_x | g1_y | g2_x_c0 | g2_x_c1 | g2_y_c0 | g2_y_c1 | ...",
+    "output": "result",
+    "description": "BLS12-381 pairing check",
+    "dynamicFee": {
+      "prague": {
+        "inputs": {
+          "size": {
+            "type": "number",
+            "label": "Byte size of data"
+          }
+        }
+      }
+    }
+  },
+  "0x10": {
+    "name": "BLS12_MAP_FP_TO_G1",
+    "input": "field_element",
+    "output": "x | y",
+    "description": "BLS12-381 map field element to G1 point"
+  },
+  "0x11": {
+    "name": "BLS12_MAP_FP2_TO_G2",
+    "input": "field_element_c0 | field_element_c1",
+    "output": "x_c0 | x_c1 | y_c0 | y_c1",
+    "description": "BLS12-381 map field extension element to G2 point"
   }
 }

@@ -1,0 +1,38 @@
+---
+fork: Prague
+---
+
+## Notes
+
+BLS12-381 G1 addition precompile performs point addition on the G1 group of the BLS12-381 elliptic curve. The BLS12-381 curve is defined over a 381-bit prime field and is used for cryptographic operations including digital signatures and zero-knowledge proofs.
+
+More information about BLS12-381 can be found in [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537).
+
+## Inputs
+
+| Byte range | Name | Description |
+|-----------:|-----:|------------:|
+| `[0; 63]` (64 bytes) | x1 | X coordinate of first point on BLS12-381 G1 |
+| `[64; 127]` (64 bytes) | y1 | Y coordinate of first point on BLS12-381 G1 |
+| `[128; 191]` (64 bytes) | x2 | X coordinate of second point on BLS12-381 G1 |
+| `[192; 255]` (64 bytes) | y2 | Y coordinate of second point on BLS12-381 G1 |
+
+Input must be exactly **256 bytes**. Points must be valid G1 curve points and in the correct subgroup.
+
+## Output
+
+| Byte range | Name | Description |
+|-----------:|-----:|------------:|
+| `[0; 63]` (64 bytes) | x | X coordinate of result point on BLS12-381 G1 |
+| `[64; 127]` (64 bytes) | y | Y coordinate of result point on BLS12-381 G1 |
+
+Returns the sum of the two input G1 points.
+
+## Example
+
+| Input | Output |
+|------:|-------:|
+| `0x0000000000000000000000000000000017f1d3a73197d7942695638c4fa9ac0fc3688c4f9774b905a14e3a3f171bac586c55e83ff97a1aeffb3af00adb22c6bb0000000000000000000000000000000008b3f481e3aaa0f1a09e30ed741d8ae4fcf5e095d5d00af600db18cb2c04b3edd03cc744a2888ae40caa232946c5e7e100000000000000000000000000000000112b98340eee2777cc3c14163dea3ec97977ac3dc5c70da32e6e87578f44912e902ccef9efe28d4a78b8999dfbca942600000000000000000000000000000000186b28d92356c4dfec4b5201ad099dbdede3781f8998ddf929b4cd7756192185ca7b8f4ef7088f813270ac3d48868a21` | `0x000000000000000000000000000000000a40300ce2dec9888b60690e9a41d3004fda4886854573974fab73b046d3147ba5b7a5bde85279ffede1b45b3918d82d0000000000000000000000000000000006d3d887e9f53b9ec4eb6cedf5607226754b07c01ace7834f57f3e7315faefb739e59018e22c492006190fba4a870025` |
+
+## Gas
+The gas cost is fixed at 375. However, if the input does not allow to compute a valid result, all the gas sent is consumed.

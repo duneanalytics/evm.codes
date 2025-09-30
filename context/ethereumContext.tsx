@@ -60,7 +60,12 @@ const accountBalance = 18 // 1eth
 const accountAddress = Address.fromPrivateKey(privateKey)
 const contractAddress = Address.generate(accountAddress, 1n)
 const gasLimit = 0xffffffffffffn
-const postMergeHardforkNames: Array<string> = ['merge', 'shanghai', 'cancun']
+const postMergeHardforkNames: Array<string> = [
+  'merge',
+  'shanghai',
+  'cancun',
+  'prague',
+]
 export const prevrandaoDocName = '44_merge'
 const EOF_EIPS = [
   663, 3540, 3670, 4200, 4750, 5450, 6206, 7069, 7480, 7620, 7692, 7698,
@@ -552,6 +557,7 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
     const precompiled: IReferenceItem[] = []
 
     const addressIterator = getActivePrecompiles(common).keys()
+    console.log(getActivePrecompiles(common))
     let result = addressIterator.next()
     while (!result.done) {
       const meta = PrecompiledMeta as IReferenceItemMetaList
@@ -570,6 +576,41 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
       )
       precompiled.push(contract)
       result = addressIterator.next()
+    }
+
+    // TODO: Remove this conditional logic when upgrading to @ethereumjs/evm@10.0.0
+    // The newer version includes these precompiles natively, but upgrading requires
+    // a larger refactor due to EOF package compatibility issues. See GitHub issue.
+    // Add BLS12-381 precompiles for Prague fork
+    if (selectedFork?.name === 'prague') {
+      const bls12381Addresses = [
+        '0x0b',
+        '0x0c',
+        '0x0d',
+        '0x0e',
+        '0x0f',
+        '0x10',
+        '0x11',
+      ]
+
+      bls12381Addresses.forEach((addressString) => {
+        const meta = PrecompiledMeta as IReferenceItemMetaList
+        if (meta[addressString]) {
+          const contract = {
+            ...meta[addressString],
+            ...{
+              opcodeOrAddress: addressString,
+              minimumFee: 0,
+              name: meta[addressString].name,
+            },
+          }
+
+          contract.minimumFee = parseInt(
+            calculatePrecompiledDynamicFee(contract, common, {}),
+          )
+          precompiled.push(contract)
+        }
+      })
     }
 
     setPrecompiled(precompiled)

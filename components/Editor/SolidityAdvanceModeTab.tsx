@@ -8,7 +8,7 @@ import React, {
   useState,
 } from 'react'
 
-import { EvmError } from '@ethereumjs/evm/src/exceptions'
+import { EvmError } from '@ethereumjs/evm'
 import { Address } from '@ethereumjs/util'
 import abi from 'ethereumjs-abi'
 import { BN, bufferToHex } from 'ethereumjs-util'
