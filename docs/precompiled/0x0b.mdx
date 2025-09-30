@@ -1,0 +1,37 @@
+---
+fork: Berlin
+---
+
+## Notes
+
+BLS12-381 is a pairing-friendly elliptic curve that provides enhanced security and efficiency for cryptographic operations like BLS signature verification and zk-SNARKs. This precompile performs point addition on the G1 subgroup of the BLS12-381 curve.
+
+More information about BLS12-381 can be found in [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537).
+
+## Inputs
+
+| Byte range | Name | Description |
+|------------|------|-------------|
+| `[0; 47]` (48 bytes) | p1 | First G1 point (x, y coordinates, each 24 bytes) |
+| `[48; 95]` (48 bytes) | p2 | Second G1 point (x, y coordinates, each 24 bytes) |
+
+## Output
+
+| Byte range | Name | Description |
+|------------|------|-------------|
+| `[0; 47]` (48 bytes) | p | Result G1 point (x, y coordinates, each 24 bytes) |
+
+If either input point is invalid or not on the G1 subgroup, the precompile returns empty data, indicating a precompile contract error.
+
+## Gas Cost
+
+- **Fixed cost**: 500 gas
+
+## Example
+
+| Input | Output |
+|-------|--------|
+| `0x17f1d3a73197d7942695638c4fa9ac0fc3688c4f9774b905a14e3a3f171bac586c55e83ff97a1aeffb3af00adb22c6bb` | `0x0e0a77c19a07df2f666ea36f7879462e36fc76935f60c6d3b90c5c7eae10317b` |
+| `0x08b3f481e3aaa0f1a09e30ed741d8ae4fcf5e095d5d00af600db18cb2c04b3edd03cc744a2888ae40caa232946c5e7e1` | `0x0e0a77c19a07df2f666ea36f7879462e36fc76935f60c6d3b90c5c7eae10317b` |
+
+[Reproduce in playground](/playground?unit=Wei&codeType=Mnemonic&code='jFirsNplace_parameters%20in%20memoryZ17f1d3a73197d7942695638c4fa9ac0fc3688c4f9774b905a14e3a3f171bac586c55e83ff97a1aeffb3af00adb22c6bbwp1Y~Y~08b3f481e3aaa0f1a09e30ed741d8ae4fcf5e095d5d00af600db18cb2c04b3edd03cc744a2888ae40caa232946c5e7e1wp2Y~YqqjDo_call~48JSizeX96JOffsetX8VSize~VOffset~11waddressW4QFFFFFFFFwgasqSTATICCALLqqjPut_resulNalonKon_stackqPOPX96qMLOAD'~W11%20w%20jq%5Cnj%2F%2F%20_%20thKZW48QY0qMSTOREX~0xWqPUSHV0wargsQ%200xNt%20Ke%20Jwret%01JKNQVWXYZ_jqw~_).

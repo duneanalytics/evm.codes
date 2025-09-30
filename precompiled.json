@@ -154,5 +154,98 @@
     "input": "bytes",
     "output": "bytes",
     "description": "Verify p(z) = y given commitment that corresponds to the polynomial p(x) and a KZG proof. Also verify that the provided commitment matches the provided versioned_hash."
+  },
+  "0x0b": {
+    "name": "BLS12_G1ADD",
+    "input": "p1 | p2",
+    "output": "p",
+    "description": "BLS12-381 G1 point addition",
+    "fork": "berlin"
+  },
+  "0x0c": {
+    "name": "BLS12_G1MUL",
+    "input": "p | s",
+    "output": "p",
+    "description": "BLS12-381 G1 scalar multiplication",
+    "fork": "berlin"
+  },
+  "0x0d": {
+    "name": "BLS12_G1MSM",
+    "input": "points | scalars",
+    "output": "p",
+    "description": "BLS12-381 G1 multi-scalar multiplication",
+    "fork": "berlin",
+    "dynamicFee": {
+      "berlin": {
+        "inputs": {
+          "count": {
+            "type": "number",
+            "label": "Number of point-scalar pairs"
+          }
+        }
+      }
+    }
+  },
+  "0x0e": {
+    "name": "BLS12_G2ADD",
+    "input": "p1 | p2",
+    "output": "p",
+    "description": "BLS12-381 G2 point addition",
+    "fork": "berlin"
+  },
+  "0x0f": {
+    "name": "BLS12_G2MUL",
+    "input": "p | s",
+    "output": "p",
+    "description": "BLS12-381 G2 scalar multiplication",
+    "fork": "berlin"
+  },
+  "0x10": {
+    "name": "BLS12_G2MSM",
+    "input": "points | scalars",
+    "output": "p",
+    "description": "BLS12-381 G2 multi-scalar multiplication",
+    "fork": "berlin",
+    "dynamicFee": {
+      "berlin": {
+        "inputs": {
+          "count": {
+            "type": "number",
+            "label": "Number of point-scalar pairs"
+          }
+        }
+      }
+    }
+  },
+  "0x11": {
+    "name": "BLS12_PAIRING",
+    "input": "pairs",
+    "output": "success",
+    "description": "BLS12-381 pairing check",
+    "fork": "berlin",
+    "dynamicFee": {
+      "berlin": {
+        "inputs": {
+          "count": {
+            "type": "number",
+            "label": "Number of G1-G2 pairs"
+          }
+        }
+      }
+    }
+  },
+  "0x12": {
+    "name": "BLS12_MAP_FP_TO_G1",
+    "input": "fp",
+    "output": "p",
+    "description": "BLS12-381 map field element to G1",
+    "fork": "berlin"
+  },
+  "0x13": {
+    "name": "BLS12_MAP_FP2_TO_G2",
+    "input": "fp2",
+    "output": "p",
+    "description": "BLS12-381 map field element to G2",
+    "fork": "berlin"
   }
 }

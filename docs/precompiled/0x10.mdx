@@ -1,0 +1,43 @@
+---
+fork: Berlin
+---
+
+## Notes
+
+This precompile performs multi-scalar multiplication (MSM) on the G2 subgroup of the BLS12-381 curve. It computes the sum of multiple point-scalar products in a single operation, which is more efficient than multiple individual scalar multiplications.
+
+More information about BLS12-381 can be found in [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537).
+
+## Inputs
+
+| Byte range | Name | Description |
+|------------|------|-------------|
+| `[0; 95]` (96 bytes) | p1 | First G2 point (x, y coordinates, each 48 bytes) |
+| `[96; 143]` (48 bytes) | s1 | First scalar value (48 bytes) |
+| `[144; 239]` (96 bytes) | p2 | Second G2 point (x, y coordinates, each 48 bytes) |
+| `[240; 287]` (48 bytes) | s2 | Second scalar value (48 bytes) |
+| ... | ... | Additional point-scalar pairs |
+
+## Output
+
+| Byte range | Name | Description |
+|------------|------|-------------|
+| `[0; 95]` (96 bytes) | p | Result G2 point (x, y coordinates, each 48 bytes) |
+
+If any input point is invalid or not on the G2 subgroup, the precompile returns empty data, indicating a precompile contract error.
+
+## Gas Cost
+
+- **Base cost**: 1,000 gas
+- **Per point-scalar pair**: 1,000 gas
+
+## Example
+
+| Input | Output |
+|-------|--------|
+| `0x024aa2b2f08f0a91260805272dc51051c6e47ad4fa403b02b4510b647ae3d1770bac0326a805bbefd48056c8c121bdb8` | `0x13e02b6052719f607dacd3a088274f65596bd0d09920b61ab5da61bbdc7f5049334cf11213945d57e5ac7d055d042b7e` |
+| `0x0000000000000000000000000000000000000000000000000000000000000002` | |
+| `0x0ce5d527727d6e118cc9cdc6da2e351aadfd9baa8cbdd3a76d429a695160d12c923ac9cc3baca289e193548608b82801` | |
+| `0x0000000000000000000000000000000000000000000000000000000000000003` | |
+
+[Reproduce in playground](/playground?unit=Wei&codeType=Mnemonic&code='jFirsNplace_parameters%20in%20memoryZ024aa2b2f08f0a91260805272dc51051c6e47ad4fa403b02b4510b647ae3d1770bac0326a805bbefd48056c8c121bdb8wp1Y~Y~0000000000000000000000000000000000000000000000000000000000000002ws1Y~Y~0ce5d527727d6e118cc9cdc6da2e351aadfd9baa8cbdd3a76d429a695160d12c923ac9cc3baca289e193548608b82801wp2Y~Y~0000000000000000000000000000000000000000000000000000000000000003ws2Y~YqqjDo_call~144JSizeX288JOffsetX8VSize~VOffset~16waddressW4QFFFFFFFFwgasqSTATICCALLqqjPut_resulNalonKon_stackqPOPX96qMLOAD'~W16%20w%20jq%5Cnj%2F%2F%20_%20thKZW96QY0qMSTOREX~0xWqPUSHV0wargsQ%200xNt%20Ke%20Jwret%01JKNQVWXYZ_jqw~_).

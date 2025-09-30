@@ -1,0 +1,36 @@
+---
+fork: Berlin
+---
+
+## Notes
+
+This precompile maps a field element to a point on the G2 subgroup of the BLS12-381 curve. This is useful for hashing arbitrary data to curve points, which is commonly needed in cryptographic protocols.
+
+More information about BLS12-381 can be found in [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537).
+
+## Inputs
+
+| Byte range | Name | Description |
+|------------|------|-------------|
+| `[0; 63]` (64 bytes) | fp2 | Field element (64 bytes) |
+
+## Output
+
+| Byte range | Name | Description |
+|------------|------|-------------|
+| `[0; 95]` (96 bytes) | p | Result G2 point (x, y coordinates, each 48 bytes) |
+
+If the input field element is invalid (not in the field), the precompile returns empty data, indicating a precompile contract error.
+
+## Gas Cost
+
+- **Fixed cost**: 45,000 gas
+
+## Example
+
+| Input | Output |
+|-------|--------|
+| `0x0000000000000000000000000000000000000000000000000000000000000001` | `0x024aa2b2f08f0a91260805272dc51051c6e47ad4fa403b02b4510b647ae3d1770bac0326a805bbefd48056c8c121bdb8` |
+| `0x0000000000000000000000000000000000000000000000000000000000000002` | `0x0ce5d527727d6e118cc9cdc6da2e351aadfd9baa8cbdd3a76d429a695160d12c923ac9cc3baca289e193548608b82801` |
+
+[Reproduce in playground](/playground?unit=Wei&codeType=Mnemonic&code='jFirsNplace_parameters%20in%20memoryZ0000000000000000000000000000000000000000000000000000000000000001wfp2_1Y~Y~0000000000000000000000000000000000000000000000000000000000000002wfp2_2Y~YqqjDo_call~64JSizeX64JOffsetX8VSize~VOffset~19waddressW4QFFFFFFFFwgasqSTATICCALLqqjPut_resulNalonKon_stackqPOPX96qMLOAD'~W19%20w%20jq%5Cnj%2F%2F%20_%20thKZW96QY0qMSTOREX~0xWqPUSHV0wargsQ%200xNt%20Ke%20Jwret%01JKNQVWXYZ_jqw~_).
