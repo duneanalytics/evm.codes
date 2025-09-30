@@ -557,7 +557,6 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
     const precompiled: IReferenceItem[] = []
 
     const addressIterator = getActivePrecompiles(common).keys()
-    console.log(getActivePrecompiles(common))
     let result = addressIterator.next()
     while (!result.done) {
       const meta = PrecompiledMeta as IReferenceItemMetaList
@@ -580,7 +579,8 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
 
     // TODO: Remove this conditional logic when upgrading to @ethereumjs/evm@10.0.0
     // The newer version includes these precompiles natively, but upgrading requires
-    // a larger refactor due to EOF package compatibility issues. See GitHub issue.
+    // a larger refactor due to EOF package compatibility issues.
+    // See GitHub issue https://github.com/duneanalytics/evm.codes/issues/392
     // Add BLS12-381 precompiles for Prague fork
     if (selectedFork?.name === 'prague') {
       const bls12381Addresses = [
