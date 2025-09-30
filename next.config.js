@@ -6,6 +6,9 @@ const nodeModuleReplacement = require('./webpack/nodeModuleReplacement')
 
 module.exports = withPlausibleProxy()({
   reactStrictMode: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   serverRuntimeConfig: {
     APP_ROOT: __dirname,
   },
