@@ -200,7 +200,7 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
   const initVmInstance = async (fork?: string) => {
     const forkName = fork == EOF_FORK_NAME ? EOF_ENABLED_FORK : fork
     common = new EOFCommon({
-      chain: Mainnet,
+      chain: Number(Mainnet.chainId),
       hardfork: forkName || CURRENT_FORK,
       eips: forkName === EOF_ENABLED_FORK ? EOF_EIPS : [],
     })
