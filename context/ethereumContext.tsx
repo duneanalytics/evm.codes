@@ -2,39 +2,17 @@ import { Buffer } from 'buffer'
 
 import React, { createContext, useEffect, useState, useRef } from 'react'
 
-import { createBlock } from '@ethereumjs/block'
-import {
-  Common,
-  HardforkTransitionConfig,
-  Mainnet,
-  Sepolia,
-  Holesky,
-} from '@ethereumjs/common'
+import { Block } from '@ethereumjs/block'
+import { Common, HardforkTransitionConfig } from '@ethereumjs/common'
 import {
   EVM,
-  EVMError,
+  EvmError as EVMError,
   getActivePrecompiles,
   InterpreterStep,
 } from '@ethereumjs/evm'
-import { RunState } from '@ethereumjs/evm/dist/cjs/interpreter'
-import { Opcode, OpcodeList } from '@ethereumjs/evm/src/opcodes'
-import { TypedTransaction, TxData, createTx } from '@ethereumjs/tx'
-import {
-  Address,
-  bytesToHex,
-  hexToBytes,
-  createAddressFromPrivateKey,
-  createContractAddress,
-  createAccount,
-} from '@ethereumjs/util'
-import { VM, createVM, runTx } from '@ethereumjs/vm'
-import { Common as EOFCommon } from '@ethjs-eof/common'
-// @ts-ignore it confused with pre-EOF version
-import { createEVM, EVM as EOFEVM } from '@ethjs-eof/evm'
-// @ts-ignore it confused with pre-EOF version
-import { createTxFromTxData as createTxFromTxDataEOF } from '@ethjs-eof/tx'
-// @ts-ignore it confused with pre-EOF version
-import { VM as EOFVM } from '@ethjs-eof/vm'
+import { TypedTransaction, TxData, TransactionFactory } from '@ethereumjs/tx'
+import { Address, hexToBytes, Account } from '@ethereumjs/util'
+import { VM } from '@ethereumjs/vm'
 import OpcodesMeta from 'opcodes.json'
 import PrecompiledMeta from 'precompiled.json'
 import {
@@ -59,9 +37,9 @@ import {
 } from 'util/gas'
 import { toHex, fromBuffer } from 'util/string'
 
-let vm: VM | EOFVM
-let common: Common | EOFCommon
-let currentOpcodes: OpcodeList | undefined
+let vm: VM
+let common: Common
+let currentOpcodes: any | undefined
 
 const storageMemory = new Map()
 const transientStorageMemory = new Map<string, Map<string, string>>()
@@ -70,8 +48,12 @@ const privateKey = Buffer.from(
   'hex',
 )
 const accountBalance = 18 // 1eth
-const accountAddress = createAddressFromPrivateKey(privateKey)
-const contractAddress = createContractAddress(accountAddress, 1n)
+const accountAddress = Address.fromString(
+  '0xE36Ea790bc9d7AB70C55260C66D52b1eca985f84',
+)
+const contractAddress = Address.fromString(
+  '0x0000000000000000000000000000000000000000',
+)
 const gasLimit = 0xffffffffffffn
 const postMergeHardforkNames: Array<string> = ['merge', 'shanghai', 'cancun']
 export const prevrandaoDocName = '44_merge'
@@ -80,7 +62,7 @@ const EOF_EIPS = [
 ]
 
 type ContextProps = {
-  common: Common | EOFCommon | undefined
+  common: Common | undefined
   chains: IChain[]
   forks: HardforkTransitionConfig[]
   selectedChain: IChain | undefined
@@ -199,15 +181,15 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
    */
   const initVmInstance = async (fork?: string) => {
     const forkName = fork == EOF_FORK_NAME ? EOF_ENABLED_FORK : fork
-    common = new EOFCommon({
-      chain: Number(Mainnet.chainId),
+    common = new Common({
+      chain: 1,
       hardfork: forkName || CURRENT_FORK,
       eips: forkName === EOF_ENABLED_FORK ? EOF_EIPS : [],
     })
 
-    vm = (await createVM({ common })) as any
+    vm = await VM.create({ common })
 
-    const evm = await createEVM({
+    const evm = await EVM.create({
       common,
     })
 
@@ -279,11 +261,9 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
       nonce: account?.nonce,
     }
 
-    if (vm.evm instanceof EOFEVM) {
-      return createTxFromTxDataEOF(txData).sign(privateKey)
-    } else {
-      return createTx(txData).sign(privateKey)
-    }
+    return TransactionFactory.fromTxData(txData as any, { common }).sign(
+      privateKey,
+    )
   }
 
   /**
@@ -339,7 +319,10 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
     value: bigint,
     data: string,
   ) => {
-    vm.stateManager.putCode(contractAddress, Buffer.from(byteCode, 'hex'))
+    vm.stateManager.putContractCode(
+      contractAddress,
+      Buffer.from(byteCode, 'hex'),
+    )
     transientStorageMemory.clear()
     startTransaction(await transactionData(data, value, contractAddress))
   }
@@ -355,7 +338,8 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
     setVmError(undefined)
 
     // starting execution via deployed contract's transaction
-    return runTx(vm, { tx: tx as TypedTransaction, block: _getBlock() })
+    return vm
+      .runTx({ tx: tx as TypedTransaction, block: _getBlock() })
       .then(({ execResult, totalGasSpent, createdAddress }) => {
         _loadRunState({
           totalGasSpent,
@@ -461,12 +445,16 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
     }
   }
 
-  const _loadChainAndForks = (common: Common | EOFCommon) => {
+  const _loadChainAndForks = (common: Common) => {
     const forks: HardforkTransitionConfig[] = []
 
-    const availableChains = [Mainnet, Sepolia, Holesky]
+    const availableChains = [
+      { id: 1, name: 'Mainnet' },
+      { id: 11155111, name: 'Sepolia' },
+      { id: 17000, name: 'Holesky' },
+    ]
     const chains = availableChains.map((chainConfig) => ({
-      id: Number(chainConfig.chainId),
+      id: chainConfig.id,
       name: chainConfig.name,
     }))
 
@@ -504,7 +492,7 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
     setForks(forks)
   }
 
-  const extractDocFromOpcode = (op: Opcode) => {
+  const extractDocFromOpcode = (op: any) => {
     const meta = OpcodesMeta as IReferenceItemMetaList
     // TODO: need to implement proper selection of doc according to selected fork (maybe similar to dynamic gas fee)
     // Hack for "difficulty" -> "prevrandao" replacement for "merge" HF
@@ -536,7 +524,7 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
   const _loadOpcodes = () => {
     const opcodes: IReferenceItem[] = []
 
-    currentOpcodes?.forEach((op: Opcode) => {
+    currentOpcodes?.forEach((op: any) => {
       const opcode = extractDocFromOpcode(op)
 
       opcode.minimumFee = parseInt(
@@ -599,40 +587,6 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
     }
     return new Proxy(obj, handler)
   }
-
-  function traceTransientStorageMethodCalls(obj: any) {
-    const handler = {
-      get(target: any, propKey: any) {
-        const origMethod = target[propKey]
-        return (...args: any[]) => {
-          const result = origMethod.apply(target, args)
-          if (propKey == 'put') {
-            const [rawAddress, rawKey, rawValue] = args as [
-              Address,
-              Uint8Array,
-              Uint8Array,
-            ]
-            const address = rawAddress.toString()
-            const key = bytesToHex(rawKey)
-            const value = bytesToHex(rawValue)
-            let addressTransientStorage = transientStorageMemory.get(address)
-            // Add the address to the transient storage
-            if (addressTransientStorage === undefined) {
-              transientStorageMemory.set(address, new Map<string, string>())
-              addressTransientStorage = transientStorageMemory.get(
-                address,
-              ) as Map<string, string>
-            }
-
-            addressTransientStorage.set(key, value)
-          }
-          return result
-        }
-      },
-    }
-    return new Proxy(obj, handler)
-  }
-
   // In this function we create a proxy EEI object that will intercept
   // putContractStorage and clearContractStorage and route them to our
   // implementations at _putContractStorage and _clearContractStorage
@@ -648,29 +602,6 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
       // In v10, StateManagerInterface uses putStorage/clearStorage instead of putContractStorage/clearContractStorage
       // @ts-ignore - attaching our proxy methods
       evm.stateManager.putStorage = proxyStateManager.putStorage
-      // @ts-ignore - attaching our proxy methods
-      evm.stateManager.clearStorage = proxyStateManager.clearStorage
-
-      // Transient storage handler
-      const transientStorageMethodProxy = traceTransientStorageMethodCalls(
-        evm.transientStorage,
-      )
-      evm.transientStorage.put = transientStorageMethodProxy.put
-    } else if (evm instanceof EOFEVM) {
-      // @ts-ignore confused package
-      evm.stateManager.putStorage = proxyStateManager.putStorage
-      // @ts-ignore confused package
-      evm.stateManager.clearStorage = proxyStateManager.clearStorage
-
-      // Transient storage handler
-      const transientStorageMethodProxy = traceTransientStorageMethodCalls(
-        evm.transientStorage,
-      )
-      evm.transientStorage.put = transientStorageMethodProxy.put
-
-      // NOTE: they renamed a few functions with the EOF changes
-      // @ts-ignore it's confused because of the pre eof version
-      evm.stateManager.putContractCode = evm.stateManager.putCode
     }
 
     storageMemory.clear()
@@ -687,8 +618,14 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
       nonce: 0,
       balance: 0,
     }
-    vm.stateManager.putAccount(accountAddress, createAccount(accountData))
-    vm.stateManager.putAccount(contractAddress, createAccount(contractData))
+    vm.stateManager.putAccount(
+      accountAddress,
+      Account.fromAccountData(accountData as any),
+    )
+    vm.stateManager.putAccount(
+      contractAddress,
+      Account.fromAccountData(contractData as any),
+    )
   }
 
   const _loadRunState = ({
@@ -699,7 +636,7 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
     exceptionError,
   }: {
     totalGasSpent: bigint
-    runState: RunState | undefined
+    runState: any
     newContractAddress?: Address
     returnValue?: Uint8Array
     exceptionError?: EVMError
@@ -729,13 +666,13 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
       return undefined
     }
 
-    return createBlock(
+    return Block.fromBlockData(
       {
         header: {
           baseFeePerGas: 10,
           gasLimit,
           gasUsed: 60,
-        },
+        } as any,
       },
       { common },
     )

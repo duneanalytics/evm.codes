@@ -1,5 +1,4 @@
 import { Common, HardforkTransitionConfig } from '@ethereumjs/common'
-import { Common as EOFCommon } from '@ethjs-eof/common'
 import { setLengthRight, BN } from 'ethereumjs-util'
 import { IReferenceItem } from 'types'
 
@@ -31,7 +30,7 @@ function memoryExtensionCost(
   offset: BN,
   byteSize: BN,
   currentMemorySize: BN,
-  common: Common | EOFCommon,
+  common: Common,
 ): BN {
   if (byteSize.isZero()) {
     return byteSize
@@ -51,11 +50,7 @@ function memoryExtensionCost(
   return newCost
 }
 
-function memoryCostCopy(
-  inputs: any,
-  param: string,
-  common: Common | EOFCommon,
-): BN {
+function memoryCostCopy(inputs: any, param: string, common: Common): BN {
   const paramWordCost = new BN(
     Number(getCommonParam(common, 'gasPrices', param)),
   )
@@ -214,7 +209,7 @@ function callCost(common: Common, inputs: any): BN {
   return result
 }
 
-const eofCreateCost = (common: EOFCommon, inputs: any): BN => {
+const eofCreateCost = (common: Common, inputs: any): BN => {
   const expansionCost = memoryExtensionCost(
     new BN(inputs.offset),
     new BN(inputs.size),
@@ -241,7 +236,7 @@ const eofCreateCost = (common: EOFCommon, inputs: any): BN => {
   return result
 }
 
-const extCallCost = (common: EOFCommon, inputs: any): BN => {
+const extCallCost = (common: Common, inputs: any): BN => {
   const result = memoryExtensionCost(
     new BN(inputs.offset),
     new BN(inputs.size),
@@ -272,7 +267,7 @@ const extCallCost = (common: EOFCommon, inputs: any): BN => {
 
 export const calculateDynamicFee = (
   opcodeOrPrecompiled: IReferenceItem,
-  common: Common | EOFCommon,
+  common: Common,
   inputs: any,
 ) => {
   if (opcodeOrPrecompiled.opcodeOrAddress.startsWith('0x')) {
@@ -477,7 +472,7 @@ export const calculateDynamicRefund = (
  */
 export const calculateOpcodeDynamicFee = (
   opcode: IReferenceItem,
-  common: Common | EOFCommon,
+  common: Common,
   inputs: any,
 ) => {
   let result = null
@@ -858,10 +853,7 @@ export const calculatePrecompiledDynamicFee = (
  *
  * @returns The String with gas prices replaced.
  */
-export const parseGasPrices = (
-  common: Common | EOFCommon,
-  contents: string,
-) => {
+export const parseGasPrices = (common: Common, contents: string) => {
   return contents.replace(reGasVariable, (str) => {
     const value = str.match(reFences)
     if (!value?.[1]) {
@@ -926,7 +918,7 @@ export const findMatchingForkName = (
 }
 
 const getCommonParam = (
-  common: Common | EOFCommon,
+  common: Common,
   topic: string,
   name: string,
 ): bigint => {
@@ -967,5 +959,5 @@ const getCommonParam = (
   }
 
   const v10Name = paramNameMap[name] || name
-  return common.param(v10Name)
+  return common.param(topic, v10Name)
 }
