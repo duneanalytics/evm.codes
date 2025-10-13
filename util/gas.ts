@@ -949,6 +949,7 @@ const getCommonParam = (
     coldaccountaccess: 'coldaccountaccessGas',
     warmstorageread: 'warmstoragereadGas',
     coldsload: 'coldsloadGas',
+    sstore: 'sstoreGas',
     sstoreSet: 'sstoreSetGas',
     sstoreReset: 'sstoreResetGas',
     sstoreRefund: 'sstoreRefundGas',
