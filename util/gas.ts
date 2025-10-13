@@ -974,10 +974,10 @@ const getCommonParam = (
     sstoreNoopGasEIP2200: 'sstoreNoopEIP2200Gas',
     sstoreDirtyGasEIP2200: 'sstoreDirtyEIP2200Gas',
     sstoreInitGasEIP2200: 'sstoreInitEIP2200Gas',
-    sstoreInitRefundGasEIP2200: 'sstoreInitRefundEIP2200Gas',
+    sstoreInitRefundEIP2200: 'sstoreInitRefundEIP2200Gas',
     sstoreCleanGasEIP2200: 'sstoreCleanEIP2200Gas',
-    sstoreCleanRefundGasEIP2200: 'sstoreCleanRefundEIP2200Gas',
-    sstoreClearRefundGasEIP2200: 'sstoreClearRefundEIP2200Gas',
+    sstoreCleanRefundEIP2200: 'sstoreCleanRefundEIP2200Gas',
+    sstoreClearRefundEIP2200: 'sstoreClearRefundEIP2200Gas',
     sstoreSentryGasEIP2200: 'sstoreSentryEIP2200Gas',
   }
 
