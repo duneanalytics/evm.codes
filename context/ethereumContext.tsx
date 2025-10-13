@@ -3,16 +3,13 @@ import { Buffer } from 'buffer'
 import React, { createContext, useEffect, useState, useRef } from 'react'
 
 import { createBlock } from '@ethereumjs/block'
-import {
-  Common,
-  HardforkTransitionConfig,
-  Mainnet,
-} from '@ethereumjs/common'
+import { Common, HardforkTransitionConfig, Mainnet } from '@ethereumjs/common'
 import {
   EVM,
   EVMError,
   getActivePrecompiles,
   InterpreterStep,
+  createEVM,
 } from '@ethereumjs/evm'
 import { TypedTransaction, TxData, createTx } from '@ethereumjs/tx'
 import {
@@ -22,11 +19,6 @@ import {
   createAccount,
 } from '@ethereumjs/util'
 import { VM, createVM, runTx } from '@ethereumjs/vm'
-import { Common as EOFCommon } from '@ethjs-eof/common'
-// @ts-ignore it confused with pre-EOF version
-import { createEVM, EVM as EOFEVM } from '@ethjs-eof/evm'
-// @ts-ignore it confused with pre-EOF version
-import { createTxFromTxData as createTxFromTxDataEOF } from '@ethjs-eof/tx'
 import OpcodesMeta from 'opcodes.json'
 import PrecompiledMeta from 'precompiled.json'
 import {
@@ -195,7 +187,7 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
    */
   const initVmInstance = async (fork?: string) => {
     const forkName = fork == EOF_FORK_NAME ? EOF_ENABLED_FORK : fork
-    common = new EOFCommon({
+    common = new Common({
       chain: Mainnet,
       hardfork: forkName || CURRENT_FORK,
       eips: forkName === EOF_ENABLED_FORK ? EOF_EIPS : [],
@@ -275,11 +267,7 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
       nonce: account?.nonce,
     }
 
-    if (vm.evm instanceof EOFEVM) {
-      return createTxFromTxDataEOF(txData).sign(privateKey)
-    } else {
-      return createTx(txData).sign(privateKey)
-    }
+    return createTx(txData).sign(privateKey)
   }
 
   /**
