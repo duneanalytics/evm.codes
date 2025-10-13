@@ -11,6 +11,7 @@ import {
   InterpreterStep,
   createEVM,
 } from '@ethereumjs/evm'
+import type { Opcode, OpcodeList } from '@ethereumjs/evm/dist/cjs/opcodes/codes'
 import { TypedTransaction, TxData, createTx } from '@ethereumjs/tx'
 import {
   Address,
@@ -45,7 +46,7 @@ import { toHex, fromBuffer } from 'util/string'
 
 let vm: VM
 let common: Common
-let currentOpcodes: any | undefined
+let currentOpcodes: OpcodeList | undefined
 
 const storageMemory = new Map()
 const transientStorageMemory = new Map<string, Map<string, string>>()
@@ -193,7 +194,7 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
       eips: forkName === EOF_ENABLED_FORK ? EOF_EIPS : [],
     })
 
-    vm = (await createVM({ common })) as any
+    vm = await createVM({ common })
 
     const evm = await createEVM({
       common,
@@ -492,7 +493,7 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
     setForks(forks)
   }
 
-  const extractDocFromOpcode = (op: any) => {
+  const extractDocFromOpcode = (op: Opcode) => {
     const meta = OpcodesMeta as IReferenceItemMetaList
     // TODO: need to implement proper selection of doc according to selected fork (maybe similar to dynamic gas fee)
     // Hack for "difficulty" -> "prevrandao" replacement for "merge" HF
@@ -524,7 +525,7 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
   const _loadOpcodes = () => {
     const opcodes: IReferenceItem[] = []
 
-    currentOpcodes?.forEach((op: any) => {
+    currentOpcodes?.forEach((op: Opcode) => {
       const opcode = extractDocFromOpcode(op)
 
       opcode.minimumFee = parseInt(
@@ -630,7 +631,7 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
     exceptionError,
   }: {
     totalGasSpent: bigint
-    runState: any
+    runState: any // (important-comment) Using 'any' due to ESM/CJS type conflict in @ethereumjs/evm package
     newContractAddress?: Address
     returnValue?: Uint8Array
     exceptionError?: EVMError
@@ -666,7 +667,7 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
           baseFeePerGas: 10,
           gasLimit,
           gasUsed: 60,
-        } as any,
+        },
       },
       { common },
     )
