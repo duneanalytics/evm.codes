@@ -981,5 +981,5 @@ const getCommonParam = (
   }
 
   const v10Name = paramNameMap[name] || name
-  return common.param(topic, v10Name)
+  return common.param(v10Name)
 }

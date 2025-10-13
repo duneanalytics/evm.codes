@@ -8,8 +8,8 @@ import React, {
   useState,
 } from 'react'
 
-import { EvmError as EVMError } from '@ethereumjs/evm'
-import { Address } from '@ethereumjs/util'
+import { EVMError } from '@ethereumjs/evm'
+import { Address, createAddressFromString } from '@ethereumjs/util'
 import abi from 'ethereumjs-abi'
 import { BN, bufferToHex } from 'ethereumjs-util'
 import Select, { OnChangeValue } from 'react-select'
@@ -206,7 +206,7 @@ const SolidityAdvanceModeTab: FC<Props> = ({
       const transaction = await transactionData(
         data,
         getCallValue(),
-        Address.fromString(deployedContractAddress),
+        createAddressFromString(deployedContractAddress),
       )
       if (!transaction) {
         return
