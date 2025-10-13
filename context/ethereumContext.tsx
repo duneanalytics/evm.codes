@@ -11,6 +11,7 @@ import {
   InterpreterStep,
   createEVM,
 } from '@ethereumjs/evm'
+import type { RunState } from '@ethereumjs/evm/dist/cjs/interpreter'
 import type { Opcode, OpcodeList } from '@ethereumjs/evm/dist/cjs/opcodes/codes'
 import { TypedTransaction, TxData, createTx } from '@ethereumjs/tx'
 import {
@@ -631,7 +632,7 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
     exceptionError,
   }: {
     totalGasSpent: bigint
-    runState: any // (important-comment) Using 'any' due to ESM/CJS type conflict in @ethereumjs/evm package
+    runState: RunState | undefined
     newContractAddress?: Address
     returnValue?: Uint8Array
     exceptionError?: EVMError
