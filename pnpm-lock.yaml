@@ -39,24 +39,6 @@ importers:
       '@ethereumjs/vm':
         specifier: ^10.0.0
         version: 10.0.0
-      '@ethjs-eof/block':
-        specifier: link:ethereumjs-monorepo/packages/block
-        version: link:ethereumjs-monorepo/packages/block
-      '@ethjs-eof/common':
-        specifier: link:ethereumjs-monorepo/packages/common
-        version: link:ethereumjs-monorepo/packages/common
-      '@ethjs-eof/evm':
-        specifier: link:ethereumjs-monorepo/packages/evm
-        version: link:ethereumjs-monorepo/packages/evm
-      '@ethjs-eof/tx':
-        specifier: link:ethereumjs-monorepo/packages/tx
-        version: link:ethereumjs-monorepo/packages/tx
-      '@ethjs-eof/util':
-        specifier: link:ethereumjs-monorepo/packages/util
-        version: link:ethereumjs-monorepo/packages/util
-      '@ethjs-eof/vm':
-        specifier: link:ethereumjs-monorepo/packages/vm
-        version: link:ethereumjs-monorepo/packages/vm
       '@kunigi/string-compression':
         specifier: 1.0.2
         version: 1.0.2
