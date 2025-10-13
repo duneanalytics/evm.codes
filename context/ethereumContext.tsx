@@ -17,8 +17,9 @@ import { TypedTransaction, TxData, createTx } from '@ethereumjs/tx'
 import {
   Address,
   hexToBytes,
-  createAddressFromString,
+  createAddressFromPrivateKey,
   createAccount,
+  createContractAddress,
 } from '@ethereumjs/util'
 import { VM, createVM, runTx } from '@ethereumjs/vm'
 import OpcodesMeta from 'opcodes.json'
@@ -56,12 +57,8 @@ const privateKey = Buffer.from(
   'hex',
 )
 const accountBalance = 18 // 1eth
-const accountAddress = createAddressFromString(
-  '0xE36Ea790bc9d7AB70C55260C66D52b1eca985f84',
-)
-const contractAddress = createAddressFromString(
-  '0x0000000000000000000000000000000000000000',
-)
+const accountAddress = createAddressFromPrivateKey(privateKey)
+const contractAddress = createContractAddress(accountAddress, 1n)
 const gasLimit = 0xffffffffffffn
 const postMergeHardforkNames: Array<string> = ['merge', 'shanghai', 'cancun']
 export const prevrandaoDocName = '44_merge'
