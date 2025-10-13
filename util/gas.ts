@@ -2,6 +2,13 @@ import { Common, HardforkTransitionConfig } from '@ethereumjs/common'
 import { setLengthRight, BN } from 'ethereumjs-util'
 import { IReferenceItem } from 'types'
 
+interface SstoreInputs {
+  newValue: string
+  currentValue: string
+  originalValue?: string
+  cold?: string
+}
+
 const namespaces = ['gasPrices']
 const reFences = /{(.+)}/
 const reGasVariable = /\{\s*[a-zA-Z0-9_|]*\s*\}/g
@@ -75,7 +82,7 @@ function addressAccessCost(common: Common, inputs: any): BN {
   }
 }
 
-function sstoreCost(common: Common, inputs: any): BN {
+function sstoreCost(common: Common, inputs: SstoreInputs): BN {
   if (common.hardfork() === 'constantinople') {
     if (inputs.newValue === inputs.currentValue) {
       return new BN(
@@ -956,6 +963,21 @@ const getCommonParam = (
     logData: 'logDataGas',
     keccak256Word: 'keccak256WordGas',
     copy: 'copyGas',
+    netSstoreNoopGas: 'netSstoreNoopGas',
+    netSstoreInitGas: 'netSstoreInitGas',
+    netSstoreCleanGas: 'netSstoreCleanGas',
+    netSstoreDirtyGas: 'netSstoreDirtyGas',
+    netSstoreClearRefundGas: 'netSstoreClearRefundGas',
+    netSstoreResetRefundGas: 'netSstoreResetRefundGas',
+    netSstoreResetClearRefundGas: 'netSstoreResetClearRefundGas',
+    sstoreNoopGasEIP2200: 'sstoreNoopEIP2200Gas',
+    sstoreDirtyGasEIP2200: 'sstoreDirtyEIP2200Gas',
+    sstoreInitGasEIP2200: 'sstoreInitEIP2200Gas',
+    sstoreInitRefundGasEIP2200: 'sstoreInitRefundEIP2200Gas',
+    sstoreCleanGasEIP2200: 'sstoreCleanEIP2200Gas',
+    sstoreCleanRefundGasEIP2200: 'sstoreCleanRefundEIP2200Gas',
+    sstoreClearRefundGasEIP2200: 'sstoreClearRefundEIP2200Gas',
+    sstoreSentryGasEIP2200: 'sstoreSentryEIP2200Gas',
   }
 
   const v10Name = paramNameMap[name] || name
