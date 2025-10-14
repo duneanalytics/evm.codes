@@ -47,7 +47,7 @@
     "kbar": "^0.1.0-beta.45",
     "lodash.debounce": "^4.0.8",
     "monaco-editor": "^0.47.0",
-    "next": "12",
+    "next": "14",
     "next-mdx-remote": "^3.0.8",
     "next-plausible": "^3.12.0",
     "next-themes": "^0.3.0",
