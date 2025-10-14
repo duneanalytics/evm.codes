@@ -586,6 +586,23 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
     }
     return new Proxy(obj, handler)
   }
+
+  function traceTransientStorageMethodCalls(obj: any) {
+    const handler = {
+      get(target: any, propKey: any) {
+        const origMethod = target[propKey]
+        return (...args: any[]) => {
+          const result = origMethod.apply(target, args)
+          if (propKey == 'put') {
+            _putTransientStorage(args[0], args[1], args[2])
+          }
+          return result
+        }
+      },
+    }
+    return new Proxy(obj, handler)
+  }
+
   // In this function we create a proxy EEI object that will intercept
   // putContractStorage and clearContractStorage and route them to our
   // implementations at _putContractStorage and _clearContractStorage
@@ -601,6 +618,13 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
       // In v10, StateManagerInterface uses putStorage/clearStorage instead of putContractStorage/clearContractStorage
       // @ts-ignore - attaching our proxy methods
       evm.stateManager.putStorage = proxyStateManager.putStorage
+
+      // Transient storage handler
+      const proxyTransientStorage = traceTransientStorageMethodCalls(
+        (evm as EVM).transientStorage,
+      )
+      // @ts-ignore - attaching our proxy method
+      ;(evm as EVM).transientStorage.put = proxyTransientStorage.put
     }
 
     storageMemory.clear()
@@ -797,6 +821,35 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
   const _clearContractStorage = (address: Address) => {
     const addressText = address.toString()
     storageMemory.delete(addressText)
+  }
+
+  // Update transient storage slot `key` for contract `address`
+  // to `value` in our transient storage memory Map
+  const _putTransientStorage = (
+    address: Address,
+    key: Uint8Array,
+    value: Uint8Array,
+  ) => {
+    const addressText = address.toString()
+    const keyText = fromBuffer(Buffer.from(key))
+    const valueText = fromBuffer(Buffer.from(value))
+
+    if (value.length == 0) {
+      if (transientStorageMemory.has(addressText)) {
+        const addressStorage = transientStorageMemory.get(addressText)
+        addressStorage?.delete(keyText)
+
+        if (addressStorage?.size == 0) {
+          transientStorageMemory.delete(addressText)
+        }
+      }
+    } else {
+      if (transientStorageMemory.has(addressText)) {
+        transientStorageMemory.get(addressText)?.set(keyText, valueText)
+      } else {
+        transientStorageMemory.set(addressText, new Map([[keyText, valueText]]))
+      }
+    }
   }
 
   return (
