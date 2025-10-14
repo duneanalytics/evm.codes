@@ -10,7 +10,6 @@
     "dev": "pnpm run build:solcjs-worker && next dev",
     "format": "prettier --write  --cache .",
     "serve": "pnpm run build && next start",
-    "preinstall": "git submodule update --init",
     "lint": "eslint --ext js,jsx,ts,tsx .",
     "lint:package": "sort-package-json",
     "prepare": "husky",
