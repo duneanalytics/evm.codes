@@ -611,7 +611,6 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
     const proxyStateManager = traceStorageMethodCalls(evm.stateManager)
 
     if (evm instanceof EVM) {
-      // In v10, StateManagerInterface uses putStorage/clearStorage instead of putContractStorage/clearContractStorage
       // @ts-ignore - attaching our proxy methods
       evm.stateManager.putStorage = proxyStateManager.putStorage
 

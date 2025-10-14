@@ -9,6 +9,49 @@ interface SstoreInputs {
   cold?: string
 }
 
+interface CreateInputs {
+  offset: string
+  size: string
+  memorySize: string
+  deployedSize: string
+  executionCost: string
+}
+
+interface CallInputs {
+  argsOffset: string
+  argsSize: string
+  retOffset: string
+  retSize: string
+  memorySize: string
+  executionCost: string
+  value?: string
+  empty?: string
+  cold?: string
+}
+
+interface EofCreateInputs {
+  offset: string
+  size: string
+  memorySize: string
+  containerSize: string
+  deployedSize: string
+  executionCost: string
+}
+
+interface ExtCallInputs {
+  offset: string
+  size: string
+  memorySize: string
+  value?: string
+  empty?: string
+  cold?: string
+  executionCost: string
+}
+
+interface AddressAccessInputs {
+  cold?: string
+}
+
 const namespaces = ['gasPrices']
 const reFences = /{(.+)}/
 const reGasVariable = /\{\s*[a-zA-Z0-9_|]*\s*\}/g
@@ -70,7 +113,7 @@ function memoryCostCopy(inputs: any, param: string, common: Common): BN {
   return expansionCost.iadd(paramWordCost.mul(toWordSize(new BN(inputs.size))))
 }
 
-function addressAccessCost(common: Common, inputs: any): BN {
+function addressAccessCost(common: Common, inputs: AddressAccessInputs): BN {
   if (inputs.cold === '1') {
     return new BN(
       Number(getCommonParam(common, 'gasPrices', 'coldaccountaccess')),
@@ -138,7 +181,7 @@ function sstoreCost(common: Common, inputs: SstoreInputs): BN {
   }
 }
 
-function createCost(common: Common, inputs: any): BN {
+function createCost(common: Common, inputs: CreateInputs): BN {
   const expansionCost = memoryExtensionCost(
     new BN(inputs.offset),
     new BN(inputs.size),
@@ -165,7 +208,7 @@ function createCost(common: Common, inputs: any): BN {
   return result
 }
 
-function callCost(common: Common, inputs: any): BN {
+function callCost(common: Common, inputs: CallInputs): BN {
   const argsOffset = new BN(inputs.argsOffset)
   const argsSize = new BN(inputs.argsSize)
   const retOffset = new BN(inputs.retOffset)
@@ -216,7 +259,7 @@ function callCost(common: Common, inputs: any): BN {
   return result
 }
 
-const eofCreateCost = (common: Common, inputs: any): BN => {
+const eofCreateCost = (common: Common, inputs: EofCreateInputs): BN => {
   const expansionCost = memoryExtensionCost(
     new BN(inputs.offset),
     new BN(inputs.size),
@@ -243,7 +286,7 @@ const eofCreateCost = (common: Common, inputs: any): BN => {
   return result
 }
 
-const extCallCost = (common: Common, inputs: any): BN => {
+const extCallCost = (common: Common, inputs: ExtCallInputs): BN => {
   const result = memoryExtensionCost(
     new BN(inputs.offset),
     new BN(inputs.size),
@@ -929,84 +972,29 @@ const getCommonParam = (
   topic: string,
   name: string,
 ): bigint => {
-  const paramNameMap: { [key: string]: string } = {
-    ecRecover: 'ecRecoverGas',
-    sha256: 'sha256Gas',
-    sha256Word: 'sha256WordGas',
-    ripemd160: 'ripemd160Gas',
-    ripemd160Word: 'ripemd160WordGas',
-    identity: 'identityGas',
-    identityWord: 'identityWordGas',
-    modexpGquaddivisor: 'modexpGquaddivisorGas',
+  const specialCases: { [key: string]: string } = {
+    quadCoeffDiv: 'quadCoefficientDivGas',
     ecAdd: 'bn254AddGas',
     ecMul: 'bn254MulGas',
     ecPairing: 'bn254PairingGas',
     ecPairingWord: 'bn254PairingWordGas',
-    blake2Round: 'blake2RoundGas',
+    modexpGquaddivisor: 'modexpGquaddivisorGas',
     kzgPointEvaluationGasPrecompilePrice: 'kzgPointEvaluationPrecompileGas',
-    memory: 'memoryGas',
-    quadCoeffDiv: 'quadCoefficientDivGas',
-    coldaccountaccess: 'coldaccountaccessGas',
-    warmstorageread: 'warmstoragereadGas',
-    coldsload: 'coldsloadGas',
-    sstore: 'sstoreGas',
-    sstoreSet: 'sstoreSetGas',
-    sstoreReset: 'sstoreResetGas',
-    sstoreRefund: 'sstoreRefundGas',
-    createData: 'createDataGas',
-    initCodeWordCost: 'initCodeWordGas',
-    callValueTransfer: 'callValueTransferGas',
-    callStipend: 'callStipendGas',
-    callNewAccount: 'callNewAccountGas',
-    selfdestructRefund: 'selfdestructRefundGas',
-    expByte: 'expByteGas',
-    logTopic: 'logTopicGas',
-    logData: 'logDataGas',
-    keccak256Word: 'keccak256WordGas',
-    copy: 'copyGas',
-    netSstoreNoopGas: 'netSstoreNoopGas',
-    netSstoreInitGas: 'netSstoreInitGas',
-    netSstoreCleanGas: 'netSstoreCleanGas',
-    netSstoreDirtyGas: 'netSstoreDirtyGas',
-    netSstoreClearRefundGas: 'netSstoreClearRefundGas',
-    netSstoreResetRefundGas: 'netSstoreResetRefundGas',
-    netSstoreResetClearRefundGas: 'netSstoreResetClearRefundGas',
-    sstoreNoopGasEIP2200: 'sstoreNoopEIP2200Gas',
-    sstoreDirtyGasEIP2200: 'sstoreDirtyEIP2200Gas',
-    sstoreInitGasEIP2200: 'sstoreInitEIP2200Gas',
-    sstoreInitRefundEIP2200: 'sstoreInitRefundEIP2200Gas',
-    sstoreCleanGasEIP2200: 'sstoreCleanEIP2200Gas',
-    sstoreCleanRefundEIP2200: 'sstoreCleanRefundEIP2200Gas',
-    sstoreClearRefundEIP2200: 'sstoreClearRefundEIP2200Gas',
-    sstoreSentryGasEIP2200: 'sstoreSentryEIP2200Gas',
-    mstore8: 'mstore8Gas',
-    mstore: 'mstoreGas',
-    mload: 'mloadGas',
-    codecopy: 'codecopyGas',
-    calldatacopy: 'calldatacopyGas',
-    returndatacopy: 'returndatacopyGas',
-    create: 'createGas',
-    log: 'logGas',
-    call: 'callGas',
-    return: 'returnGas',
-    sload: 'sloadGas',
-    balance: 'balanceGas',
-    extcodesize: 'extcodesizeGas',
-    extcodecopy: 'extcodecopyGas',
-    extcodehash: 'extcodehashGas',
-    selfdestruct: 'selfdestructGas',
-    exp: 'expGas',
-    keccak256: 'keccak256Gas',
-    keccak256WordGas: 'keccak256WordGas',
-    createDataGas: 'createDataGas',
-    datacopyGas: 'datacopyGas',
-    eofcreateGas: 'eofcreateGas',
-    returncontractGas: 'returncontractGas',
-    extcallGas: 'extcallGas',
-    extdelegatecallGas: 'extdelegatecallGas',
-    extstaticcallGas: 'extstaticcallGas',
   }
 
-  const v10Name = paramNameMap[name] || name
-  return common.param(v10Name)
+  if (specialCases[name]) {
+    return common.param(specialCases[name])
+  }
+
+  if (name.endsWith('Gas')) {
+    return common.param(name)
+  }
+
+  const formattedName = name
+    .replace('Cost', '')
+    .replace('Price', '')
+    .replace('Gas', '')
+    .concat('Gas')
+
+  return common.param(formattedName)
 }
