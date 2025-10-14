@@ -447,15 +447,11 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
   const _loadChainAndForks = (common: Common) => {
     const forks: HardforkTransitionConfig[] = []
 
-    const availableChains = [
+    const chains: IChain[] = [
       { id: 1, name: 'Mainnet' },
       { id: 11155111, name: 'Sepolia' },
       { id: 17000, name: 'Holesky' },
     ]
-    const chains = availableChains.map((chainConfig) => ({
-      id: chainConfig.id,
-      name: chainConfig.name,
-    }))
 
     setChains(chains)
     setSelectedChain(chains[0])
@@ -621,10 +617,10 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
 
       // Transient storage handler
       const proxyTransientStorage = traceTransientStorageMethodCalls(
-        (evm as EVM).transientStorage,
+        evm.transientStorage,
       )
       // @ts-ignore - attaching our proxy method
-      ;(evm as EVM).transientStorage.put = proxyTransientStorage.put
+      evm.transientStorage.put = proxyTransientStorage.put
     }
 
     storageMemory.clear()
