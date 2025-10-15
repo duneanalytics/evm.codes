@@ -64,7 +64,7 @@ const DynamicFee = ({ referenceItem, fork }: Props) => {
   const calculateDisabledInputs = (
     opcode: IReferenceItem,
     common: Common,
-    inputs: any,
+    inputs: InputValue,
   ) => {
     if (opcode.opcodeOrAddress === '55' && common.gteHardfork('berlin')) {
       if (inputs.currentValue !== inputs.originalValue) {

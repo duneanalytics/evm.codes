@@ -20,61 +20,43 @@ importers:
         version: 11.11.4(@types/react@17.0.2)(react@17.0.2)
       '@emotion/styled':
         specifier: ^11.11.0
-        version: 11.11.5(@emotion/react@11.11.4)(@types/react@17.0.2)(react@17.0.2)
+        version: 11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2)
       '@ethereumjs/block':
-        specifier: ^5.2.0
-        version: 5.2.0
+        specifier: ^10.0.0
+        version: 10.0.0
       '@ethereumjs/common':
-        specifier: ^4.3.0
-        version: 4.3.0
+        specifier: ^10.0.0
+        version: 10.0.0
       '@ethereumjs/evm':
-        specifier: ^3.0.0
-        version: 3.0.0
+        specifier: ^10.0.0
+        version: 10.0.0
       '@ethereumjs/tx':
-        specifier: ^5.2.1
-        version: 5.3.0
+        specifier: ^10.0.0
+        version: 10.0.0
       '@ethereumjs/util':
-        specifier: ^9.0.2
-        version: 9.0.3
+        specifier: ^10.0.0
+        version: 10.0.0
       '@ethereumjs/vm':
-        specifier: ^8.0.0
-        version: 8.0.0
-      '@ethjs-eof/block':
-        specifier: link:ethereumjs-monorepo/packages/block
-        version: link:ethereumjs-monorepo/packages/block
-      '@ethjs-eof/common':
-        specifier: link:ethereumjs-monorepo/packages/common
-        version: link:ethereumjs-monorepo/packages/common
-      '@ethjs-eof/evm':
-        specifier: link:ethereumjs-monorepo/packages/evm
-        version: link:ethereumjs-monorepo/packages/evm
-      '@ethjs-eof/tx':
-        specifier: link:ethereumjs-monorepo/packages/tx
-        version: link:ethereumjs-monorepo/packages/tx
-      '@ethjs-eof/util':
-        specifier: link:ethereumjs-monorepo/packages/util
-        version: link:ethereumjs-monorepo/packages/util
-      '@ethjs-eof/vm':
-        specifier: link:ethereumjs-monorepo/packages/vm
-        version: link:ethereumjs-monorepo/packages/vm
+        specifier: ^10.0.0
+        version: 10.0.0
       '@kunigi/string-compression':
         specifier: 1.0.2
         version: 1.0.2
       '@mdx-js/loader':
         specifier: ^2.3.0
-        version: 2.3.0(webpack@5.91.0)
+        version: 2.3.0(webpack@5.91.0(@swc/core@1.4.13))
       '@mdx-js/react':
         specifier: ^2.3.0
         version: 2.3.0(react@17.0.2)
       '@monaco-editor/react':
         specifier: ^4.6.0
-        version: 4.6.0(monaco-editor@0.47.0)(react-dom@17.0.2)(react@17.0.2)
+        version: 4.6.0(monaco-editor@0.47.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@mui/material':
         specifier: ^5.15.2
-        version: 5.15.15(@emotion/react@11.11.4)(@emotion/styled@11.11.5)(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2)
+        version: 5.15.15(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@mui/x-tree-view':
         specifier: ^7.2.0
-        version: 7.2.0(@emotion/react@11.11.4)(@emotion/styled@11.11.5)(@mui/material@5.15.15)(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2)
+        version: 7.2.0(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2))(@mui/material@5.15.15(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@solidity-parser/parser':
         specifier: ^0.18.0
         version: 0.18.0
@@ -116,7 +98,7 @@ importers:
         version: 2.0.6
       kbar:
         specifier: ^0.1.0-beta.45
-        version: 0.1.0-beta.45(@types/react-dom@17.0.2)(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2)
+        version: 0.1.0-beta.45(@types/react-dom@17.0.2)(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       lodash.debounce:
         specifier: ^4.0.8
         version: 4.0.8
@@ -125,16 +107,16 @@ importers:
         version: 0.47.0
       next:
         specifier: '12'
-        version: 12.3.4(@babel/core@7.24.4)(react-dom@17.0.2)(react@17.0.2)
+        version: 12.3.4(@babel/core@7.24.4)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       next-mdx-remote:
         specifier: ^3.0.8
-        version: 3.0.8(react-dom@17.0.2)(react@17.0.2)
+        version: 3.0.8(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       next-plausible:
         specifier: ^3.12.0
-        version: 3.12.0(next@12.3.4)(react-dom@17.0.2)(react@17.0.2)
+        version: 3.12.0(next@12.3.4(@babel/core@7.24.4)(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       next-themes:
         specifier: ^0.3.0
-        version: 0.3.0(react-dom@17.0.2)(react@17.0.2)
+        version: 0.3.0(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       process:
         specifier: ^0.11.10
         version: 0.11.10
@@ -146,19 +128,19 @@ importers:
         version: 17.0.2(react@17.0.2)
       react-resizable-panels:
         specifier: ^2.0.4
-        version: 2.0.16(react-dom@17.0.2)(react@17.0.2)
+        version: 2.0.16(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react-select:
         specifier: ^5.8.0
-        version: 5.8.0(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2)
+        version: 5.8.0(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react-simple-code-editor:
         specifier: ^0.13.1
-        version: 0.13.1(react-dom@17.0.2)(react@17.0.2)
+        version: 0.13.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react-table:
         specifier: ^7.8.0
         version: 7.8.0(react@17.0.2)
       react-tooltip:
         specifier: ^5.26.4
-        version: 5.26.4(react-dom@17.0.2)(react@17.0.2)
+        version: 5.26.4(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       readable-stream:
         specifier: ^4.5.2
         version: 4.5.2
@@ -207,7 +189,7 @@ importers:
         version: 7.7.20
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.2.0
-        version: 7.6.0(@typescript-eslint/parser@7.6.0)(eslint@8.57.0)(typescript@5.4.5)
+        version: 7.6.0(@typescript-eslint/parser@7.6.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/parser':
         specifier: ^7.2.0
         version: 7.6.0(eslint@8.57.0)(typescript@5.4.5)
@@ -231,7 +213,7 @@ importers:
         version: 6.8.0(eslint@8.57.0)
       eslint-plugin-prettier:
         specifier: ^5.1.3
-        version: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.57.0)(prettier@3.2.5)
+        version: 5.1.3(@types/eslint@8.56.9)(eslint-config-prettier@9.1.0(eslint@8.57.0))(eslint@8.57.0)(prettier@3.2.5)
       eslint-plugin-react:
         specifier: ^7.34.1
         version: 7.34.1(eslint@8.57.0)
@@ -255,13 +237,13 @@ importers:
         version: 2.10.0
       swc-loader:
         specifier: ^0.2.6
-        version: 0.2.6(@swc/core@1.4.13)(webpack@5.91.0)
+        version: 0.2.6(@swc/core@1.4.13)(webpack@5.91.0(@swc/core@1.4.13))
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.3
       ts-loader:
         specifier: ^9.5.1
-        version: 9.5.1(typescript@5.4.5)(webpack@5.91.0)
+        version: 9.5.1(typescript@5.4.5)(webpack@5.91.0(@swc/core@1.4.13))
       typescript:
         specifier: ^5.0.4
         version: 5.4.5
@@ -952,51 +934,47 @@ packages:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@ethereumjs/block@5.2.0':
-    resolution: {integrity: sha512-NuVDtD58zyjm5lO3AKPaelzX9VywNwRpDF7WTCY0SKFlD5OeewK5Rdb6LWhwmdQ0ngiIg0Nh/36AQ/8W1nEhjw==}
+  '@ethereumjs/binarytree@10.0.0':
+    resolution: {integrity: sha512-ZOfRpMhzt3kukNAzSlA/qAr8BQFw24lVbGLYN8mrILzZIHYYa2/PbhitVdPnCSQaeARSE/bLYBgM4c3+na0x0Q==}
     engines: {node: '>=18'}
 
-  '@ethereumjs/blockchain@7.2.0':
-    resolution: {integrity: sha512-VIylDQR81n1a0BpDZwihGNYHQdxPpz2LfQ4m2jGRtLnY6mu3PEdrriikVN4VKjRDsWInr5Pcz2u2CJsriVXusQ==}
+  '@ethereumjs/block@10.0.0':
+    resolution: {integrity: sha512-wojY2+J1X+LdJuWoDvufbiDYqjNb+m17tr9Lo/AZ7qJsMSTuxbF+xVmYtDS2s60UASsmkdYdp/Uc7vslaksN/Q==}
     engines: {node: '>=18'}
 
-  '@ethereumjs/common@4.3.0':
-    resolution: {integrity: sha512-shBNJ0ewcPNTUfZduHiczPmqkfJDn0Dh/9BR5fq7xUFTuIq7Fu1Vx00XDwQVIrpVL70oycZocOhBM6nDO+4FEQ==}
+  '@ethereumjs/common@10.0.0':
+    resolution: {integrity: sha512-qb0M1DGdXzMAf3O6Zg5Wr5UDjoxBmplLPbQyC6DQ0LfgVDBRdqn0Pk+/hHm4q0McE22Of0MxbV4hhiDTkSgKag==}
 
-  '@ethereumjs/ethash@3.0.3':
-    resolution: {integrity: sha512-AYW1HviuHmmgl/DlbzC50i7P5/XxMofxXSMfGmC8717WO3fvjAClYrwsHETtpuETkwwVNW4sY+4m2HR13K226w==}
+  '@ethereumjs/evm@10.0.0':
+    resolution: {integrity: sha512-/b5oy1Zc92Wol7d9EjVTcjdQcfiLAmHA10CBoResRa8CeJQcjuOTikdFQTYwSBuch0E2z0tTFLu+JmCdtjHN+A==}
     engines: {node: '>=18'}
 
-  '@ethereumjs/evm@3.0.0':
-    resolution: {integrity: sha512-hG5VajXG28UWab0LkptDun8ZnUnB1y2cZeNTjrmnz9Q0+UZxFJaU8RaFqaIoOOOoAt3vqMI7tXvnc+VPdNnhLg==}
+  '@ethereumjs/mpt@10.0.0':
+    resolution: {integrity: sha512-WpIWAyWhe/veG6bvBEQUdEGPyDTID0clFy4yMy+wRs5Tr7UHeDbsG4bAeXzLCEkhIgarSFok+9P5XO6r1q4tpw==}
     engines: {node: '>=18'}
 
-  '@ethereumjs/rlp@5.0.2':
-    resolution: {integrity: sha512-DziebCdg4JpGlEqEdGgXmjqcFoJi+JGulUXwEjsZGAscAQ7MyD/7LE/GVCP29vEQxKc7AAwjT3A2ywHp2xfoCA==}
+  '@ethereumjs/rlp@10.0.0':
+    resolution: {integrity: sha512-h2SK6RxFBfN5ZGykbw8LTNNLckSXZeuUZ6xqnmtF22CzZbHflFMcIOyfVGdvyCVQqIoSbGMHtvyxMCWnOyB9RA==}
     engines: {node: '>=18'}
     hasBin: true
 
-  '@ethereumjs/statemanager@2.3.0':
-    resolution: {integrity: sha512-mHxbtvjN126qwT+dqA5Vev99QR4L+RD/BeZEnFbPsEDrBflMssLMaXZahKzQnMu5iqGOc1KLtT0g1ONl6+JpCA==}
+  '@ethereumjs/statemanager@10.0.0':
+    resolution: {integrity: sha512-s64RQIQLNmdxhfnm1nQSfPl4ktR0ju7RBx50HhAScItefrHg0QSqk7ZaKPXwuyvR+ilZHB3jQ0cmLwJ4DSvZgA==}
 
-  '@ethereumjs/trie@6.2.0':
-    resolution: {integrity: sha512-4k9SrfIBTMi8MROXglKxk+jS15qcELUeLwI+NnKJOTCdci2ArhoQpiuRHT6aeXB+2P2cWX2OQHbSVtW9AqabDQ==}
+  '@ethereumjs/tx@10.0.0':
+    resolution: {integrity: sha512-DApm04kp2nbvaOuHy2Rkcz1ZeJkTVgW6oCuNnQf9bRtGc+LsvLrdULE3LoGtBItEoNEcgXLJqrV0foooWFX6jw==}
     engines: {node: '>=18'}
 
-  '@ethereumjs/tx@5.3.0':
-    resolution: {integrity: sha512-uv++XYuIfuqYbvymL3/o14hHuC6zX0nRQ1nI2FHsbkkorLZ2ChEIDqVeeVk7Xc9/jQNU/22sk9qZZkRlsveXxw==}
+  '@ethereumjs/util@10.0.0':
+    resolution: {integrity: sha512-lO23alM4uQsv8dp6/yEm4Xw4328+wIRjSeuBO1mRTToUWRcByEMTk87yzBpXgpixpgHrl+9LTn9KB2vvKKtOQQ==}
     engines: {node: '>=18'}
 
-  '@ethereumjs/util@9.0.3':
-    resolution: {integrity: sha512-PmwzWDflky+7jlZIFqiGsBPap12tk9zK5SVH9YW2OEnDN7OEhCjUOMzbOqwuClrbkSIkM2ERivd7sXZ48Rh/vg==}
+  '@ethereumjs/verkle@10.0.0':
+    resolution: {integrity: sha512-pBGcIP0yhxjpBjjmZjF/3DKhjySxoFcFU6s81UI3h3bxiLsFTqPNMdTucFV1wiXeDbq8V4iH3c7IZbLZ5K07kw==}
     engines: {node: '>=18'}
 
-  '@ethereumjs/verkle@0.0.2':
-    resolution: {integrity: sha512-uUVdUJnkugHBHz6aNRBzQZCqZGtjDigfMYtJ7GfjWN0g7hIftnNWn1NEWRU7Fi+ypD8fvedrV5wcZ20Uofmz2Q==}
-    engines: {node: '>=18'}
-
-  '@ethereumjs/vm@8.0.0':
-    resolution: {integrity: sha512-eC5ghbSYKSG7qQZHlKh/tBTWEYOHx/ZAm8tmwt29e5N33m/FR2i9Rjx7Bb3Y3j+hlkR53FBFRGG6VQl0eiA4sw==}
+  '@ethereumjs/vm@10.0.0':
+    resolution: {integrity: sha512-jjl607CwL5vykrwGbpF3MVFxvJOHV6XNmXbngO6emoK74AW1gvq/uY/S8uJ7rQk9HRB1/EkxNsG24x7rVatYMQ==}
     engines: {node: '>=18'}
 
   '@floating-ui/core@1.6.0':
@@ -1058,6 +1036,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@js-sdsl/ordered-map@4.4.2':
+    resolution: {integrity: sha512-iUKgm52T8HOE/makSxjqoWhe95ZJA1/G1sYsGev2JDKUSS14KAgg1LHb+Ba+IPow0xflbnSkOsZcO08C7w1gYw==}
 
   '@kunigi/string-compression@1.0.2':
     resolution: {integrity: sha512-rB2OpMgWOe9J7KQhEmLFniA2lwJm9v3hoGSWuMihitKcoOiY/dLn5GoXOXbeQV+pui6IuVSuKoa8jbYoQhhewA==}
@@ -1284,19 +1265,36 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@noble/ciphers@1.3.0':
+    resolution: {integrity: sha512-2I0gnIVPtfnMw9ee9h1dJG7tp81+8Ob3OJb3Mv37rx5L40/b0i7djjCVvGOVqc9AEIQyvyu1i6ypKdFw8R8gQw==}
+    engines: {node: ^14.21.3 || >=16}
+
   '@noble/curves@1.2.0':
     resolution: {integrity: sha512-oYclrNgRaM9SsBUBVbb8M6DTV7ZHRTKugureoYEncY5c65HOmRzvSiTE3y5CYaPYJA/GVkrhXEoF0M3Ya9PMnw==}
 
-  '@noble/curves@1.3.0':
-    resolution: {integrity: sha512-t01iSXPuN+Eqzb4eBX0S5oubSqXbK/xXa1Ne18Hj8f9pStxztHCE2gfboSp/dZRLSqfuLpRK2nDXDK+W9puocA==}
+  '@noble/curves@1.8.2':
+    resolution: {integrity: sha512-vnI7V6lFNe0tLAuJMu+2sX+FcL14TaCWy1qiczg1VwRmPrpQCdq5ESXQMqUc2tluRNf6irBXrWbl1mGN8uaU/g==}
+    engines: {node: ^14.21.3 || >=16}
+
+  '@noble/curves@1.9.0':
+    resolution: {integrity: sha512-7YDlXiNMdO1YZeH6t/kvopHHbIZzlxrCV9WLqCY6QhcXOoXiNCMDqJIglZ9Yjx5+w7Dz30TITFrlTjnRg7sKEg==}
+    engines: {node: ^14.21.3 || >=16}
+
+  '@noble/curves@1.9.7':
+    resolution: {integrity: sha512-gbKGcRUYIjA3/zCCNaWDciTMFI0dCkvou3TL8Zmy5Nc7sJ47a0jtOeZoTaMxkuqRo9cRhjOdZJXegxYE5FN/xw==}
+    engines: {node: ^14.21.3 || >=16}
 
   '@noble/hashes@1.3.2':
     resolution: {integrity: sha512-MVC8EAQp7MvEcm30KWENFjgR+Mkmf+D189XJTkFIlwohU5hcBbn1ZkKq7KVTi2Hme3PMGF390DaL52beVrIihQ==}
     engines: {node: '>= 16'}
 
-  '@noble/hashes@1.3.3':
-    resolution: {integrity: sha512-V7/fPHgl+jsVPXqqeOzT8egNj2iBIVt+ECeMMG8TdcnTikP3oaBtUVqpT/gYCR68aEBJSF+XbYUxStjbFMqIIA==}
-    engines: {node: '>= 16'}
+  '@noble/hashes@1.7.2':
+    resolution: {integrity: sha512-biZ0NUSxyjLLqo6KxEJ1b+C2NAx0wtDoFvCaXHGgUkeHzf3Xc1xKumFKREuT7f7DARNZ/slvYUwFG6B0f2b6hQ==}
+    engines: {node: ^14.21.3 || >=16}
+
+  '@noble/hashes@1.8.0':
+    resolution: {integrity: sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A==}
+    engines: {node: ^14.21.3 || >=16}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1374,17 +1372,20 @@ packages:
   '@scure/base@1.1.6':
     resolution: {integrity: sha512-ok9AWwhcgYuGG3Zfhyqg+zwl+Wn5uE+dwC0NV/2qQkx4dABbb/bx96vWu8NSj+BNjjSjno+JRYRjle1jV08k3g==}
 
+  '@scure/base@1.2.6':
+    resolution: {integrity: sha512-g/nm5FgUa//MCj1gV09zTJTaM6KBAHqLN907YVQqf7zC49+DcO4B1so4ZX07Ef10Twr6nuqYEH9GEggFXA4Fmg==}
+
   '@scure/bip32@1.3.2':
     resolution: {integrity: sha512-N1ZhksgwD3OBlwTv3R6KFEcPojl/W4ElJOeCZdi+vuI5QmTFwLq3OFf2zd2ROpKvxFdgZ6hUpb0dx9bVNEwYCA==}
 
-  '@scure/bip32@1.3.3':
-    resolution: {integrity: sha512-LJaN3HwRbfQK0X1xFSi0Q9amqOgzQnnDngIt+ZlsBC3Bm7/nE7K0kwshZHyaru79yIVRv/e1mQAjZyuZG6jOFQ==}
+  '@scure/bip32@1.7.0':
+    resolution: {integrity: sha512-E4FFX/N3f4B80AKWp5dP6ow+flD1LQZo/w8UnLGYZO674jS6YnYeepycOOksv+vLPSpgN35wgKgy+ybfTb2SMw==}
 
   '@scure/bip39@1.2.1':
     resolution: {integrity: sha512-Z3/Fsz1yr904dduJD0NpiyRHhRYHdcnyh73FZWiV+/qhWi83wNJ3NWolYqCEN+ZWsUz2TWwajJggcRE9r1zUYg==}
 
-  '@scure/bip39@1.2.2':
-    resolution: {integrity: sha512-HYf9TUXG80beW+hGAt3TRM8wU6pQoYur9iNypTROm42dorCGmLnFe3eWjz3gOq6G62H2WRh0FCzAR1PI+29zIA==}
+  '@scure/bip39@1.6.0':
+    resolution: {integrity: sha512-+lF0BbLiJNwVlev4eKelw1WWLaiKXw7sSl8T6FvBlWkdX+94aGJ4o8XjUdlyhTCjd8c+B3KT3JfS8P0bLRNU6A==}
 
   '@solidity-parser/parser@0.18.0':
     resolution: {integrity: sha512-yfORGUIPgLck41qyN7nbwJRAx17/jAIXCTanHOJZhB6PJ1iAk/84b/xlsVKFSyNyLXIj0dhppoE0+CRws7wlzA==}
@@ -1550,9 +1551,6 @@ packages:
 
   '@types/react@17.0.2':
     resolution: {integrity: sha512-Xt40xQsrkdvjn1EyWe1Bc0dJLcil/9x2vAuW7ya+PuQip4UYUaXyhzWmAbwRsdMgwOFHpfp7/FFZebDU6Y8VHA==}
-
-  '@types/readable-stream@2.3.15':
-    resolution: {integrity: sha512-oM5JSKQCcICF1wvGgmecmHldZ48OZamtMxcGGVICOJA8o8cahXC1zEVAif8iwoc5j8etxFaRFnf095+CDsuoFQ==}
 
   '@types/secp256k1@4.0.6':
     resolution: {integrity: sha512-hHxJU6PAEUn0TP4S/ZOzuTUvJWuZ6eIKeNKb5RBpODvSl6hp1Wrw4s7ATY50rklRCScUDpHzVA/DQdSjJ3UoYQ==}
@@ -1911,10 +1909,6 @@ packages:
   big.js@5.2.2:
     resolution: {integrity: sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==}
 
-  bigint-crypto-utils@3.3.0:
-    resolution: {integrity: sha512-jOTSb+drvEDxEq6OuUybOAv/xxoh3cuYRUIPyu8sSHQNKM303UQ2R1DAo45o1AkcIXw6fzbaFI1+xGGdaXs2lg==}
-    engines: {node: '>=14.0.0'}
-
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
@@ -2133,6 +2127,15 @@ packages:
 
   debug@4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
+  debug@4.4.3:
+    resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
     engines: {node: '>=6.0'}
     peerDependencies:
       supports-color: '*'
@@ -2425,8 +2428,9 @@ packages:
   ethereum-cryptography@0.1.3:
     resolution: {integrity: sha512-w8/4x1SGGzc+tO97TASLja6SLd3fRIK2tLVcV2Gx4IB21hE19atll5Cq9o3d0ZmAYC/8aw0ipieTSiekAea4SQ==}
 
-  ethereum-cryptography@2.1.3:
-    resolution: {integrity: sha512-BlwbIL7/P45W8FGW2r7LGuvoEZ+7PWsniMvQ4p5s2xCyw9tmaDlpfsN9HjAucbF+t/qpVHwZUisgfK24TCW8aA==}
+  ethereum-cryptography@3.2.0:
+    resolution: {integrity: sha512-Urr5YVsalH+Jo0sYkTkv1MyI9bLYZwW8BENZCeE1QYaTHETEYx0Nv/SVsWkSqpYrzweg6d8KMY1wTjH/1m/BIg==}
+    engines: {node: ^14.21.3 || >=16, npm: '>=9'}
 
   ethereumjs-abi@0.6.8:
     resolution: {integrity: sha512-Tx0r/iXI6r+lRsdvkFDlut0N08jWMnKRZ6Gkq+Nmw75lZe4e6o3EkSnkaBP5NF6+m5PTGAr9JP43N3LyeoglsA==}
@@ -2445,6 +2449,9 @@ packages:
   event-target-shim@5.0.1:
     resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
     engines: {node: '>=6'}
+
+  eventemitter3@5.0.1:
+    resolution: {integrity: sha512-GWkBvjiSZK87ELrYOSESUYeVIc9mvLLf/nXalMOS5dYrgZq9o5OVkbZAVM06CVxYsCwH9BDZFPlQTlPA1j4ahA==}
 
   events@3.3.0:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
@@ -2927,9 +2934,6 @@ packages:
     resolution: {integrity: sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==}
     hasBin: true
 
-  js-sdsl@4.4.2:
-    resolution: {integrity: sha512-dwXFwByc/ajSV6m5bcKAPwe4yDDF6D614pxmIi5odytzxRlwqF6nwoiCek80Ixc7Cvma5awClxrzFtxCQvcM8w==}
-
   js-sha3@0.8.0:
     resolution: {integrity: sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q==}
 
@@ -3052,13 +3056,13 @@ packages:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
 
-  lru-cache@10.1.0:
-    resolution: {integrity: sha512-/1clY/ui8CzjKFyjdvwPWJUYKiFVXG2I2cY0ssG7h4+hwk+XOIX7ZSG9Q7TW8TW3Kp3BUSqgFWBLgL4PJ+Blag==}
-    engines: {node: 14 || >=16.14}
-
   lru-cache@10.2.0:
     resolution: {integrity: sha512-2bIM8x+VAf6JT4bKAljS1qUWgMsqZRPGJS6FSahIMPVvctcNhyVp7AJu7quxOW9jwkryBReKZY5tY5JYv2n/7Q==}
     engines: {node: 14 || >=16.14}
+
+  lru-cache@11.0.2:
+    resolution: {integrity: sha512-123qHRfJBmo2jXDbo/a5YOQrJoHF/GNQTLzQ5+IdK5pWpceK17yRc6ozlWd25FxvGKQbIUs91fDFkXmDHTKcyA==}
+    engines: {node: 20 || >=22}
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
@@ -3132,6 +3136,12 @@ packages:
   merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
+
+  micro-eth-signer@0.14.0:
+    resolution: {integrity: sha512-5PLLzHiVYPWClEvZIXXFu5yutzpadb73rnQCpUqIHu3No3coFuWQNfE5tkBQJ7djuLYl6aRLaS0MgWJYGoqiBw==}
+
+  micro-packed@0.7.3:
+    resolution: {integrity: sha512-2Milxs+WNC00TRlem41oRswvw31146GiSaoCT7s3Xi2gMUglW5QBeqlQaZeHr5tJx9nm3i57LNXPqxOOaWtTYg==}
 
   micromark-core-commonmark@1.1.0:
     resolution: {integrity: sha512-BgHO1aRbolh2hcrzL2d1La37V0Aoz73ymF8rAcKnohLy93titmv62E0gP8Hrx9PKcKrqCZ1BbLGbP3bEhoXYlw==}
@@ -3698,12 +3708,6 @@ packages:
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
 
-  rust-verkle-wasm@0.0.1:
-    resolution: {integrity: sha512-BN6fiTsxcd2dCECz/cHtGTt9cdLJR925nh7iAuRcj8ymKw7OOaPmCneQZ7JePOJ/ia27TjEL91VdOi88Yf+mcA==}
-
-  rustbn-wasm@0.4.0:
-    resolution: {integrity: sha512-C2ujvPv05hXC69MD7YwSsoUEsT/X/dKHkkgwN9B0ZTgb0OXDC9yaHhE6Pq+uaRAzMyW0Y97bwc4JO4cqPDzVuQ==}
-
   sade@1.8.1:
     resolution: {integrity: sha512-xal3CZX1Xlo/k4ApwCFrHVACi9fBqJ7V+mwhBsuf/1IOKbBy098Fex+Wa/5QMubw09pSZ/u8EY8PWgevJsXp1A==}
     engines: {node: '>=6'}
@@ -3711,9 +3715,6 @@ packages:
   safe-array-concat@1.1.2:
     resolution: {integrity: sha512-vj6RsCsWBCf19jIeHEfkRMw8DPiBb+DMXklQ/1SGDHOMlHdPUkZXFQ2YdplS23zESTijAcurb1aSgJA3AgMu1Q==}
     engines: {node: '>=0.4'}
-
-  safe-buffer@5.1.2:
-    resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
 
   safe-buffer@5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
@@ -5136,9 +5137,10 @@ snapshots:
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@17.0.2)
       '@emotion/utils': 1.2.1
       '@emotion/weak-memoize': 0.3.1
-      '@types/react': 17.0.2
       hoist-non-react-statics: 3.3.2
       react: 17.0.2
+    optionalDependencies:
+      '@types/react': 17.0.2
 
   '@emotion/serialize@1.1.4':
     dependencies:
@@ -5150,7 +5152,7 @@ snapshots:
 
   '@emotion/sheet@1.2.2': {}
 
-  '@emotion/styled@11.11.5(@emotion/react@11.11.4)(@types/react@17.0.2)(react@17.0.2)':
+  '@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2)':
     dependencies:
       '@babel/runtime': 7.24.4
       '@emotion/babel-plugin': 11.11.0
@@ -5159,8 +5161,9 @@ snapshots:
       '@emotion/serialize': 1.1.4
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@17.0.2)
       '@emotion/utils': 1.2.1
-      '@types/react': 17.0.2
       react: 17.0.2
+    optionalDependencies:
+      '@types/react': 17.0.2
 
   '@emotion/unitless@0.8.1': {}
 
@@ -5195,119 +5198,112 @@ snapshots:
 
   '@eslint/js@8.57.0': {}
 
-  '@ethereumjs/block@5.2.0':
+  '@ethereumjs/binarytree@10.0.0':
     dependencies:
-      '@ethereumjs/common': 4.3.0
-      '@ethereumjs/rlp': 5.0.2
-      '@ethereumjs/trie': 6.2.0
-      '@ethereumjs/tx': 5.3.0
-      '@ethereumjs/util': 9.0.3
-      ethereum-cryptography: 2.1.3
+      '@ethereumjs/rlp': 10.0.0
+      '@ethereumjs/util': 10.0.0
+      '@noble/hashes': 1.8.0
+      debug: 4.4.3
+      ethereum-cryptography: 3.2.0
+      lru-cache: 11.0.2
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/blockchain@7.2.0':
+  '@ethereumjs/block@10.0.0':
     dependencies:
-      '@ethereumjs/block': 5.2.0
-      '@ethereumjs/common': 4.3.0
-      '@ethereumjs/ethash': 3.0.3
-      '@ethereumjs/rlp': 5.0.2
-      '@ethereumjs/trie': 6.2.0
-      '@ethereumjs/tx': 5.3.0
-      '@ethereumjs/util': 9.0.3
-      debug: 4.3.4
-      ethereum-cryptography: 2.1.3
-      lru-cache: 10.1.0
+      '@ethereumjs/common': 10.0.0
+      '@ethereumjs/mpt': 10.0.0
+      '@ethereumjs/rlp': 10.0.0
+      '@ethereumjs/tx': 10.0.0
+      '@ethereumjs/util': 10.0.0
+      ethereum-cryptography: 3.2.0
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/common@4.3.0':
+  '@ethereumjs/common@10.0.0':
     dependencies:
-      '@ethereumjs/util': 9.0.3
+      '@ethereumjs/util': 10.0.0
+      eventemitter3: 5.0.1
 
-  '@ethereumjs/ethash@3.0.3':
+  '@ethereumjs/evm@10.0.0':
     dependencies:
-      '@ethereumjs/block': 5.2.0
-      '@ethereumjs/rlp': 5.0.2
-      '@ethereumjs/util': 9.0.3
-      bigint-crypto-utils: 3.3.0
-      ethereum-cryptography: 2.1.3
-    transitivePeerDependencies:
-      - supports-color
-
-  '@ethereumjs/evm@3.0.0':
-    dependencies:
-      '@ethereumjs/common': 4.3.0
-      '@ethereumjs/statemanager': 2.3.0
-      '@ethereumjs/tx': 5.3.0
-      '@ethereumjs/util': 9.0.3
+      '@ethereumjs/binarytree': 10.0.0
+      '@ethereumjs/common': 10.0.0
+      '@ethereumjs/statemanager': 10.0.0
+      '@ethereumjs/util': 10.0.0
+      '@ethereumjs/verkle': 10.0.0
+      '@noble/curves': 1.9.7
       '@types/debug': 4.1.12
-      debug: 4.3.4
-      ethereum-cryptography: 2.1.3
-      rustbn-wasm: 0.4.0
+      debug: 4.4.3
+      ethereum-cryptography: 3.2.0
+      eventemitter3: 5.0.1
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/rlp@5.0.2': {}
-
-  '@ethereumjs/statemanager@2.3.0':
+  '@ethereumjs/mpt@10.0.0':
     dependencies:
-      '@ethereumjs/common': 4.3.0
-      '@ethereumjs/rlp': 5.0.2
-      '@ethereumjs/trie': 6.2.0
-      '@ethereumjs/util': 9.0.3
-      '@ethereumjs/verkle': 0.0.2
-      debug: 4.3.4
-      ethereum-cryptography: 2.1.3
-      js-sdsl: 4.4.2
-      lru-cache: 10.1.0
+      '@ethereumjs/rlp': 10.0.0
+      '@ethereumjs/util': 10.0.0
+      debug: 4.4.3
+      ethereum-cryptography: 3.2.0
+      lru-cache: 11.0.2
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/trie@6.2.0':
+  '@ethereumjs/rlp@10.0.0': {}
+
+  '@ethereumjs/statemanager@10.0.0':
     dependencies:
-      '@ethereumjs/rlp': 5.0.2
-      '@ethereumjs/util': 9.0.3
-      '@types/readable-stream': 2.3.15
-      debug: 4.3.4
-      ethereum-cryptography: 2.1.3
-      lru-cache: 10.1.0
-      readable-stream: 3.6.2
+      '@ethereumjs/binarytree': 10.0.0
+      '@ethereumjs/common': 10.0.0
+      '@ethereumjs/mpt': 10.0.0
+      '@ethereumjs/rlp': 10.0.0
+      '@ethereumjs/util': 10.0.0
+      '@ethereumjs/verkle': 10.0.0
+      '@js-sdsl/ordered-map': 4.4.2
+      '@noble/hashes': 1.8.0
+      debug: 4.4.3
+      ethereum-cryptography: 3.2.0
+      lru-cache: 11.0.2
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/tx@5.3.0':
+  '@ethereumjs/tx@10.0.0':
     dependencies:
-      '@ethereumjs/common': 4.3.0
-      '@ethereumjs/rlp': 5.0.2
-      '@ethereumjs/util': 9.0.3
-      ethereum-cryptography: 2.1.3
+      '@ethereumjs/common': 10.0.0
+      '@ethereumjs/rlp': 10.0.0
+      '@ethereumjs/util': 10.0.0
+      ethereum-cryptography: 3.2.0
 
-  '@ethereumjs/util@9.0.3':
+  '@ethereumjs/util@10.0.0':
     dependencies:
-      '@ethereumjs/rlp': 5.0.2
-      ethereum-cryptography: 2.1.3
+      '@ethereumjs/rlp': 10.0.0
+      ethereum-cryptography: 3.2.0
 
-  '@ethereumjs/verkle@0.0.2':
+  '@ethereumjs/verkle@10.0.0':
     dependencies:
-      '@ethereumjs/rlp': 5.0.2
-      '@ethereumjs/util': 9.0.3
-      lru-cache: 10.1.0
-      rust-verkle-wasm: 0.0.1
+      '@ethereumjs/rlp': 10.0.0
+      '@ethereumjs/util': 10.0.0
+      debug: 4.4.3
+      lru-cache: 11.0.2
+      micro-eth-signer: 0.14.0
+    transitivePeerDependencies:
+      - supports-color
 
-  '@ethereumjs/vm@8.0.0':
+  '@ethereumjs/vm@10.0.0':
     dependencies:
-      '@ethereumjs/block': 5.2.0
-      '@ethereumjs/blockchain': 7.2.0
-      '@ethereumjs/common': 4.3.0
-      '@ethereumjs/evm': 3.0.0
-      '@ethereumjs/rlp': 5.0.2
-      '@ethereumjs/statemanager': 2.3.0
-      '@ethereumjs/trie': 6.2.0
-      '@ethereumjs/tx': 5.3.0
-      '@ethereumjs/util': 9.0.3
-      debug: 4.3.4
-      ethereum-cryptography: 2.1.3
+      '@ethereumjs/block': 10.0.0
+      '@ethereumjs/common': 10.0.0
+      '@ethereumjs/evm': 10.0.0
+      '@ethereumjs/mpt': 10.0.0
+      '@ethereumjs/rlp': 10.0.0
+      '@ethereumjs/statemanager': 10.0.0
+      '@ethereumjs/tx': 10.0.0
+      '@ethereumjs/util': 10.0.0
+      '@ethereumjs/verkle': 10.0.0
+      debug: 4.4.3
+      ethereum-cryptography: 3.2.0
+      eventemitter3: 5.0.1
     transitivePeerDependencies:
       - supports-color
 
@@ -5329,7 +5325,7 @@ snapshots:
       '@floating-ui/core': 1.6.1
       '@floating-ui/utils': 0.2.2
 
-  '@floating-ui/react-dom@2.0.8(react-dom@17.0.2)(react@17.0.2)':
+  '@floating-ui/react-dom@2.0.8(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@floating-ui/dom': 1.6.4
       react: 17.0.2
@@ -5382,9 +5378,11 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
+  '@js-sdsl/ordered-map@4.4.2': {}
+
   '@kunigi/string-compression@1.0.2': {}
 
-  '@mdx-js/loader@2.3.0(webpack@5.91.0)':
+  '@mdx-js/loader@2.3.0(webpack@5.91.0(@swc/core@1.4.13))':
     dependencies:
       '@mdx-js/mdx': 2.3.0
       source-map: 0.7.4
@@ -5455,39 +5453,37 @@ snapshots:
       monaco-editor: 0.47.0
       state-local: 1.0.7
 
-  '@monaco-editor/react@4.6.0(monaco-editor@0.47.0)(react-dom@17.0.2)(react@17.0.2)':
+  '@monaco-editor/react@4.6.0(monaco-editor@0.47.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@monaco-editor/loader': 1.4.0(monaco-editor@0.47.0)
       monaco-editor: 0.47.0
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
 
-  '@mui/base@5.0.0-beta.40(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2)':
+  '@mui/base@5.0.0-beta.40(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@babel/runtime': 7.24.4
-      '@floating-ui/react-dom': 2.0.8(react-dom@17.0.2)(react@17.0.2)
+      '@floating-ui/react-dom': 2.0.8(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@mui/types': 7.2.14(@types/react@17.0.2)
       '@mui/utils': 5.15.14(@types/react@17.0.2)(react@17.0.2)
       '@popperjs/core': 2.11.8
-      '@types/react': 17.0.2
       clsx: 2.1.0
       prop-types: 15.8.1
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
+    optionalDependencies:
+      '@types/react': 17.0.2
 
   '@mui/core-downloads-tracker@5.15.15': {}
 
-  '@mui/material@5.15.15(@emotion/react@11.11.4)(@emotion/styled@11.11.5)(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2)':
+  '@mui/material@5.15.15(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@babel/runtime': 7.24.4
-      '@emotion/react': 11.11.4(@types/react@17.0.2)(react@17.0.2)
-      '@emotion/styled': 11.11.5(@emotion/react@11.11.4)(@types/react@17.0.2)(react@17.0.2)
-      '@mui/base': 5.0.0-beta.40(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2)
+      '@mui/base': 5.0.0-beta.40(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@mui/core-downloads-tracker': 5.15.15
-      '@mui/system': 5.15.15(@emotion/react@11.11.4)(@emotion/styled@11.11.5)(@types/react@17.0.2)(react@17.0.2)
+      '@mui/system': 5.15.15(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2)
       '@mui/types': 7.2.14(@types/react@17.0.2)
       '@mui/utils': 5.15.14(@types/react@17.0.2)(react@17.0.2)
-      '@types/react': 17.0.2
       '@types/react-transition-group': 4.4.10
       clsx: 2.1.0
       csstype: 3.1.3
@@ -5495,69 +5491,77 @@ snapshots:
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
       react-is: 18.2.0
-      react-transition-group: 4.4.5(react-dom@17.0.2)(react@17.0.2)
+      react-transition-group: 4.4.5(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+    optionalDependencies:
+      '@emotion/react': 11.11.4(@types/react@17.0.2)(react@17.0.2)
+      '@emotion/styled': 11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2)
+      '@types/react': 17.0.2
 
   '@mui/private-theming@5.15.14(@types/react@17.0.2)(react@17.0.2)':
     dependencies:
       '@babel/runtime': 7.24.4
       '@mui/utils': 5.15.14(@types/react@17.0.2)(react@17.0.2)
-      '@types/react': 17.0.2
       prop-types: 15.8.1
       react: 17.0.2
+    optionalDependencies:
+      '@types/react': 17.0.2
 
-  '@mui/styled-engine@5.15.14(@emotion/react@11.11.4)(@emotion/styled@11.11.5)(react@17.0.2)':
+  '@mui/styled-engine@5.15.14(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@babel/runtime': 7.24.4
       '@emotion/cache': 11.11.0
-      '@emotion/react': 11.11.4(@types/react@17.0.2)(react@17.0.2)
-      '@emotion/styled': 11.11.5(@emotion/react@11.11.4)(@types/react@17.0.2)(react@17.0.2)
       csstype: 3.1.3
       prop-types: 15.8.1
       react: 17.0.2
+    optionalDependencies:
+      '@emotion/react': 11.11.4(@types/react@17.0.2)(react@17.0.2)
+      '@emotion/styled': 11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2)
 
-  '@mui/system@5.15.15(@emotion/react@11.11.4)(@emotion/styled@11.11.5)(@types/react@17.0.2)(react@17.0.2)':
+  '@mui/system@5.15.15(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2)':
     dependencies:
       '@babel/runtime': 7.24.4
-      '@emotion/react': 11.11.4(@types/react@17.0.2)(react@17.0.2)
-      '@emotion/styled': 11.11.5(@emotion/react@11.11.4)(@types/react@17.0.2)(react@17.0.2)
       '@mui/private-theming': 5.15.14(@types/react@17.0.2)(react@17.0.2)
-      '@mui/styled-engine': 5.15.14(@emotion/react@11.11.4)(@emotion/styled@11.11.5)(react@17.0.2)
+      '@mui/styled-engine': 5.15.14(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2))(react@17.0.2)
       '@mui/types': 7.2.14(@types/react@17.0.2)
       '@mui/utils': 5.15.14(@types/react@17.0.2)(react@17.0.2)
-      '@types/react': 17.0.2
       clsx: 2.1.0
       csstype: 3.1.3
       prop-types: 15.8.1
       react: 17.0.2
+    optionalDependencies:
+      '@emotion/react': 11.11.4(@types/react@17.0.2)(react@17.0.2)
+      '@emotion/styled': 11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2)
+      '@types/react': 17.0.2
 
   '@mui/types@7.2.14(@types/react@17.0.2)':
-    dependencies:
+    optionalDependencies:
       '@types/react': 17.0.2
 
   '@mui/utils@5.15.14(@types/react@17.0.2)(react@17.0.2)':
     dependencies:
       '@babel/runtime': 7.24.4
       '@types/prop-types': 15.7.12
-      '@types/react': 17.0.2
       prop-types: 15.8.1
       react: 17.0.2
       react-is: 18.2.0
+    optionalDependencies:
+      '@types/react': 17.0.2
 
-  '@mui/x-tree-view@7.2.0(@emotion/react@11.11.4)(@emotion/styled@11.11.5)(@mui/material@5.15.15)(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2)':
+  '@mui/x-tree-view@7.2.0(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2))(@mui/material@5.15.15(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@babel/runtime': 7.24.4
       '@emotion/react': 11.11.4(@types/react@17.0.2)(react@17.0.2)
-      '@emotion/styled': 11.11.5(@emotion/react@11.11.4)(@types/react@17.0.2)(react@17.0.2)
-      '@mui/base': 5.0.0-beta.40(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2)
-      '@mui/material': 5.15.15(@emotion/react@11.11.4)(@emotion/styled@11.11.5)(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2)
-      '@mui/system': 5.15.15(@emotion/react@11.11.4)(@emotion/styled@11.11.5)(@types/react@17.0.2)(react@17.0.2)
+      '@emotion/styled': 11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2)
+      '@mui/base': 5.0.0-beta.40(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+      '@mui/material': 5.15.15(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+      '@mui/system': 5.15.15(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2)
       '@mui/utils': 5.15.14(@types/react@17.0.2)(react@17.0.2)
       '@types/react-transition-group': 4.4.10
       clsx: 2.1.0
       prop-types: 15.8.1
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
-      react-transition-group: 4.4.5(react-dom@17.0.2)(react@17.0.2)
+      react-transition-group: 4.4.5(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
     transitivePeerDependencies:
       - '@types/react'
 
@@ -5610,17 +5614,29 @@ snapshots:
   '@next/swc-win32-x64-msvc@12.3.4':
     optional: true
 
+  '@noble/ciphers@1.3.0': {}
+
   '@noble/curves@1.2.0':
     dependencies:
       '@noble/hashes': 1.3.2
 
-  '@noble/curves@1.3.0':
+  '@noble/curves@1.8.2':
     dependencies:
-      '@noble/hashes': 1.3.3
+      '@noble/hashes': 1.7.2
+
+  '@noble/curves@1.9.0':
+    dependencies:
+      '@noble/hashes': 1.8.0
+
+  '@noble/curves@1.9.7':
+    dependencies:
+      '@noble/hashes': 1.8.0
 
   '@noble/hashes@1.3.2': {}
 
-  '@noble/hashes@1.3.3': {}
+  '@noble/hashes@1.7.2': {}
+
+  '@noble/hashes@1.8.0': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -5644,33 +5660,37 @@ snapshots:
   '@radix-ui/react-compose-refs@1.0.1(@types/react@17.0.2)(react@17.0.2)':
     dependencies:
       '@babel/runtime': 7.24.4
-      '@types/react': 17.0.2
       react: 17.0.2
+    optionalDependencies:
+      '@types/react': 17.0.2
 
-  '@radix-ui/react-portal@1.0.4(@types/react-dom@17.0.2)(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2)':
+  '@radix-ui/react-portal@1.0.4(@types/react-dom@17.0.2)(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@babel/runtime': 7.24.4
-      '@radix-ui/react-primitive': 1.0.3(@types/react-dom@17.0.2)(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2)
-      '@types/react': 17.0.2
-      '@types/react-dom': 17.0.2
+      '@radix-ui/react-primitive': 1.0.3(@types/react-dom@17.0.2)(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
+    optionalDependencies:
+      '@types/react': 17.0.2
+      '@types/react-dom': 17.0.2
 
-  '@radix-ui/react-primitive@1.0.3(@types/react-dom@17.0.2)(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2)':
+  '@radix-ui/react-primitive@1.0.3(@types/react-dom@17.0.2)(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@babel/runtime': 7.24.4
       '@radix-ui/react-slot': 1.0.2(@types/react@17.0.2)(react@17.0.2)
-      '@types/react': 17.0.2
-      '@types/react-dom': 17.0.2
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
+    optionalDependencies:
+      '@types/react': 17.0.2
+      '@types/react-dom': 17.0.2
 
   '@radix-ui/react-slot@1.0.2(@types/react@17.0.2)(react@17.0.2)':
     dependencies:
       '@babel/runtime': 7.24.4
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@17.0.2)(react@17.0.2)
-      '@types/react': 17.0.2
       react: 17.0.2
+    optionalDependencies:
+      '@types/react': 17.0.2
 
   '@reach/observe-rect@1.2.0': {}
 
@@ -5678,27 +5698,29 @@ snapshots:
 
   '@scure/base@1.1.6': {}
 
+  '@scure/base@1.2.6': {}
+
   '@scure/bip32@1.3.2':
     dependencies:
       '@noble/curves': 1.2.0
       '@noble/hashes': 1.3.2
       '@scure/base': 1.1.6
 
-  '@scure/bip32@1.3.3':
+  '@scure/bip32@1.7.0':
     dependencies:
-      '@noble/curves': 1.3.0
-      '@noble/hashes': 1.3.3
-      '@scure/base': 1.1.6
+      '@noble/curves': 1.9.0
+      '@noble/hashes': 1.8.0
+      '@scure/base': 1.2.6
 
   '@scure/bip39@1.2.1':
     dependencies:
       '@noble/hashes': 1.3.2
       '@scure/base': 1.1.6
 
-  '@scure/bip39@1.2.2':
+  '@scure/bip39@1.6.0':
     dependencies:
-      '@noble/hashes': 1.3.3
-      '@scure/base': 1.1.6
+      '@noble/hashes': 1.8.0
+      '@scure/base': 1.2.6
 
   '@solidity-parser/parser@0.18.0': {}
 
@@ -5855,11 +5877,6 @@ snapshots:
       '@types/prop-types': 15.7.12
       csstype: 3.1.3
 
-  '@types/readable-stream@2.3.15':
-    dependencies:
-      '@types/node': 20.12.7
-      safe-buffer: 5.1.2
-
   '@types/secp256k1@4.0.6':
     dependencies:
       '@types/node': 20.12.7
@@ -5868,7 +5885,7 @@ snapshots:
 
   '@types/unist@2.0.10': {}
 
-  '@typescript-eslint/eslint-plugin@7.6.0(@typescript-eslint/parser@7.6.0)(eslint@8.57.0)(typescript@5.4.5)':
+  '@typescript-eslint/eslint-plugin@7.6.0(@typescript-eslint/parser@7.6.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)':
     dependencies:
       '@eslint-community/regexpp': 4.10.0
       '@typescript-eslint/parser': 7.6.0(eslint@8.57.0)(typescript@5.4.5)
@@ -5883,6 +5900,7 @@ snapshots:
       natural-compare: 1.4.0
       semver: 7.6.0
       ts-api-utils: 1.3.0(typescript@5.4.5)
+    optionalDependencies:
       typescript: 5.4.5
     transitivePeerDependencies:
       - supports-color
@@ -5894,6 +5912,7 @@ snapshots:
       '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.4.5)
       debug: 4.3.4
       eslint: 8.57.0
+    optionalDependencies:
       typescript: 5.4.5
     transitivePeerDependencies:
       - supports-color
@@ -5906,6 +5925,7 @@ snapshots:
       '@typescript-eslint/visitor-keys': 7.6.0
       debug: 4.3.4
       eslint: 8.57.0
+    optionalDependencies:
       typescript: 5.4.5
     transitivePeerDependencies:
       - supports-color
@@ -5927,6 +5947,7 @@ snapshots:
       debug: 4.3.4
       eslint: 8.57.0
       ts-api-utils: 1.3.0(typescript@5.4.5)
+    optionalDependencies:
       typescript: 5.4.5
     transitivePeerDependencies:
       - supports-color
@@ -5944,6 +5965,7 @@ snapshots:
       is-glob: 4.0.3
       semver: 7.6.0
       tsutils: 3.21.0(typescript@5.4.5)
+    optionalDependencies:
       typescript: 5.4.5
     transitivePeerDependencies:
       - supports-color
@@ -5958,6 +5980,7 @@ snapshots:
       minimatch: 9.0.4
       semver: 7.6.0
       ts-api-utils: 1.3.0(typescript@5.4.5)
+    optionalDependencies:
       typescript: 5.4.5
     transitivePeerDependencies:
       - supports-color
@@ -6069,11 +6092,11 @@ snapshots:
   '@xtuc/long@4.2.2': {}
 
   abitype@1.0.0(typescript@5.4.5):
-    dependencies:
+    optionalDependencies:
       typescript: 5.4.5
 
   abitype@1.0.2(typescript@5.4.5):
-    dependencies:
+    optionalDependencies:
       typescript: 5.4.5
 
   abort-controller@3.0.0:
@@ -6297,8 +6320,6 @@ snapshots:
   base64-js@1.5.1: {}
 
   big.js@5.2.2: {}
-
-  bigint-crypto-utils@3.3.0: {}
 
   binary-extensions@2.3.0: {}
 
@@ -6529,6 +6550,10 @@ snapshots:
     dependencies:
       ms: 2.1.2
 
+  debug@4.4.3:
+    dependencies:
+      ms: 2.1.3
+
   decode-named-character-reference@1.0.2:
     dependencies:
       character-entities: 2.0.2
@@ -6719,10 +6744,11 @@ snapshots:
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 2.7.1(eslint-plugin-import@2.29.1)(eslint@8.57.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.6.0)(eslint@8.57.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.6.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.57.0)
       eslint-plugin-react: 7.34.1(eslint@8.57.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.57.0)
+    optionalDependencies:
       typescript: 5.4.5
     transitivePeerDependencies:
       - eslint-import-resolver-webpack
@@ -6744,7 +6770,7 @@ snapshots:
     dependencies:
       debug: 4.3.4
       eslint: 8.57.0
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.6.0)(eslint@8.57.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.6.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)
       glob: 7.2.3
       is-glob: 4.0.3
       resolve: 1.22.8
@@ -6752,18 +6778,18 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.8.1(@typescript-eslint/parser@7.6.0)(eslint-import-resolver-node@0.3.9)(eslint@8.57.0):
+  eslint-module-utils@2.8.1(@typescript-eslint/parser@7.6.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint@8.57.0):
     dependencies:
-      '@typescript-eslint/parser': 7.6.0(eslint@8.57.0)(typescript@5.4.5)
       debug: 3.2.7
+    optionalDependencies:
+      '@typescript-eslint/parser': 7.6.0(eslint@8.57.0)(typescript@5.4.5)
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.6.0)(eslint@8.57.0):
+  eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.6.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0):
     dependencies:
-      '@typescript-eslint/parser': 7.6.0(eslint@8.57.0)(typescript@5.4.5)
       array-includes: 3.1.8
       array.prototype.findlastindex: 1.2.5
       array.prototype.flat: 1.3.2
@@ -6772,7 +6798,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.8.1(@typescript-eslint/parser@7.6.0)(eslint-import-resolver-node@0.3.9)(eslint@8.57.0)
+      eslint-module-utils: 2.8.1(@typescript-eslint/parser@7.6.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint@8.57.0)
       hasown: 2.0.2
       is-core-module: 2.13.1
       is-glob: 4.0.3
@@ -6782,6 +6808,8 @@ snapshots:
       object.values: 1.2.0
       semver: 6.3.1
       tsconfig-paths: 3.15.0
+    optionalDependencies:
+      '@typescript-eslint/parser': 7.6.0(eslint@8.57.0)(typescript@5.4.5)
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
@@ -6807,13 +6835,15 @@ snapshots:
       object.entries: 1.1.8
       object.fromentries: 2.0.8
 
-  eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0)(eslint@8.57.0)(prettier@3.2.5):
+  eslint-plugin-prettier@5.1.3(@types/eslint@8.56.9)(eslint-config-prettier@9.1.0(eslint@8.57.0))(eslint@8.57.0)(prettier@3.2.5):
     dependencies:
       eslint: 8.57.0
-      eslint-config-prettier: 9.1.0(eslint@8.57.0)
       prettier: 3.2.5
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.8
+    optionalDependencies:
+      '@types/eslint': 8.56.9
+      eslint-config-prettier: 9.1.0(eslint@8.57.0)
 
   eslint-plugin-react-hooks@4.6.0(eslint@8.57.0):
     dependencies:
@@ -6963,12 +6993,13 @@ snapshots:
       secp256k1: 4.0.3
       setimmediate: 1.0.5
 
-  ethereum-cryptography@2.1.3:
+  ethereum-cryptography@3.2.0:
     dependencies:
-      '@noble/curves': 1.3.0
-      '@noble/hashes': 1.3.3
-      '@scure/bip32': 1.3.3
-      '@scure/bip39': 1.2.2
+      '@noble/ciphers': 1.3.0
+      '@noble/curves': 1.9.0
+      '@noble/hashes': 1.8.0
+      '@scure/bip32': 1.7.0
+      '@scure/bip39': 1.6.0
 
   ethereumjs-abi@0.6.8:
     dependencies:
@@ -6999,6 +7030,8 @@ snapshots:
       strip-hex-prefix: 1.0.0
 
   event-target-shim@5.0.1: {}
+
+  eventemitter3@5.0.1: {}
 
   events@3.3.0: {}
 
@@ -7516,8 +7549,6 @@ snapshots:
 
   jiti@1.21.0: {}
 
-  js-sdsl@4.4.2: {}
-
   js-sha3@0.8.0: {}
 
   js-tokens@4.0.0: {}
@@ -7556,9 +7587,9 @@ snapshots:
       object.assign: 4.1.5
       object.values: 1.2.0
 
-  kbar@0.1.0-beta.45(@types/react-dom@17.0.2)(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2):
+  kbar@0.1.0-beta.45(@types/react-dom@17.0.2)(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
-      '@radix-ui/react-portal': 1.0.4(@types/react-dom@17.0.2)(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2)
+      '@radix-ui/react-portal': 1.0.4(@types/react-dom@17.0.2)(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       fast-equals: 2.0.4
       fuse.js: 6.6.2
       react: 17.0.2
@@ -7626,9 +7657,9 @@ snapshots:
     dependencies:
       js-tokens: 4.0.0
 
-  lru-cache@10.1.0: {}
-
   lru-cache@10.2.0: {}
+
+  lru-cache@11.0.2: {}
 
   lru-cache@5.1.1:
     dependencies:
@@ -7777,6 +7808,16 @@ snapshots:
   merge-stream@2.0.0: {}
 
   merge2@1.4.1: {}
+
+  micro-eth-signer@0.14.0:
+    dependencies:
+      '@noble/curves': 1.8.2
+      '@noble/hashes': 1.7.2
+      micro-packed: 0.7.3
+
+  micro-packed@0.7.3:
+    dependencies:
+      '@scure/base': 1.2.6
 
   micromark-core-commonmark@1.1.0:
     dependencies:
@@ -8031,7 +8072,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next-mdx-remote@3.0.8(react-dom@17.0.2)(react@17.0.2):
+  next-mdx-remote@3.0.8(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
       '@mdx-js/mdx': 1.6.22
       '@mdx-js/react': 1.6.22(react@17.0.2)
@@ -8042,18 +8083,18 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  next-plausible@3.12.0(next@12.3.4)(react-dom@17.0.2)(react@17.0.2):
+  next-plausible@3.12.0(next@12.3.4(@babel/core@7.24.4)(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
-      next: 12.3.4(@babel/core@7.24.4)(react-dom@17.0.2)(react@17.0.2)
+      next: 12.3.4(@babel/core@7.24.4)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
 
-  next-themes@0.3.0(react-dom@17.0.2)(react@17.0.2):
+  next-themes@0.3.0(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
 
-  next@12.3.4(@babel/core@7.24.4)(react-dom@17.0.2)(react@17.0.2):
+  next@12.3.4(@babel/core@7.24.4)(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
       '@next/env': 12.3.4
       '@swc/helpers': 0.4.11
@@ -8256,8 +8297,9 @@ snapshots:
   postcss-load-config@4.0.2(postcss@8.4.38):
     dependencies:
       lilconfig: 3.1.1
-      postcss: 8.4.38
       yaml: 2.4.1
+    optionalDependencies:
+      postcss: 8.4.38
 
   postcss-nested@6.0.1(postcss@8.4.38):
     dependencies:
@@ -8324,12 +8366,12 @@ snapshots:
 
   react-is@18.2.0: {}
 
-  react-resizable-panels@2.0.16(react-dom@17.0.2)(react@17.0.2):
+  react-resizable-panels@2.0.16(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
 
-  react-select@5.8.0(@types/react@17.0.2)(react-dom@17.0.2)(react@17.0.2):
+  react-select@5.8.0(@types/react@17.0.2)(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
       '@babel/runtime': 7.24.4
       '@emotion/cache': 11.11.0
@@ -8340,12 +8382,12 @@ snapshots:
       prop-types: 15.8.1
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
-      react-transition-group: 4.4.5(react-dom@17.0.2)(react@17.0.2)
+      react-transition-group: 4.4.5(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       use-isomorphic-layout-effect: 1.1.2(@types/react@17.0.2)(react@17.0.2)
     transitivePeerDependencies:
       - '@types/react'
 
-  react-simple-code-editor@0.13.1(react-dom@17.0.2)(react@17.0.2):
+  react-simple-code-editor@0.13.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
@@ -8354,14 +8396,14 @@ snapshots:
     dependencies:
       react: 17.0.2
 
-  react-tooltip@5.26.4(react-dom@17.0.2)(react@17.0.2):
+  react-tooltip@5.26.4(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
       '@floating-ui/dom': 1.6.4
       classnames: 2.5.1
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
 
-  react-transition-group@4.4.5(react-dom@17.0.2)(react@17.0.2):
+  react-transition-group@4.4.5(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
       '@babel/runtime': 7.24.4
       dom-helpers: 5.2.1
@@ -8539,12 +8581,6 @@ snapshots:
     dependencies:
       queue-microtask: 1.2.3
 
-  rust-verkle-wasm@0.0.1: {}
-
-  rustbn-wasm@0.4.0:
-    dependencies:
-      '@scure/base': 1.1.6
-
   sade@1.8.1:
     dependencies:
       mri: 1.2.0
@@ -8555,8 +8591,6 @@ snapshots:
       get-intrinsic: 1.2.4
       has-symbols: 1.0.3
       isarray: 2.0.5
-
-  safe-buffer@5.1.2: {}
 
   safe-buffer@5.2.1: {}
 
@@ -8775,8 +8809,9 @@ snapshots:
 
   styled-jsx@5.0.7(@babel/core@7.24.4)(react@17.0.2):
     dependencies:
-      '@babel/core': 7.24.4
       react: 17.0.2
+    optionalDependencies:
+      '@babel/core': 7.24.4
 
   stylis@4.2.0: {}
 
@@ -8804,7 +8839,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  swc-loader@0.2.6(@swc/core@1.4.13)(webpack@5.91.0):
+  swc-loader@0.2.6(@swc/core@1.4.13)(webpack@5.91.0(@swc/core@1.4.13)):
     dependencies:
       '@swc/core': 1.4.13
       '@swc/counter': 0.1.3
@@ -8852,15 +8887,16 @@ snapshots:
 
   tapable@2.2.1: {}
 
-  terser-webpack-plugin@5.3.10(@swc/core@1.4.13)(webpack@5.91.0):
+  terser-webpack-plugin@5.3.10(@swc/core@1.4.13)(webpack@5.91.0(@swc/core@1.4.13)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
-      '@swc/core': 1.4.13
       jest-worker: 27.5.1
       schema-utils: 3.3.0
       serialize-javascript: 6.0.2
       terser: 5.30.3
       webpack: 5.91.0(@swc/core@1.4.13)
+    optionalDependencies:
+      '@swc/core': 1.4.13
 
   terser@5.30.3:
     dependencies:
@@ -8909,7 +8945,7 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  ts-loader@9.5.1(typescript@5.4.5)(webpack@5.91.0):
+  ts-loader@9.5.1(typescript@5.4.5)(webpack@5.91.0(@swc/core@1.4.13)):
     dependencies:
       chalk: 4.1.2
       enhanced-resolve: 5.16.0
@@ -9097,8 +9133,9 @@ snapshots:
 
   use-isomorphic-layout-effect@1.1.2(@types/react@17.0.2)(react@17.0.2):
     dependencies:
-      '@types/react': 17.0.2
       react: 17.0.2
+    optionalDependencies:
+      '@types/react': 17.0.2
 
   use-sync-external-store@1.2.0(react@17.0.2):
     dependencies:
@@ -9156,8 +9193,9 @@ snapshots:
       '@scure/bip39': 1.2.1
       abitype: 1.0.0(typescript@5.4.5)
       isows: 1.0.3(ws@8.13.0)
-      typescript: 5.4.5
       ws: 8.13.0
+    optionalDependencies:
+      typescript: 5.4.5
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -9195,7 +9233,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(@swc/core@1.4.13)(webpack@5.91.0)
+      terser-webpack-plugin: 5.3.10(@swc/core@1.4.13)(webpack@5.91.0(@swc/core@1.4.13))
       watchpack: 2.4.1
       webpack-sources: 3.2.3
     transitivePeerDependencies:

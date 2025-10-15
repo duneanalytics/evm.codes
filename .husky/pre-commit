@@ -1,1 +1,2 @@
-pnpm typecheck && pnpm lint --fix
+pnpm lint --fix
+pnpm typecheck

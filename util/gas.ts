@@ -1,7 +1,56 @@
 import { Common, HardforkTransitionConfig } from '@ethereumjs/common'
-import { Common as EOFCommon } from '@ethjs-eof/common'
 import { setLengthRight, BN } from 'ethereumjs-util'
 import { IReferenceItem } from 'types'
+
+interface SstoreInputs {
+  newValue: string
+  currentValue: string
+  originalValue?: string
+  cold?: string
+}
+
+interface CreateInputs {
+  offset: string
+  size: string
+  memorySize: string
+  deployedSize: string
+  executionCost: string
+}
+
+interface CallInputs {
+  argsOffset: string
+  argsSize: string
+  retOffset: string
+  retSize: string
+  memorySize: string
+  executionCost: string
+  value?: string
+  empty?: string
+  cold?: string
+}
+
+interface EofCreateInputs {
+  offset: string
+  size: string
+  memorySize: string
+  containerSize: string
+  deployedSize: string
+  executionCost: string
+}
+
+interface ExtCallInputs {
+  offset: string
+  size: string
+  memorySize: string
+  value?: string
+  empty?: string
+  cold?: string
+  executionCost: string
+}
+
+interface AddressAccessInputs {
+  cold?: string
+}
 
 const namespaces = ['gasPrices']
 const reFences = /{(.+)}/
@@ -31,7 +80,7 @@ function memoryExtensionCost(
   offset: BN,
   byteSize: BN,
   currentMemorySize: BN,
-  common: Common | EOFCommon,
+  common: Common,
 ): BN {
   if (byteSize.isZero()) {
     return byteSize
@@ -51,11 +100,7 @@ function memoryExtensionCost(
   return newCost
 }
 
-function memoryCostCopy(
-  inputs: any,
-  param: string,
-  common: Common | EOFCommon,
-): BN {
+function memoryCostCopy(inputs: any, param: string, common: Common): BN {
   const paramWordCost = new BN(
     Number(getCommonParam(common, 'gasPrices', param)),
   )
@@ -68,7 +113,7 @@ function memoryCostCopy(
   return expansionCost.iadd(paramWordCost.mul(toWordSize(new BN(inputs.size))))
 }
 
-function addressAccessCost(common: Common, inputs: any): BN {
+function addressAccessCost(common: Common, inputs: AddressAccessInputs): BN {
   if (inputs.cold === '1') {
     return new BN(
       Number(getCommonParam(common, 'gasPrices', 'coldaccountaccess')),
@@ -80,7 +125,7 @@ function addressAccessCost(common: Common, inputs: any): BN {
   }
 }
 
-function sstoreCost(common: Common, inputs: any): BN {
+function sstoreCost(common: Common, inputs: SstoreInputs): BN {
   if (common.hardfork() === 'constantinople') {
     if (inputs.newValue === inputs.currentValue) {
       return new BN(
@@ -136,7 +181,7 @@ function sstoreCost(common: Common, inputs: any): BN {
   }
 }
 
-function createCost(common: Common, inputs: any): BN {
+function createCost(common: Common, inputs: CreateInputs): BN {
   const expansionCost = memoryExtensionCost(
     new BN(inputs.offset),
     new BN(inputs.size),
@@ -163,7 +208,7 @@ function createCost(common: Common, inputs: any): BN {
   return result
 }
 
-function callCost(common: Common, inputs: any): BN {
+function callCost(common: Common, inputs: CallInputs): BN {
   const argsOffset = new BN(inputs.argsOffset)
   const argsSize = new BN(inputs.argsSize)
   const retOffset = new BN(inputs.retOffset)
@@ -214,7 +259,7 @@ function callCost(common: Common, inputs: any): BN {
   return result
 }
 
-const eofCreateCost = (common: EOFCommon, inputs: any): BN => {
+const eofCreateCost = (common: Common, inputs: EofCreateInputs): BN => {
   const expansionCost = memoryExtensionCost(
     new BN(inputs.offset),
     new BN(inputs.size),
@@ -241,7 +286,7 @@ const eofCreateCost = (common: EOFCommon, inputs: any): BN => {
   return result
 }
 
-const extCallCost = (common: EOFCommon, inputs: any): BN => {
+const extCallCost = (common: Common, inputs: ExtCallInputs): BN => {
   const result = memoryExtensionCost(
     new BN(inputs.offset),
     new BN(inputs.size),
@@ -272,7 +317,7 @@ const extCallCost = (common: EOFCommon, inputs: any): BN => {
 
 export const calculateDynamicFee = (
   opcodeOrPrecompiled: IReferenceItem,
-  common: Common | EOFCommon,
+  common: Common,
   inputs: any,
 ) => {
   if (opcodeOrPrecompiled.opcodeOrAddress.startsWith('0x')) {
@@ -477,7 +522,7 @@ export const calculateDynamicRefund = (
  */
 export const calculateOpcodeDynamicFee = (
   opcode: IReferenceItem,
-  common: Common | EOFCommon,
+  common: Common,
   inputs: any,
 ) => {
   let result = null
@@ -940,10 +985,7 @@ export const calculatePrecompiledDynamicFee = (
  *
  * @returns The String with gas prices replaced.
  */
-export const parseGasPrices = (
-  common: Common | EOFCommon,
-  contents: string,
-) => {
+export const parseGasPrices = (common: Common, contents: string) => {
   return contents.replace(reGasVariable, (str) => {
     const value = str.match(reFences)
     if (!value?.[1]) {
@@ -1008,22 +1050,33 @@ export const findMatchingForkName = (
 }
 
 const getCommonParam = (
-  common: Common | EOFCommon,
+  common: Common,
   topic: string,
   name: string,
 ): bigint => {
-  if (common instanceof Common) {
-    return common.param(topic, name)
-  } else {
-    let formattedName = name
-    if (!name.endsWith('Gas')) {
-      formattedName = name
-        .replace('Cost', '')
-        .replace('Price', '')
-        .replace('Gas', '')
-        .concat('Gas')
-    }
-    // @ts-ignore it's warn on ide, but technically it's work
-    return (common as EOFCommon).param(formattedName)
+  const specialCases: { [key: string]: string } = {
+    quadCoeffDiv: 'quadCoefficientDivGas',
+    ecAdd: 'bn254AddGas',
+    ecMul: 'bn254MulGas',
+    ecPairing: 'bn254PairingGas',
+    ecPairingWord: 'bn254PairingWordGas',
+    modexpGquaddivisor: 'modexpGquaddivisorGas',
+    kzgPointEvaluationGasPrecompilePrice: 'kzgPointEvaluationPrecompileGas',
   }
+
+  if (specialCases[name]) {
+    return common.param(specialCases[name])
+  }
+
+  if (name.endsWith('Gas')) {
+    return common.param(name)
+  }
+
+  const formattedName = name
+    .replace('Cost', '')
+    .replace('Price', '')
+    .replace('Gas', '')
+    .concat('Gas')
+
+  return common.param(formattedName)
 }

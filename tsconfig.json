@@ -22,5 +22,5 @@
     ]
   },
   "include": ["next-env.d.ts", "**/*.js", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "ethereumjs-monorepo"]
+  "exclude": ["node_modules"]
 }
