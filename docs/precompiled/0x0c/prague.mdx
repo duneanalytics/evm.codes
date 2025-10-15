@@ -1,8 +1,10 @@
 ## Gas
 
-    k = input_length / 80  // number of point-scalar pairs
-    static_gas = 12275
+    k = input_length / 160
+    multiplication_cost = 12000
+    multiplier = 1000
     if k == 0: dynamic_gas = 0
-    else: dynamic_gas = k * discount_multiplier_based_on_k
+    else: dynamic_gas = k * multiplication_cost * discount_multiplier_based_on_k // multiplier
+    return dynamic_gas
 
 However, if the input does not allow to compute a valid result, all the gas sent is consumed.
