@@ -1,7 +1,8 @@
 ## Gas
 
-    k = input_length / 288  // number of G1-G2 pairs
+    k = input_length / 384
     static_gas = 37700
     dynamic_gas = k * 32600
+    return static_gas + dynamic_gas
 
 However, if the input does not allow to compute a valid result, all the gas sent is consumed.
