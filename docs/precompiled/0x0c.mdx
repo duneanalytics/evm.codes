@@ -1,0 +1,38 @@
+---
+fork: Prague
+---
+
+## Notes
+
+BLS12-381 G1 multi-scalar multiplication (MSM) precompile performs efficient computation of multiple scalar multiplications followed by addition on the G1 group. This operation computes the sum of scalar products: `k1 * P1 + k2 * P2 + ... + kn * Pn` where `ki` are scalars and `Pi` are G1 points.
+
+The operation includes subgroup checks to ensure all input points are in the correct subgroup of G1. More information can be found in [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537).
+
+## Inputs
+
+The input consists of pairs of G1 points and scalars. Input length must be a multiple of 160 bytes (128 bytes for G1 point + 32 bytes for scalar).
+
+For each 160-byte pair:
+
+| Byte range | Name | Description |
+|-----------:|-----:|------------:|
+| `[0; 63]` (64 bytes) | x | X coordinate of G1 point |
+| `[64; 127]` (64 bytes) | y | Y coordinate of G1 point |
+| `[128; 159]` (32 bytes) | scalar | Scalar multiplier (big-endian) |
+
+Input points must be valid G1 curve points and in the correct subgroup. Scalars must be less than the BLS12-381 subgroup order.
+
+## Output
+
+| Byte range | Name | Description |
+|-----------:|-----:|------------:|
+| `[0; 63]` (64 bytes) | x | X coordinate of result point on BLS12-381 G1 |
+| `[64; 127]` (64 bytes) | y | Y coordinate of result point on BLS12-381 G1 |
+
+Returns the result of the multi-scalar multiplication. Dynamic gas cost with volume discounts starting at **12,275 gas**. If the input is not valid, all gas provided is consumed and there is no return data, indicating a precompile contract error.
+
+## Example
+
+| Input | Output |
+|------:|-------:|
+| `0x0000000000000000000000000000000017f1d3a73197d7942695638c4fa9ac0fc3688c4f9774b905a14e3a3f171bac586c55e83ff97a1aeffb3af00adb22c6bb0000000000000000000000000000000008b3f481e3aaa0f1a09e30ed741d8ae4fcf5e095d5d00af600db18cb2c04b3edd03cc744a2888ae40caa232946c5e7e1000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000112b98340eee2777cc3c14163dea3ec97977ac3dc5c70da32e6e87578f44912e902ccef9efe28d4a78b8999dfbca942600000000000000000000000000000000186b28d92356c4dfec4b5201ad099dbdede3781f8998ddf929b4cd7756192185ca7b8f4ef7088f813270ac3d48868a210000000000000000000000000000000000000000000000000000000000000002` | `0x00000000000000000000000000000000148f92dced907361b4782ab542a75281d4b6f71f65c8abf94a5a9082388c64662d30fd6a01ced724feef3e284752038c0000000000000000000000000000000015c3634c3b67bc18e19150e12bfd8a1769306ed010f59be645a0823acb5b38f39e8e0d86e59b6353fdafc59ca971b769` |

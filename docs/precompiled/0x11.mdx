@@ -1,0 +1,37 @@
+---
+fork: Prague
+---
+
+## Notes
+
+BLS12-381 map field extension element to G2 precompile maps extension field elements (Fp2) into G2 points. This operation is required for signature schemes and performs field arithmetic to map a field element into a curve point.
+
+This precompile does NOT perform mapping of byte strings into field elements - it only handles the field-to-point mapping. The mapping uses parameters and algorithms specified in EIP-2537. More information can be found in [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537).
+
+## Inputs
+
+| Byte range | Name | Description |
+|-----------:|-----:|------------:|
+| `[0; 63]` (64 bytes) | c0 | Extension field element c0 component (Fp element) |
+| `[64; 127]` (64 bytes) | c1 | Extension field element c1 component (Fp element) |
+
+Input must be exactly 128 bytes. The field element is represented as an element of Fp2 = Fp[u]/(u² + 1), encoded as c0 + c1*u. Both components must be valid elements of the BLS12-381 base field.
+
+## Output
+
+| Byte range | Name | Description |
+|-----------:|-----:|------------:|
+| `[0; 63]` (64 bytes) | x_c0 | X coordinate c0 component of mapped G2 point |
+| `[64; 127]` (64 bytes) | x_c1 | X coordinate c1 component of mapped G2 point |
+| `[128; 191]` (64 bytes) | y_c0 | Y coordinate c0 component of mapped G2 point |
+| `[192; 255]` (64 bytes) | y_c1 | Y coordinate c1 component of mapped G2 point |
+
+Returns a G2 point that is the deterministic mapping of the input Fp2 element. The output point is guaranteed to be in the correct G2 subgroup. 
+## Example
+
+| Input | Output |
+|------:|-------:|
+| `0x0000000000000000000000000000000007355d25caf6e7f2f0cb2812ca0e513bd026ed09dda65b177500fa31714e09ea0ded3a078b526bed3307f804d4b93b040000000000000000000000000000000002829ce3c021339ccb5caf3e187f6370e1e2a311dec9b75363117063ab2015603ff52c3d3b98f19c2f65575e99e8b78c` | `0x0000000000000000000000000000000000e7f4568a82b4b7dc1f14c6aaa055edf51502319c723c4dc2688c7fe5944c213f510328082396515734b6612c4e7bb700000000000000000000000000000000126b855e9e69b1f691f816e48ac6977664d24d99f8724868a184186469ddfd4617367e94527d4b74fc86413483afb35b000000000000000000000000000000000caead0fd7b6176c01436833c79d305c78be307da5f6af6c133c47311def6ff1e0babf57a0fb5539fce7ee12407b0a42000000000000000000000000000000001498aadcf7ae2b345243e281ae076df6de84455d766ab6fcdaad71fab60abb2e8b980a440043cd305db09d283c895e3d` |
+
+## Gas
+The gas cost is fixed at 23,800. However, if the input does not allow to compute a valid result, all the gas sent is consumed.

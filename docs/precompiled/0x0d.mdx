@@ -1,0 +1,43 @@
+---
+fork: Prague
+---
+
+## Notes
+
+BLS12-381 G2 addition precompile performs point addition on the G2 group of the BLS12-381 elliptic curve. G2 points are defined over the quadratic extension field Fp2, making them larger and more computationally expensive than G1 points.
+
+The G2 group is used in pairing operations and is essential for BLS signature verification. More information can be found in [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537).
+
+## Inputs
+
+| Byte range | Name | Description |
+|-----------:|-----:|------------:|
+| `[0; 63]` (64 bytes) | x1_c0 | X coordinate c0 component of first point on BLS12-381 G2 |
+| `[64; 127]` (64 bytes) | x1_c1 | X coordinate c1 component of first point on BLS12-381 G2 |
+| `[128; 191]` (64 bytes) | y1_c0 | Y coordinate c0 component of first point on BLS12-381 G2 |
+| `[192; 255]` (64 bytes) | y1_c1 | Y coordinate c1 component of first point on BLS12-381 G2 |
+| `[256; 319]` (64 bytes) | x2_c0 | X coordinate c0 component of second point on BLS12-381 G2 |
+| `[320; 383]` (64 bytes) | x2_c1 | X coordinate c1 component of second point on BLS12-381 G2 |
+| `[384; 447]` (64 bytes) | y2_c0 | Y coordinate c0 component of second point on BLS12-381 G2 |
+| `[448; 511]` (64 bytes) | y2_c1 | Y coordinate c1 component of second point on BLS12-381 G2 |
+
+Input must be exactly **512 bytes**. Points must be valid G2 curve points and in the correct subgroup.
+
+## Output
+
+| Byte range | Name | Description |
+|-----------:|-----:|------------:|
+| `[0; 63]` (64 bytes) | x_c0 | X coordinate c0 component of result point on BLS12-381 G2 |
+| `[64; 127]` (64 bytes) | x_c1 | X coordinate c1 component of result point on BLS12-381 G2 |
+| `[128; 191]` (64 bytes) | y_c0 | Y coordinate c0 component of result point on BLS12-381 G2 |
+| `[192; 255]` (64 bytes) | y_c1 | Y coordinate c1 component of result point on BLS12-381 G2 |
+
+
+## Example
+
+| Input | Output |
+|------:|-------:|
+| `0x00000000000000000000000000000000024aa2b2f08f0a91260805272dc51051c6e47ad4fa403b02b4510b647ae3d1770bac0326a805bbefd48056c8c121bdb80000000000000000000000000000000013e02b6052719f607dacd3a088274f65596bd0d09920b61ab5da61bbdc7f5049334cf11213945d57e5ac7d055d042b7e000000000000000000000000000000000ce5d527727d6e118cc9cdc6da2e351aadfd9baa8cbdd3a76d429a695160d12c923ac9cc3baca289e193548608b82801000000000000000000000000000000000606c4a02ea734cc32acd2b02bc28b99cb3e287e85a763af267492ab572e99ab3f370d275cec1da1aaa9075ff05f79be00000000000000000000000000000000103121a2ceaae586d240843a398967325f8eb5a93e8fea99b62b9f88d8556c80dd726a4b30e84a36eeabaf3592937f2700000000000000000000000000000000086b990f3da2aeac0a36143b7d7c824428215140db1bb859338764cb58458f081d92664f9053b50b3fbd2e4723121b68000000000000000000000000000000000f9e7ba9a86a8f7624aa2b42dcc8772e1af4ae115685e60abc2c9b90242167acef3d0be4050bf935eed7c3b6fc7ba77e000000000000000000000000000000000d22c3652d0dc6f0fc9316e14268477c2049ef772e852108d269d9c38dba1d4802e8dae479818184c08f9a569d878451` | `0x000000000000000000000000000000000b54a8a7b08bd6827ed9a797de216b8c9057b3a9ca93e2f88e7f04f19accc42da90d883632b9ca4dc38d013f71ede4db00000000000000000000000000000000077eba4eecf0bd764dce8ed5f45040dd8f3b3427cb35230509482c14651713282946306247866dfe39a8e33016fcbe520000000000000000000000000000000014e60a76a29ef85cbd69f251b9f29147b67cfe3ed2823d3f9776b3a0efd2731941d47436dc6d2b58d9e65f8438bad073000000000000000000000000000000001586c3c910d95754fef7a732df78e279c3d37431c6a2b77e67a00c7c130a8fcd4d19f159cbeb997a178108fffffcbd20` |
+
+## Gas
+The gas cost is fixed at 600. However, if the input does not allow to compute a valid result, all the gas sent is consumed.

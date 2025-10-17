@@ -60,7 +60,12 @@ const accountBalance = 18 // 1eth
 const accountAddress = createAddressFromPrivateKey(privateKey)
 const contractAddress = createContractAddress(accountAddress, 1n)
 const gasLimit = 0xffffffffffffn
-const postMergeHardforkNames: Array<string> = ['merge', 'shanghai', 'cancun']
+const postMergeHardforkNames: Array<string> = [
+  'merge',
+  'shanghai',
+  'cancun',
+  'prague',
+]
 export const prevrandaoDocName = '44_merge'
 const EOF_EIPS = [
   663, 3540, 3670, 4200, 4750, 5450, 6206, 7069, 7480, 7620, 7692, 7698,

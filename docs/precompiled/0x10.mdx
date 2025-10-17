@@ -1,0 +1,32 @@
+---
+fork: Prague
+---
+
+## Notes
+
+BLS12-381 map field element to G1 precompile maps base field elements (Fp) into G1 points. This operation is required for signature schemes and performs field arithmetic to map a field element into a curve point.
+
+This precompile does NOT perform mapping of byte strings into field elements - it only handles the field-to-point mapping. The mapping uses the Simplified Weighted Sum (SWU) method with parameters specified in EIP-2537. More information can be found in [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537).
+
+## Inputs
+
+| Byte range | Name | Description |
+|-----------:|-----:|------------:|
+| `[0; 63]` (64 bytes) | field_element | Base field element (Fp) to map to G1 |
+
+Input must be exactly 64 bytes. The field element must be a valid element of the BLS12-381 base field (less than the field modulus).
+
+## Output
+
+| Byte range | Name | Description |
+|-----------:|-----:|------------:|
+| `[0; 63]` (64 bytes) | x | X coordinate of mapped G1 point |
+| `[64; 127]` (64 bytes) | y | Y coordinate of mapped G1 point |
+
+Returns a G1 point that is the deterministic mapping of the input field element. The output point is guaranteed to be in the correct G1 subgroup. Gas cost: **5,500 gas**. If the input is not valid, all gas provided is consumed and there is no return data, indicating a precompile contract error.
+
+## Example
+
+| Input | Output |
+|------:|-------:|
+| `0x00000000000000000000000000000000147e1ed29f06e4c5079b9d14fc89d2820d32419b990c1c7bb7dbea2a36a045124b31ffbde7c99329c05c559af1c6cc82` | `0x00000000000000000000000000000000009769f3ab59bfd551d53a5f846b9984c59b97d6842b20a2c565baa167945e3d026a3755b6345df8ec7e6acb6868ae6d000000000000000000000000000000001532c00cf61aa3d0ce3e5aa20c3b531a2abd2c770a790a2613818303c6b830ffc0ecf6c357af3317b9575c567f11cd2c` |
