@@ -40,4 +40,4 @@ The dynamic gas fee calculation is handled by the following pieces of code:
 
 ### Supported dynamic variables
 
-- `{gasPrices|param}` - Renders a valid [EthereumJS Common](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/common/src/index.ts#L596) `gasPrices` parameter.
+- `{gasPrices|param}` - Renders a valid [EthereumJS Common](https://github.com/duneanalytics/evm.codes/blob/43d14aed225e04b47656f44de4492f3b8d1abdbc/util/gas.ts#L861) `gasPrices` parameter.
