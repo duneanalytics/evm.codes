@@ -1,4 +1,4 @@
-const ETHERSCAN_URL = 'https://api.etherscan.io/api?'
+const ETHERSCAN_URL = 'https://api.etherscan.io/v2/api?'
 
 export async function etherscanRequest(
   module: string,
@@ -6,6 +6,7 @@ export async function etherscanRequest(
   params: object,
 ) {
   const query: any = {
+    chainid: 1,
     apikey: process.env.APIKEY_ETHERSCAN,
     module: module,
     action: action,
