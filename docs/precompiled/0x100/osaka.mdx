@@ -1,0 +1,8 @@
+## Gas
+
+    static_gas = 6900
+    dynamic_gas = 0
+
+The gas cost is fixed at 6900 gas based on benchmarking against the ECRECOVER precompile (3000 gas). The actual cost of secp256r1 verification was found to be significantly higher than secp256k1 recovery.
+
+If the input does not allow computation of a valid result (invalid inputs or verification failure), all the gas sent is consumed.
