@@ -970,6 +970,11 @@ export const calculatePrecompiledDynamicFee = (
       result = new BN(23800)
       break
     }
+    case '0x100': {
+      // P256VERIFY - secp256r1 signature verification
+      result = new BN(6900)
+      break
+    }
     default:
       return 'Missing precompiled'
   }

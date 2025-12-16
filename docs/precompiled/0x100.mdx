@@ -1,0 +1,73 @@
+---
+fork: Osaka
+---
+
+## Notes
+
+P256VERIFY performs ECDSA signature verification over the secp256r1 elliptic curve (also known as P-256 or prime256v1). This curve is a NIST-standardized curve widely supported in modern secure hardware including Apple Secure Enclave, Android Keystore, HSMs, TEEs, and FIDO2/WebAuthn authenticators.
+
+Native secp256r1 support enables sophisticated account abstraction patterns like device-native signing, multi-factor authentication, and simplified key management - reducing friction for mainstream adoption through familiar authentication flows.
+
+This precompile is specified in [EIP-7951](https://eips.ethereum.org/EIPS/eip-7951) and supersedes RIP-7212 by implementing the same functionality with the same interface, but with critical security fixes:
+- **Point-at-infinity check**: Ensures the recovered point R' is not the point at infinity, preventing non-deterministic behavior.
+- **Modular comparison**: Uses `r' ≡ r (mod n)` instead of `r' == r` to handle cases where the x-coordinate exceeds the curve order.
+
+## Inputs
+
+| Byte range | Name | Description |
+|-----------:|-----:|------------:|
+| `[0; 31]` (32 bytes) | hash | Message hash to verify |
+| `[32; 63]` (32 bytes) | r | Signature component r, must satisfy `0 < r < n` |
+| `[64; 95]` (32 bytes) | s | Signature component s, must satisfy `0 < s < n` |
+| `[96; 127]` (32 bytes) | qx | Public key x-coordinate, must satisfy `0 ≤ qx < p` |
+| `[128; 159]` (32 bytes) | qy | Public key y-coordinate, must satisfy `0 ≤ qy < p` |
+
+Input must be exactly **160 bytes**. All values are encoded as big-endian unsigned integers.
+
+### Input Validation
+
+The precompile performs the following validation checks:
+- Input length must be exactly 160 bytes
+- Signature components `r` and `s` must be in range `(0, n)`
+- Public key coordinates must be valid field elements `[0, p)`
+- The point `(qx, qy)` must satisfy the curve equation `qy² ≡ qx³ + ax + b (mod p)`
+- The point `(qx, qy)` must not be the point at infinity
+
+### Curve Parameters
+
+| Parameter | Value |
+|----------:|------:|
+| Field modulus (p) | `0xffffffff00000001000000000000000000000000ffffffffffffffffffffffff` |
+| Subgroup order (n) | `0xffffffff00000000ffffffffffffffffbce6faada7179e84f3b9cac2fc632551` |
+| Coefficient a | `0xffffffff00000001000000000000000000000000fffffffffffffffffffffffc` |
+| Coefficient b | `0x5ac635d8aa3a93e7b3ebbd55769886bc651d06b0cc53b0f63bce3c3e27d2604b` |
+
+## Output
+
+| Byte range | Name | Description |
+|-----------:|-----:|------------:|
+| `[0; 31]` (32 bytes) | success | `0x0000000000000000000000000000000000000000000000000000000000000001` for valid signatures |
+
+Returns empty output (``) for:
+- Invalid input length
+- Invalid field element encoding
+- Invalid signature component bounds
+- Invalid public key (not on curve or point at infinity)
+- Signature verification failure
+
+## Example
+
+| Input | Output |
+|------:|-------:|
+| `0xbb5a52f42f9c9261ed4361f59422a1e30036e7c32b270c8807a419feca6050232ba3a8be6b94d5ec80a6d9d1190a436effe50d85a1eee859b8cc6af9bd5c2e184cd60b855d442f5b3c7b11eb6c4e0ae7525fe710fab9aa7c77a67f79e6fadd762927b10512bae3eddcfe467828128bad2903269919f7086069c8c4df6c732838c7787964eaac00e5921fb1498a60f4606766b3d9685001558d1a974e7341513e` | `0x0000000000000000000000000000000000000000000000000000000000000001` |
+
+The example above breaks down as:
+- **hash**: `0xbb5a52f42f9c9261ed4361f59422a1e30036e7c32b270c8807a419feca605023`
+- **r**: `0x2ba3a8be6b94d5ec80a6d9d1190a436effe50d85a1eee859b8cc6af9bd5c2e18`
+- **s**: `0x4cd60b855d442f5b3c7b11eb6c4e0ae7525fe710fab9aa7c77a67f79e6fadd76`
+- **qx**: `0x2927b10512bae3eddcfe467828128bad2903269919f7086069c8c4df6c732838`
+- **qy**: `0xc7787964eaac00e5921fb1498a60f4606766b3d9685001558d1a974e7341513e`
+
+## Gas
+
+The gas cost is fixed at **6900** gas. This cost is based on benchmarking against the existing ECRECOVER precompile (3000 gas). If the input does not allow computation of a valid result, all the gas sent is consumed.

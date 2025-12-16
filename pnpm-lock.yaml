@@ -22,23 +22,23 @@ importers:
         specifier: ^11.11.0
         version: 11.11.5(@emotion/react@11.11.4(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2)
       '@ethereumjs/block':
-        specifier: ^10.0.0
-        version: 10.0.0
+        specifier: ^10.1.0
+        version: 10.1.0
       '@ethereumjs/common':
-        specifier: ^10.0.0
-        version: 10.0.0
+        specifier: ^10.1.0
+        version: 10.1.0
       '@ethereumjs/evm':
-        specifier: ^10.0.0
-        version: 10.0.0
+        specifier: ^10.1.0
+        version: 10.1.0
       '@ethereumjs/tx':
-        specifier: ^10.0.0
-        version: 10.0.0
+        specifier: ^10.1.0
+        version: 10.1.0
       '@ethereumjs/util':
-        specifier: ^10.0.0
-        version: 10.0.0
+        specifier: ^10.1.0
+        version: 10.1.0
       '@ethereumjs/vm':
-        specifier: ^10.0.0
-        version: 10.0.0
+        specifier: ^10.1.0
+        version: 10.1.0
       '@kunigi/string-compression':
         specifier: 1.0.2
         version: 1.0.2
@@ -934,47 +934,43 @@ packages:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@ethereumjs/binarytree@10.0.0':
-    resolution: {integrity: sha512-ZOfRpMhzt3kukNAzSlA/qAr8BQFw24lVbGLYN8mrILzZIHYYa2/PbhitVdPnCSQaeARSE/bLYBgM4c3+na0x0Q==}
+  '@ethereumjs/binarytree@10.1.0':
+    resolution: {integrity: sha512-54n24oYJqgDk6DtXVjjGohjQCFCDgcvI2+AeNGRZcsQuz6yE2HYvxWq8VrAAcR8ja/gNc9eVYL51DvU93qK8Eg==}
     engines: {node: '>=18'}
 
-  '@ethereumjs/block@10.0.0':
-    resolution: {integrity: sha512-wojY2+J1X+LdJuWoDvufbiDYqjNb+m17tr9Lo/AZ7qJsMSTuxbF+xVmYtDS2s60UASsmkdYdp/Uc7vslaksN/Q==}
+  '@ethereumjs/block@10.1.0':
+    resolution: {integrity: sha512-W2GR/ejYn/idfX4fxQ2DRbrbOF5U04Q2wDiMuxtvnOr8zdVCBSlVYCC348N73ufkrqY5ltTlEUZYWLWWobcS/Q==}
     engines: {node: '>=18'}
 
-  '@ethereumjs/common@10.0.0':
-    resolution: {integrity: sha512-qb0M1DGdXzMAf3O6Zg5Wr5UDjoxBmplLPbQyC6DQ0LfgVDBRdqn0Pk+/hHm4q0McE22Of0MxbV4hhiDTkSgKag==}
+  '@ethereumjs/common@10.1.0':
+    resolution: {integrity: sha512-zIHCy0i2LFmMDp+QkENyoPGxcoD3QzeNVhx6/vE4nJk4uWGNXzO8xJ2UC4gtGW4UJTAOXja8Z1yZMVeRc2/+Ew==}
 
-  '@ethereumjs/evm@10.0.0':
-    resolution: {integrity: sha512-/b5oy1Zc92Wol7d9EjVTcjdQcfiLAmHA10CBoResRa8CeJQcjuOTikdFQTYwSBuch0E2z0tTFLu+JmCdtjHN+A==}
+  '@ethereumjs/evm@10.1.0':
+    resolution: {integrity: sha512-RD6tjysXEWPfyBHmMxsg3s3T2JdbPVYvsDDDUR0laFaHWtHMnOeW/EIZ5njUx75nG+i72w34Sh6NhhkpkhMGDg==}
     engines: {node: '>=18'}
 
-  '@ethereumjs/mpt@10.0.0':
-    resolution: {integrity: sha512-WpIWAyWhe/veG6bvBEQUdEGPyDTID0clFy4yMy+wRs5Tr7UHeDbsG4bAeXzLCEkhIgarSFok+9P5XO6r1q4tpw==}
+  '@ethereumjs/mpt@10.1.0':
+    resolution: {integrity: sha512-gWxx8n1OB2Js3EFWNeSdsUdYvw1P5WvdKxHmeq+giO03mt5fGRbuSh3ruXzreG4JRugpNSW6Dwqk+StVwjrQ4Q==}
     engines: {node: '>=18'}
 
-  '@ethereumjs/rlp@10.0.0':
-    resolution: {integrity: sha512-h2SK6RxFBfN5ZGykbw8LTNNLckSXZeuUZ6xqnmtF22CzZbHflFMcIOyfVGdvyCVQqIoSbGMHtvyxMCWnOyB9RA==}
+  '@ethereumjs/rlp@10.1.0':
+    resolution: {integrity: sha512-r67BJbwilammAqYI4B5okA66cNdTlFzeWxPNJOolKV52ZS/flo0tUBf4x4gxWXBgh48OgsdFV1Qp5pRoSe8IhQ==}
     engines: {node: '>=18'}
     hasBin: true
 
-  '@ethereumjs/statemanager@10.0.0':
-    resolution: {integrity: sha512-s64RQIQLNmdxhfnm1nQSfPl4ktR0ju7RBx50HhAScItefrHg0QSqk7ZaKPXwuyvR+ilZHB3jQ0cmLwJ4DSvZgA==}
+  '@ethereumjs/statemanager@10.1.0':
+    resolution: {integrity: sha512-n4AB8olDocXtq/V6SClbZ5zEDfJL7cw3MmkGUb/MVQwJBgYZ143oll4UfGaK7jWQfF5Gth68KEJZQay5Hh3h6g==}
 
-  '@ethereumjs/tx@10.0.0':
-    resolution: {integrity: sha512-DApm04kp2nbvaOuHy2Rkcz1ZeJkTVgW6oCuNnQf9bRtGc+LsvLrdULE3LoGtBItEoNEcgXLJqrV0foooWFX6jw==}
+  '@ethereumjs/tx@10.1.0':
+    resolution: {integrity: sha512-svG6pyzUZDpunafszf2BaolA6Izuvo8ZTIETIegpKxAXYudV1hmzPQDdSI+d8nHCFyQfEFbQ6tfUq95lNArmmg==}
     engines: {node: '>=18'}
 
-  '@ethereumjs/util@10.0.0':
-    resolution: {integrity: sha512-lO23alM4uQsv8dp6/yEm4Xw4328+wIRjSeuBO1mRTToUWRcByEMTk87yzBpXgpixpgHrl+9LTn9KB2vvKKtOQQ==}
+  '@ethereumjs/util@10.1.0':
+    resolution: {integrity: sha512-GGTCkRu1kWXbz2JoUnIYtJBOoA9T5akzsYa91Bh+DZQ3Cj4qXj3hkNU0Rx6wZlbcmkmhQfrjZfVt52eJO/y2nA==}
     engines: {node: '>=18'}
 
-  '@ethereumjs/verkle@10.0.0':
-    resolution: {integrity: sha512-pBGcIP0yhxjpBjjmZjF/3DKhjySxoFcFU6s81UI3h3bxiLsFTqPNMdTucFV1wiXeDbq8V4iH3c7IZbLZ5K07kw==}
-    engines: {node: '>=18'}
-
-  '@ethereumjs/vm@10.0.0':
-    resolution: {integrity: sha512-jjl607CwL5vykrwGbpF3MVFxvJOHV6XNmXbngO6emoK74AW1gvq/uY/S8uJ7rQk9HRB1/EkxNsG24x7rVatYMQ==}
+  '@ethereumjs/vm@10.1.0':
+    resolution: {integrity: sha512-5OxHK4hdccDeSiBeSZj8WITl9uB6NbXA6/yf2wAPoflVxZKzOM5h6ssFrOAhz2faD130UoU62pnT23WClgrXSQ==}
     engines: {node: '>=18'}
 
   '@floating-ui/core@1.6.0':
@@ -1272,10 +1268,6 @@ packages:
   '@noble/curves@1.2.0':
     resolution: {integrity: sha512-oYclrNgRaM9SsBUBVbb8M6DTV7ZHRTKugureoYEncY5c65HOmRzvSiTE3y5CYaPYJA/GVkrhXEoF0M3Ya9PMnw==}
 
-  '@noble/curves@1.8.2':
-    resolution: {integrity: sha512-vnI7V6lFNe0tLAuJMu+2sX+FcL14TaCWy1qiczg1VwRmPrpQCdq5ESXQMqUc2tluRNf6irBXrWbl1mGN8uaU/g==}
-    engines: {node: ^14.21.3 || >=16}
-
   '@noble/curves@1.9.0':
     resolution: {integrity: sha512-7YDlXiNMdO1YZeH6t/kvopHHbIZzlxrCV9WLqCY6QhcXOoXiNCMDqJIglZ9Yjx5+w7Dz30TITFrlTjnRg7sKEg==}
     engines: {node: ^14.21.3 || >=16}
@@ -1287,10 +1279,6 @@ packages:
   '@noble/hashes@1.3.2':
     resolution: {integrity: sha512-MVC8EAQp7MvEcm30KWENFjgR+Mkmf+D189XJTkFIlwohU5hcBbn1ZkKq7KVTi2Hme3PMGF390DaL52beVrIihQ==}
     engines: {node: '>= 16'}
-
-  '@noble/hashes@1.7.2':
-    resolution: {integrity: sha512-biZ0NUSxyjLLqo6KxEJ1b+C2NAx0wtDoFvCaXHGgUkeHzf3Xc1xKumFKREuT7f7DARNZ/slvYUwFG6B0f2b6hQ==}
-    engines: {node: ^14.21.3 || >=16}
 
   '@noble/hashes@1.8.0':
     resolution: {integrity: sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A==}
@@ -3136,12 +3124,6 @@ packages:
   merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
-
-  micro-eth-signer@0.14.0:
-    resolution: {integrity: sha512-5PLLzHiVYPWClEvZIXXFu5yutzpadb73rnQCpUqIHu3No3coFuWQNfE5tkBQJ7djuLYl6aRLaS0MgWJYGoqiBw==}
-
-  micro-packed@0.7.3:
-    resolution: {integrity: sha512-2Milxs+WNC00TRlem41oRswvw31146GiSaoCT7s3Xi2gMUglW5QBeqlQaZeHr5tJx9nm3i57LNXPqxOOaWtTYg==}
 
   micromark-core-commonmark@1.1.0:
     resolution: {integrity: sha512-BgHO1aRbolh2hcrzL2d1La37V0Aoz73ymF8rAcKnohLy93titmv62E0gP8Hrx9PKcKrqCZ1BbLGbP3bEhoXYlw==}
@@ -5198,10 +5180,10 @@ snapshots:
 
   '@eslint/js@8.57.0': {}
 
-  '@ethereumjs/binarytree@10.0.0':
+  '@ethereumjs/binarytree@10.1.0':
     dependencies:
-      '@ethereumjs/rlp': 10.0.0
-      '@ethereumjs/util': 10.0.0
+      '@ethereumjs/rlp': 10.1.0
+      '@ethereumjs/util': 10.1.0
       '@noble/hashes': 1.8.0
       debug: 4.4.3
       ethereum-cryptography: 3.2.0
@@ -5209,57 +5191,54 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/block@10.0.0':
+  '@ethereumjs/block@10.1.0':
     dependencies:
-      '@ethereumjs/common': 10.0.0
-      '@ethereumjs/mpt': 10.0.0
-      '@ethereumjs/rlp': 10.0.0
-      '@ethereumjs/tx': 10.0.0
-      '@ethereumjs/util': 10.0.0
+      '@ethereumjs/common': 10.1.0
+      '@ethereumjs/mpt': 10.1.0
+      '@ethereumjs/rlp': 10.1.0
+      '@ethereumjs/tx': 10.1.0
+      '@ethereumjs/util': 10.1.0
       ethereum-cryptography: 3.2.0
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/common@10.0.0':
+  '@ethereumjs/common@10.1.0':
     dependencies:
-      '@ethereumjs/util': 10.0.0
+      '@ethereumjs/util': 10.1.0
       eventemitter3: 5.0.1
 
-  '@ethereumjs/evm@10.0.0':
+  '@ethereumjs/evm@10.1.0':
     dependencies:
-      '@ethereumjs/binarytree': 10.0.0
-      '@ethereumjs/common': 10.0.0
-      '@ethereumjs/statemanager': 10.0.0
-      '@ethereumjs/util': 10.0.0
-      '@ethereumjs/verkle': 10.0.0
+      '@ethereumjs/binarytree': 10.1.0
+      '@ethereumjs/common': 10.1.0
+      '@ethereumjs/statemanager': 10.1.0
+      '@ethereumjs/util': 10.1.0
       '@noble/curves': 1.9.7
-      '@types/debug': 4.1.12
       debug: 4.4.3
       ethereum-cryptography: 3.2.0
       eventemitter3: 5.0.1
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/mpt@10.0.0':
+  '@ethereumjs/mpt@10.1.0':
     dependencies:
-      '@ethereumjs/rlp': 10.0.0
-      '@ethereumjs/util': 10.0.0
+      '@ethereumjs/rlp': 10.1.0
+      '@ethereumjs/util': 10.1.0
       debug: 4.4.3
       ethereum-cryptography: 3.2.0
       lru-cache: 11.0.2
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/rlp@10.0.0': {}
+  '@ethereumjs/rlp@10.1.0': {}
 
-  '@ethereumjs/statemanager@10.0.0':
+  '@ethereumjs/statemanager@10.1.0':
     dependencies:
-      '@ethereumjs/binarytree': 10.0.0
-      '@ethereumjs/common': 10.0.0
-      '@ethereumjs/mpt': 10.0.0
-      '@ethereumjs/rlp': 10.0.0
-      '@ethereumjs/util': 10.0.0
-      '@ethereumjs/verkle': 10.0.0
+      '@ethereumjs/binarytree': 10.1.0
+      '@ethereumjs/common': 10.1.0
+      '@ethereumjs/mpt': 10.1.0
+      '@ethereumjs/rlp': 10.1.0
+      '@ethereumjs/util': 10.1.0
       '@js-sdsl/ordered-map': 4.4.2
       '@noble/hashes': 1.8.0
       debug: 4.4.3
@@ -5268,39 +5247,28 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/tx@10.0.0':
+  '@ethereumjs/tx@10.1.0':
     dependencies:
-      '@ethereumjs/common': 10.0.0
-      '@ethereumjs/rlp': 10.0.0
-      '@ethereumjs/util': 10.0.0
+      '@ethereumjs/common': 10.1.0
+      '@ethereumjs/rlp': 10.1.0
+      '@ethereumjs/util': 10.1.0
       ethereum-cryptography: 3.2.0
 
-  '@ethereumjs/util@10.0.0':
+  '@ethereumjs/util@10.1.0':
     dependencies:
-      '@ethereumjs/rlp': 10.0.0
+      '@ethereumjs/rlp': 10.1.0
       ethereum-cryptography: 3.2.0
 
-  '@ethereumjs/verkle@10.0.0':
+  '@ethereumjs/vm@10.1.0':
     dependencies:
-      '@ethereumjs/rlp': 10.0.0
-      '@ethereumjs/util': 10.0.0
-      debug: 4.4.3
-      lru-cache: 11.0.2
-      micro-eth-signer: 0.14.0
-    transitivePeerDependencies:
-      - supports-color
-
-  '@ethereumjs/vm@10.0.0':
-    dependencies:
-      '@ethereumjs/block': 10.0.0
-      '@ethereumjs/common': 10.0.0
-      '@ethereumjs/evm': 10.0.0
-      '@ethereumjs/mpt': 10.0.0
-      '@ethereumjs/rlp': 10.0.0
-      '@ethereumjs/statemanager': 10.0.0
-      '@ethereumjs/tx': 10.0.0
-      '@ethereumjs/util': 10.0.0
-      '@ethereumjs/verkle': 10.0.0
+      '@ethereumjs/block': 10.1.0
+      '@ethereumjs/common': 10.1.0
+      '@ethereumjs/evm': 10.1.0
+      '@ethereumjs/mpt': 10.1.0
+      '@ethereumjs/rlp': 10.1.0
+      '@ethereumjs/statemanager': 10.1.0
+      '@ethereumjs/tx': 10.1.0
+      '@ethereumjs/util': 10.1.0
       debug: 4.4.3
       ethereum-cryptography: 3.2.0
       eventemitter3: 5.0.1
@@ -5620,10 +5588,6 @@ snapshots:
     dependencies:
       '@noble/hashes': 1.3.2
 
-  '@noble/curves@1.8.2':
-    dependencies:
-      '@noble/hashes': 1.7.2
-
   '@noble/curves@1.9.0':
     dependencies:
       '@noble/hashes': 1.8.0
@@ -5633,8 +5597,6 @@ snapshots:
       '@noble/hashes': 1.8.0
 
   '@noble/hashes@1.3.2': {}
-
-  '@noble/hashes@1.7.2': {}
 
   '@noble/hashes@1.8.0': {}
 
@@ -5708,7 +5670,7 @@ snapshots:
 
   '@scure/bip32@1.7.0':
     dependencies:
-      '@noble/curves': 1.9.0
+      '@noble/curves': 1.9.7
       '@noble/hashes': 1.8.0
       '@scure/base': 1.2.6
 
@@ -7808,16 +7770,6 @@ snapshots:
   merge-stream@2.0.0: {}
 
   merge2@1.4.1: {}
-
-  micro-eth-signer@0.14.0:
-    dependencies:
-      '@noble/curves': 1.8.2
-      '@noble/hashes': 1.7.2
-      micro-packed: 0.7.3
-
-  micro-packed@0.7.3:
-    dependencies:
-      '@scure/base': 1.2.6
 
   micromark-core-commonmark@1.1.0:
     dependencies:

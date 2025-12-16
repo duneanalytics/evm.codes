@@ -226,5 +226,11 @@
     "input": "field_element_c0 | field_element_c1",
     "output": "x_c0 | x_c1 | y_c0 | y_c1",
     "description": "BLS12-381 map field extension element to G2 point"
+  },
+  "0x100": {
+    "name": "P256VERIFY",
+    "input": "hash | r | s | qx | qy",
+    "output": "success",
+    "description": "ECDSA signature verification on the secp256r1 (P-256) elliptic curve"
   }
 }

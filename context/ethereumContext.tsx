@@ -65,6 +65,7 @@ const postMergeHardforkNames: Array<string> = [
   'shanghai',
   'cancun',
   'prague',
+  'osaka',
 ]
 export const prevrandaoDocName = '44_merge'
 const EOF_EIPS = [
@@ -538,12 +539,14 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
 
   const _loadPrecompiled = () => {
     const precompiled: IReferenceItem[] = []
+    const meta = PrecompiledMeta as IReferenceItemMetaList
 
     const addressIterator = getActivePrecompiles(common).keys()
     let result = addressIterator.next()
     while (!result.done) {
-      const meta = PrecompiledMeta as IReferenceItemMetaList
-      const addressString = '0x' + result.value.slice(-2)
+      // Convert full address (e.g., "0000...0001" or "0000...0100") to short form
+      // Format: 0x01-0x0f (2 digits), 0x10-0x11 (2 digits), 0x100 (3 digits)
+      const addressString = '0x' + result.value.slice(2).replace(/^0+(?=..)/, '')
 
       if (!meta[addressString]) {
         result = addressIterator.next()
