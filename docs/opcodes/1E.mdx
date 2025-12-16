@@ -1,0 +1,54 @@
+---
+fork: Osaka
+group: Comparison & Bitwise Logic Operations
+---
+
+*Index 1 is top of the stack.*
+
+## Notes
+
+Counts the number of leading zero bits in a 256-bit word. If the input is zero, the result is 256. This operation is useful for efficient implementation of mathematical functions (sqrt, cbrt, log2), byte/word size comparisons, and bitmap operations.
+
+This opcode is specified in [EIP-7939](https://eips.ethereum.org/EIPS/eip-7939).
+
+## Stack input
+
+0. `x`: 256-bit value to count leading zeros of.
+
+## Stack output
+
+0. `clz(x)`: the number of leading zero bits in `x` (0 to 256).
+
+## Examples
+
+| * | Input | Output |
+|--:|------:|-------:|
+| `1` | `0x0000000000000000000000000000000000000000000000000000000000000000` | `0x100` |
+
+| * | Input | Output |
+|--:|------:|-------:|
+| `1` | `0x8000000000000000000000000000000000000000000000000000000000000000` | `0x0` |
+
+| * | Input | Output |
+|--:|------:|-------:|
+| `1` | `0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff` | `0x0` |
+
+| * | Input | Output |
+|--:|------:|-------:|
+| `1` | `0x4000000000000000000000000000000000000000000000000000000000000000` | `0x1` |
+
+| * | Input | Output |
+|--:|------:|-------:|
+| `1` | `0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff` | `0x1` |
+
+| * | Input | Output |
+|--:|------:|-------:|
+| `1` | `0x0000000000000000000000000000000000000000000000000000000000000001` | `0xff` |
+
+[Reproduce in playground](/playground?fork=osaka&unit=Wei&codeType=Mnemonic&code='PUSH32%200x7zzz%5CnCLZ'~fffffffz~~~%01z~_).
+
+## Error cases
+
+The state changes done by the current context are [reverted](#FD) in those cases:
+- Not enough gas.
+- Not enough values on the stack.

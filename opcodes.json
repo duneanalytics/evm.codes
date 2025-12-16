@@ -160,9 +160,9 @@
     "description": "Arithmetic (signed) right shift operation"
   },
   "1e": {
-    "input": "",
-    "output": "",
-    "description": ""
+    "input": "x",
+    "output": "clz(x)",
+    "description": "Count leading zero bits"
   },
   "1f": {
     "input": "",
