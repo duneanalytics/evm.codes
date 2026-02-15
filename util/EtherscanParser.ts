@@ -11,7 +11,9 @@ export function etherscanParse(
   response: EtherscanResponse,
 ): EtherscanContractResponse {
   if (response.message !== 'OK') {
-    throw 'etherscan response is not OK'
+    const reason =
+      typeof response.result === 'string' ? response.result : response.message
+    throw `etherscan response is not OK: ${reason}`
   }
 
   if (!response.result || response.result.length == 0) {
