@@ -4,7 +4,7 @@ import { IInstruction, IReferenceItem } from 'types'
 import { EOF_FORK_NAME } from './constants'
 
 // Version here: https://github.com/ethereum/solc-bin/blob/gh-pages/bin/list.txt
-export const compilerVersion = `soljson-v0.8.27+commit.40a35a09`
+export const compilerVersion = `soljson-v0.8.31+commit.fd3a2265`
 
 /**
  * Gets target EVM version from a hardfork name
