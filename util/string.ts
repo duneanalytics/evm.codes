@@ -1,5 +1,6 @@
 import hljs from 'highlight.js/lib/core'
 import hljsDefineSolidity from 'highlightjs-solidity'
+import { IMemoryWord } from 'types'
 
 import hljsDefineBytecode from '../bytecode.js'
 import hljsDefineMnemonic from '../mnemonic.js'
@@ -67,6 +68,46 @@ export const fromBuffer = (buf: Buffer) => {
     result += value.toString(16).padStart(2, '0')
   })
   return result
+}
+
+const EVM_MEMORY_WORD_BYTES = 32
+const EVM_MEMORY_WORD_HEX_LENGTH = EVM_MEMORY_WORD_BYTES * 2
+
+const normalizeMemoryWordHex = (wordHex: string) =>
+  wordHex
+    .padEnd(EVM_MEMORY_WORD_HEX_LENGTH, '0')
+    .slice(0, EVM_MEMORY_WORD_HEX_LENGTH)
+
+/**
+ * Splits EVM memory into 32-byte words keyed by byte offset (00, 20, 40, …).
+ */
+export const formatEvmMemory = (hex: string): IMemoryWord[] => {
+  if (!hex || hex.length === 0) {
+    return [{ offset: '00', data: '' }]
+  }
+
+  const totalBytes = hex.length / 2
+  const offsetWidth = Math.max(
+    2,
+    Math.max(0, totalBytes - 1).toString(16).length,
+  )
+  const words: IMemoryWord[] = []
+
+  for (
+    let hexIndex = 0;
+    hexIndex < hex.length;
+    hexIndex += EVM_MEMORY_WORD_HEX_LENGTH
+  ) {
+    const byteOffset = hexIndex / 2
+    const offset = byteOffset.toString(16).padStart(offsetWidth, '0')
+    const wordHex = hex.slice(hexIndex, hexIndex + EVM_MEMORY_WORD_HEX_LENGTH)
+    words.push({
+      offset,
+      data: normalizeMemoryWordHex(wordHex),
+    })
+  }
+
+  return words
 }
 
 /**
