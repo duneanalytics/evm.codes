@@ -6,6 +6,7 @@ import { EthereumContext } from 'context/ethereumContext'
 
 import { toKeyIndex } from 'util/string'
 
+import { MemoryPane } from 'components/Editor/MemoryPane'
 import { StackBox } from 'components/ui'
 
 type RowProps = {
@@ -51,7 +52,13 @@ const ExecutionState = () => {
   return (
     <div>
       <dl className="text-2xs">
-        <ExecutionStateRow label="Memory" value={memory} />
+        <dt className="mb-1 text-gray-500 dark:text-gray-400 font-medium uppercase">
+          Memory
+        </dt>
+        <dd className="font-mono mb-2">
+          <MemoryPane words={memory} />
+        </dd>
+
         <ExecutionStateRow label="Stack" value={stack} />
 
         <dt className="mb-1 text-gray-500 dark:text-gray-400 font-medium uppercase">
