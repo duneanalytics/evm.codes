@@ -72,6 +72,7 @@
     "@types/ethereumjs-abi": "^0.6.5",
     "@types/lodash.debounce": "^4.0.9",
     "@types/mdx-js__react": "^1.5.8",
+    "@types/node": "25.9.2",
     "@types/react": "17.0.30",
     "@types/react-dom": "^17.0.2",
     "@types/react-no-ssr": "^1.1.7",
@@ -98,25 +99,14 @@
     "typescript": "^5.0.4",
     "webpack": "^5.90.3"
   },
-  "packageManager": "pnpm@9.10.0",
+  "packageManager": "pnpm@10.34.1",
   "engines": {
     "node": "^20.0.0",
-    "pnpm": "^9.0.0"
+    "pnpm": "^10.0.0"
   },
   "volta": {
     "node": "20.12.2",
-    "pnpm": "9.10.0"
-  },
-  "pnpm": {
-    "allowedDeprecatedVersions": {
-      "@babel/plugin-proposal-object-rest-spread": "7.12.1",
-      "core-js": "2.6.12",
-      "trim": "0.0.1"
-    },
-    "overrides": {
-      "@types/react": "17.0.2",
-      "@types/react-dom": "17.0.2"
-    }
+    "pnpm": "10.34.1"
   },
   "browserslist": {
     "production": [
