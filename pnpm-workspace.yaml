@@ -6,6 +6,7 @@
 minimumReleaseAge: 4320
 onlyBuiltDependencies:
   - '@swc/core'
+  - esbuild
   - keccak
   - secp256k1
 # Settings below moved from package.json's "pnpm" field, which pnpm 10 no longer reads.
