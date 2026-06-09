@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "next build",
-    "build:solcjs-worker": "npx -y browserify -t babelify ./babel/solcWorker2.js > ./public/solcWorker.js",
+    "build:solcjs-worker": "browserify -t babelify ./babel/solcWorker2.js > ./public/solcWorker.js",
     "dev": "pnpm run build:solcjs-worker && next dev",
     "format": "prettier --write  --cache .",
     "serve": "pnpm run build && next start",
@@ -82,6 +82,7 @@
     "@typescript-eslint/parser": "^7.2.0",
     "abitype": "^1.0.2",
     "autoprefixer": "^10.4.18",
+    "browserify": "^17.0.1",
     "eslint": "^8.57.0",
     "eslint-config-next": "12.3.2",
     "eslint-config-prettier": "^9.1.0",
