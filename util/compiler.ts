@@ -27,7 +27,7 @@ export const getTargetEvmVersion = (forkName: string | undefined) => {
     )
   ) {
     return 'london'
-  } else if (forkName === EOF_FORK_NAME) {
+  } else if (forkName === 'osaka' || forkName === EOF_FORK_NAME) {
     return 'prague'
   }
   return forkName
