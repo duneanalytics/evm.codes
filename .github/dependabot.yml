@@ -1,0 +1,19 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    cooldown:
+      default-days: 7
+    open-pull-requests-limit: 10
+    groups:
+      security-updates:
+        applies-to: "security-updates"
+        patterns: ["*"]
+      minor-and-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+      major-updates:
+        patterns: ["*"]
+        update-types: ["major"]
