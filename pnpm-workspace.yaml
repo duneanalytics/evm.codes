@@ -1,0 +1,19 @@
+# Supply Chain Hardening:
+# - minimumReleaseAge: only install package versions published at least this many
+#   minutes ago (4320 = 3 days), providing a rolling publish-recency cooldown.
+# - onlyBuiltDependencies: allowlist of packages permitted to run install/build
+#   lifecycle scripts (pnpm 10 blocks all by default).
+minimumReleaseAge: 4320
+onlyBuiltDependencies:
+  - '@swc/core'
+  - esbuild
+  - keccak
+  - secp256k1
+# Settings below moved from package.json's "pnpm" field, which pnpm 10 no longer reads.
+overrides:
+  '@types/react': 17.0.2
+  '@types/react-dom': 17.0.2
+allowedDeprecatedVersions:
+  '@babel/plugin-proposal-object-rest-spread': 7.12.1
+  core-js: 2.6.12
+  trim: 0.0.1
