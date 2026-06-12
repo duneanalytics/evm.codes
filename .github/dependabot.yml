@@ -6,7 +6,6 @@ updates:
       interval: "monthly"
     cooldown:
       default-days: 7
-    open-pull-requests-limit: 10
     groups:
       security-updates:
         applies-to: "security-updates"
