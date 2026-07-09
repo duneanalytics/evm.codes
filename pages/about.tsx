@@ -495,7 +495,7 @@ const AboutPage = () => {
           </a>
           ,{' '}
           <a
-            href="https://github.com/ethereumbook/ethereumbook/blob/develop/13evm.asciidoc"
+            href="https://github.com/ethereumbook/ethereumbook/blob/develop/src/chapter_14.md"
             target="_blank"
             rel="noreferrer"
             className="underline"
