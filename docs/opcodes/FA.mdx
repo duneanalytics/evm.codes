@@ -35,3 +35,5 @@ Not allowed in EOFv1 code, code containing this instruction will fail validation
 The state changes done by the current context are [reverted](#FD) in those cases:
 - Not enough gas.
 - Not enough values on the stack.
+
+The state changes done by the sub context are [reverted](#FD) and all the remaining gas in the sub context is consumed if any of the disallowed state modifying instructions (see list above) is used by the sub context.
