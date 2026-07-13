@@ -64,15 +64,15 @@ const PrecompiledPage = ({
           On top of having a set of opcodes to choose from, the EVM also offers
           a set of more advanced functionalities through precompiled contracts.
           These are a special kind of contracts that are bundled with the EVM at
-          fixed addresses, and can be called with a determined gas cost. The
-          addresses start from 1, and increment for each contract. New hardforks
-          may introduce new precompiled contracts. They are called from the
-          opcodes like regular contracts, with instructions like{' '}
-          <Link to="#F1" title="CALL" />. The gas cost mentioned here is purely
-          the cost of the contract, and does not consider the cost of the call
-          itself nor the instructions to put the parameters in memory. The
-          precompiled contracts are also available in the{' '}
-          <Link to="playground" title="playground" />.
+          fixed addresses, and can be called with a determined gas cost. Early
+          precompiled contracts use sequential addresses starting from 1, while
+          new hardforks may introduce precompiled contracts at non-contiguous
+          addresses. They are called from the opcodes like regular contracts,
+          with instructions like <Link to="#F1" title="CALL" />. The gas cost
+          mentioned here is purely the cost of the contract, and does not
+          consider the cost of the call itself nor the instructions to put the
+          parameters in memory. The precompiled contracts are also available in
+          the <Link to="playground" title="playground" />.
         </p>
         <p className="pb-6">
           For all precompiled contracts, if the input is shorter than expected,
