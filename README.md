@@ -14,7 +14,7 @@ evm.codes is brought to you by [Dune](https://dune.com/home), powered by open-so
 
 The app requires the following dependencies:
 
-- [NodeJS](https://nodejs.org/) >= 20
+- [NodeJS](https://nodejs.org/) >= 24
 - [pnpm](https://pnpm.io/)
 
 ## 👩‍💻 Local Development
