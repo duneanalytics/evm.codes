@@ -103,11 +103,11 @@
   },
   "packageManager": "pnpm@10.34.1",
   "engines": {
-    "node": "^20.0.0",
+    "node": "^24.0.0",
     "pnpm": "^10.0.0"
   },
   "volta": {
-    "node": "20.12.2",
+    "node": "24.11.1",
     "pnpm": "10.34.1"
   },
   "browserslist": {
