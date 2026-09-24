@@ -13,7 +13,9 @@ Should deployment succeed, the new account's [code](/about) is set to the [retur
 
 The destination address is calculated as the rightmost 20 bytes (160 bits) of the Keccak-256 hash of the rlp encoding of the sender address followed by its nonce. That is:
 
-    address = keccak256(rlp([sender_address,sender_nonce]))[12:]
+```
+address = keccak256(rlp([sender_address,sender_nonce]))[12:]
+```
 
 Deployment can fail due to:
 - A contract already exists at the destination address (can happen in combination with [CREATE2](/#F5) and [SELFDESTRUCT](/#FF)).

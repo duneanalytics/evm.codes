@@ -1,8 +1,10 @@
 ## Gas
 
-    minimum_word_size = (size + 31) / 32
+```
+minimum_word_size = (size + 31) / 32
 
-    static_gas = {gasPrices|keccak256}
-    dynamic_gas = {gasPrices|keccak256Word} * minimum_word_size + memory_expansion_cost
+static_gas = {gasPrices|keccak256}
+dynamic_gas = {gasPrices|keccak256Word} * minimum_word_size + memory_expansion_cost
+```
 
 The memory expansion cost explanation can be found [here](/about).

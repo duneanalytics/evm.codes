@@ -13,8 +13,10 @@ Should deployment succeed, the account's [code](/about) is set to the [return da
 
 The destination address is calculated as follows:
 
-    initialisation_code = memory[offset:offset+size]
-    address = keccak256(0xff + sender_address + salt + keccak256(initialisation_code))[12:]
+```
+initialisation_code = memory[offset:offset+size]
+address = keccak256(0xff + sender_address + salt + keccak256(initialisation_code))[12:]
+```
 
 Deployment can fail due to:
 - A contract already exists at the destination address.

@@ -11,8 +11,10 @@ Behavior on accessed_addresses and address collision is same as [CREATE2](/#F5).
 
 The destination address is calculated as follows:
 
-    initialisation_code = eof_container[initcontainer_index]
-    address = keccak256(0xff + sender_address + salt + keccak256(initialisation_code))[12:]
+```
+initialisation_code = eof_container[initcontainer_index]
+address = keccak256(0xff + sender_address + salt + keccak256(initialisation_code))[12:]
+```
 
 Deployment can fail due to:
 - A contract already exists at the destination address.

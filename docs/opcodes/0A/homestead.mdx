@@ -1,6 +1,8 @@
 ## Gas
 
-    static_gas = {gasPrices|exp}
-    dynamic_gas = {gasPrices|expByte} * exponent_byte_size
+```
+static_gas = {gasPrices|exp}
+dynamic_gas = {gasPrices|expByte} * exponent_byte_size
+```
 
 The dynamic gas is simply a function of how many bytes we need to represent the exponent in [binary](https://en.wikipedia.org/wiki/Binary_number).

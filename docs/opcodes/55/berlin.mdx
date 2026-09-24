@@ -6,36 +6,40 @@
 - **original_value**: value of the storage slot before the current transaction.
 
 
-    static_gas = {gasPrices|sstore}
+```
+static_gas = {gasPrices|sstore}
 
-    if value == current_value
-        base_dynamic_gas = {gasPrices|warmstorageread}
-    else if current_value == original_value
-        if original_value == 0
-            base_dynamic_gas = {gasPrices|sstoreInitGasEIP2200}
-        else
-            base_dynamic_gas = {gasPrices|sstoreCleanGasEIP2200}
+if value == current_value
+    base_dynamic_gas = {gasPrices|warmstorageread}
+else if current_value == original_value
+    if original_value == 0
+        base_dynamic_gas = {gasPrices|sstoreInitGasEIP2200}
     else
-        base_dynamic_gas = {gasPrices|warmstorageread}
+        base_dynamic_gas = {gasPrices|sstoreCleanGasEIP2200}
+else
+    base_dynamic_gas = {gasPrices|warmstorageread}
+```
 
 On top of the cost above, {gasPrices|coldsload} is added to `base_dynamic_gas` if the slot is cold. See section [access sets](/about).
 
 ## Gas refunds
 
-    if value != current_value
-        if current_value == original_value
-            if original_value != 0 and value == 0
+```
+if value != current_value
+    if current_value == original_value
+        if original_value != 0 and value == 0
+            gas_refunds += {gasPrices|sstoreClearRefundEIP2200}
+    else
+        if original_value != 0
+            if current_value == 0
+                gas_refunds -= {gasPrices|sstoreClearRefundEIP2200}
+            else if value == 0
                 gas_refunds += {gasPrices|sstoreClearRefundEIP2200}
-        else
-            if original_value != 0
-                if current_value == 0
-                    gas_refunds -= {gasPrices|sstoreClearRefundEIP2200}
-                else if value == 0
-                    gas_refunds += {gasPrices|sstoreClearRefundEIP2200}
-            if value == original_value
-                if original_value == 0
-                    gas_refunds += {gasPrices|sstoreInitGasEIP2200} - {gasPrices|warmstorageread}
-                else
-                    gas_refunds += {gasPrices|sstoreReset} - {gasPrices|coldsload} - {gasPrices|warmstorageread}
+        if value == original_value
+            if original_value == 0
+                gas_refunds += {gasPrices|sstoreInitGasEIP2200} - {gasPrices|warmstorageread}
+            else
+                gas_refunds += {gasPrices|sstoreReset} - {gasPrices|coldsload} - {gasPrices|warmstorageread}
+```
 
 See [gas refunds](/about).
