@@ -35,5 +35,7 @@ If `size > 0` and `(src + size or dst + size)` is beyond the current memory size
 [Reproduce in playground](/playground?fork=cancun&unit=Wei&codeType=Mnemonic&code='ySet%20the%20stateuv0x000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f~32wMSTOREwwyExamplrsizroffset~0%20%2Fydestination%20offsetwMCOPY'~u1%20y%2F%2F%20w%5Cnv32%20uwPUSHre~vy%01ruvwy~_).
 
 ## Gas
-    static_gas = 3
-    dynamic_gas = 3 * words_copied + memory_expansion_cost
+```
+static_gas = 3
+dynamic_gas = 3 * words_copied + memory_expansion_cost
+```

@@ -1,9 +1,11 @@
 ## Gas
 
-    minimum_word_size = (size + 31) / 32
+```
+minimum_word_size = (size + 31) / 32
 
-    static_gas = {gasPrices|extcodecopy}
-    dynamic_gas = {gasPrices|copy} * minimum_word_size + memory_expansion_cost + address_access_cost
+static_gas = {gasPrices|extcodecopy}
+dynamic_gas = {gasPrices|copy} * minimum_word_size + memory_expansion_cost + address_access_cost
+```
 
 The memory expansion cost explanation can be found [here](/about).
 If the accessed address is warm, `address_access_cost` is {gasPrices|warmstorageread}, otherwise it is {gasPrices|coldaccountaccess}. See section [access sets](/about).

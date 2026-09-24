@@ -1,11 +1,13 @@
 ## Gas
 
-    minimum_word_size = (initcontainer_size + 31) / 32
-    hash_cost = {gasPrices|keccak256WordGas} * minimum_word_size
-    code_deposit_cost = {gasPrices|createDataGas} * deployed_code_size
+```
+minimum_word_size = (initcontainer_size + 31) / 32
+hash_cost = {gasPrices|keccak256WordGas} * minimum_word_size
+code_deposit_cost = {gasPrices|createDataGas} * deployed_code_size
 
-    static_gas = {gasPrices|eofcreateGas}
-    dynamic_gas = hash_cost + memory_expansion_cost + deployment_code_execution_cost + code_deposit_cost
+static_gas = {gasPrices|eofcreateGas}
+dynamic_gas = hash_cost + memory_expansion_cost + deployment_code_execution_cost + code_deposit_cost
+```
 
 The `deployment_code_execution_cost` is the cost of whatever opcode is run to deploy the new contract. 
 On top of that, there are additional costs for storing the code of the new contract, respectively shown as `code_deposit_cost`.
