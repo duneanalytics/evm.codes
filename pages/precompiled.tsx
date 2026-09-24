@@ -1,17 +1,17 @@
 import fs from 'fs'
 import path from 'path'
 
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, ReactElement } from 'react'
 
 import matter from 'gray-matter'
-import type { NextPage } from 'next'
 import getConfig from 'next/config'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { serialize } from 'next-mdx-remote/serialize'
 import { IItemDocs, IGasDocs, IDocMeta } from 'types'
 
 import { EthereumContext } from 'context/ethereumContext'
+
+import { serializeDoc } from 'util/mdx'
 
 import ContributeBox from 'components/ContributeBox'
 import HomeLayout from 'components/layouts/Home'
@@ -104,7 +104,7 @@ const PrecompiledPage = ({
   )
 }
 
-PrecompiledPage.getLayout = function getLayout(page: NextPage) {
+PrecompiledPage.getLayout = function getLayout(page: ReactElement) {
   return <HomeLayout>{page}</HomeLayout>
 }
 
@@ -140,7 +140,7 @@ export const getStaticProps = async () => {
           )
           const { data, content } = matter(markdownWithMeta)
           const meta = data as IDocMeta
-          const mdxSource = await serialize(content)
+          const mdxSource = await serializeDoc(content)
 
           precompiledDocs[address] = {
             meta,

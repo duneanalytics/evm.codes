@@ -23,7 +23,9 @@ export const SettingsContext = createContext<ContextProps>({
   setSetting: () => null,
 })
 
-export const SettingsProvider: React.FC<{}> = ({ children }) => {
+export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [settings, setSettings] = useState<any>({})
   const [settingsLoaded, setSettingsLoaded] = useState(false)
 

@@ -1,4 +1,5 @@
-import type { NextPage } from 'next'
+import { ReactElement } from 'react'
+
 import Head from 'next/head'
 
 import Editor from 'components/Editor'
@@ -24,7 +25,7 @@ const PlaygroundPage = () => {
   )
 }
 
-PlaygroundPage.getLayout = function getLayout(page: NextPage) {
+PlaygroundPage.getLayout = function getLayout(page: ReactElement) {
   return <HomeLayout>{page}</HomeLayout>
 }
 

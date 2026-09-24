@@ -1,7 +1,7 @@
 import { useContext, useMemo, useEffect, useState } from 'react'
 
 import cn from 'classnames'
-import { MDXRemote } from 'next-mdx-remote'
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { IReferenceItem, IItemDoc, IGasDoc } from 'types'
 
 import { EthereumContext } from 'context/ethereumContext'
@@ -44,7 +44,8 @@ const DocRow = ({
   dynamicFeeForkName,
 }: Props) => {
   const { common, forks, selectedFork } = useContext(EthereumContext)
-  const [dynamicFeeDocMdx, setDynamicFeeDocMdx] = useState()
+  const [dynamicFeeDocMdx, setDynamicFeeDocMdx] =
+    useState<MDXRemoteSerializeResult>()
 
   const dynamicFeeDoc = useMemo(() => {
     if (!gasDocs) {
@@ -109,11 +110,7 @@ const DocRow = ({
             >
               <MDXRemote {...itemDoc.mdxSource} components={docComponents} />
               {dynamicFeeForkName && dynamicFeeDocMdx && (
-                <MDXRemote
-                  compiledSource=""
-                  {...(dynamicFeeDocMdx ? dynamicFeeDocMdx : {})}
-                  components={docComponents}
-                />
+                <MDXRemote {...dynamicFeeDocMdx} components={docComponents} />
               )}
             </div>
 

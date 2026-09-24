@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
-import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 
@@ -57,7 +56,7 @@ const AboutPage = () => {
       <H1>About the EVM</H1>
 
       <SectionWrapper header={<H2>Introduction</H2>} anchorKey="introduction">
-        <p className="pb-6">
+        <div className="pb-6">
           <H3>What is the Ethereum Virtual Machine?</H3>
           The Ethereum Virtual Machine (or{' '}
           <a
@@ -75,8 +74,8 @@ const AboutPage = () => {
           inputs, the parameters that they may need, and stack outputs (their
           return values). The list of these instructions, with their opcodes, is
           accessible in our <RelativeLink title="reference" />.
-        </p>
-        <p className="pb-8">
+        </div>
+        <div className="pb-8">
           <H3>What is a smart contract?</H3>A smart contract is a set of
           instructions. Each instruction is an opcode (with their own handy
           mnemonic for reference, text representations of their assigned values
@@ -92,7 +91,7 @@ const AboutPage = () => {
           being consumed in all the other cases of reversion). In the event of a
           reverted transaction, any state changes dictated by the transaction
           instructions are returned to their state before the transaction.
-        </p>
+        </div>
       </SectionWrapper>
 
       <SectionWrapper
@@ -216,7 +215,7 @@ const AboutPage = () => {
       </SectionWrapper>
 
       <SectionWrapper header={<H2>Gas Costs</H2>} anchorKey="gascosts">
-        <p className="pb-4">
+        <div className="pb-4">
           Each transaction on the Ethereum blockchain is vetted by a third-party
           validator, before it is added to the blockchain. These validators are
           compensated for conducting this vetting process, and adding
@@ -283,7 +282,7 @@ const AboutPage = () => {
               to learn about the specific computations per opcode and fork.
             </li>
           </ul>
-        </p>
+        </div>
         <p className="pb-8">
           To get a complete estimation of the gas cost for your program, with
           your compiler options and specific state and inputs, use a tool like{' '}
@@ -324,7 +323,7 @@ const AboutPage = () => {
           context.
         </p>
 
-        <p className="pb-4">
+        <div className="pb-4">
           <p className="pb-4">
             The total cost for a given memory size is computed as follows:
           </p>
@@ -336,9 +335,9 @@ const AboutPage = () => {
               memory_size_word)
             </code>
           </Pre>
-        </p>
+        </div>
 
-        <p className="pb-4">
+        <div className="pb-4">
           <p className="pb-4">
             When a memory expansion is triggered, only the additional bytes of
             memory must be paid for. Therefore, the cost of memory expansion for
@@ -349,7 +348,7 @@ const AboutPage = () => {
               memory_expansion_cost = new_memory_cost - last_memory_cost
             </code>
           </Pre>
-        </p>
+        </div>
 
         <p className="pb-8">
           The <code>memory_byte_size</code> can be obtained with opcode{' '}
@@ -414,7 +413,7 @@ const AboutPage = () => {
           using EIP-2930 access lists. The dynamic cost of some opcodes depends
           on whether an address or slot is warm or cold.
         </p>
-        <p className="pb-8">
+        <div className="pb-8">
           At the start of a transaction's execution, the touched addresses set
           is initialized to include the following addresses, which are hence
           always 'warm':
@@ -431,7 +430,7 @@ const AboutPage = () => {
               <RelativeLink to="#41" title="COINBASE" /> address.
             </li>
           </ul>
-        </p>
+        </div>
         <p className="pb-6">
           If a context is reverted, access warming effects are reverted to their
           state before the context.
@@ -544,7 +543,7 @@ const AboutPage = () => {
   )
 }
 
-AboutPage.getLayout = function getLayout(page: NextPage) {
+AboutPage.getLayout = function getLayout(page: ReactElement) {
   return <HomeLayout>{page}</HomeLayout>
 }
 
