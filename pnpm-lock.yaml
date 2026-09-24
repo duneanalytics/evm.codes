@@ -11,6 +11,16 @@ overrides:
   esbuild@<0.25.0: ^0.25.0
   postcss@<8.5.23: ^8.5.23
   trim@<0.0.3: ^0.0.3
+  '@ethereumjs/binarytree': 10.1.0
+  '@ethereumjs/block': 10.1.0
+  '@ethereumjs/common': 10.1.0
+  '@ethereumjs/evm': 10.1.0
+  '@ethereumjs/mpt': 10.1.0
+  '@ethereumjs/rlp': 10.1.0
+  '@ethereumjs/statemanager': 10.1.0
+  '@ethereumjs/tx': 10.1.0
+  '@ethereumjs/util': 10.1.0
+  '@ethereumjs/vm': 10.1.0
 
 importers:
 
@@ -26,23 +36,23 @@ importers:
         specifier: ^11.11.0
         version: 11.14.1(@emotion/react@11.14.0(@types/react@17.0.2)(react@17.0.2))(@types/react@17.0.2)(react@17.0.2)
       '@ethereumjs/block':
-        specifier: ^10.1.0
-        version: 10.1.3
+        specifier: 10.1.0
+        version: 10.1.0
       '@ethereumjs/common':
-        specifier: ^10.1.0
-        version: 10.1.3
+        specifier: 10.1.0
+        version: 10.1.0
       '@ethereumjs/evm':
-        specifier: ^10.1.0
-        version: 10.1.3
+        specifier: 10.1.0
+        version: 10.1.0
       '@ethereumjs/tx':
-        specifier: ^10.1.0
-        version: 10.1.3
+        specifier: 10.1.0
+        version: 10.1.0
       '@ethereumjs/util':
-        specifier: ^10.1.0
-        version: 10.1.3
+        specifier: 10.1.0
+        version: 10.1.0
       '@ethereumjs/vm':
-        specifier: ^10.1.0
-        version: 10.1.3
+        specifier: 10.1.0
+        version: 10.1.0
       '@kunigi/string-compression':
         specifier: 1.0.2
         version: 1.0.2
@@ -1021,44 +1031,44 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@ethereumjs/binarytree@10.1.3':
-    resolution: {integrity: sha512-XWHuNNVZVtSfr6/2UbAhCXf848s4rNKUuVKFNG6O18lz0anuaMiIADfNQJ5DOhOfflZVIPRvGWegDMoU6xRaBA==}
-    engines: {node: '>=20'}
+  '@ethereumjs/binarytree@10.1.0':
+    resolution: {integrity: sha512-54n24oYJqgDk6DtXVjjGohjQCFCDgcvI2+AeNGRZcsQuz6yE2HYvxWq8VrAAcR8ja/gNc9eVYL51DvU93qK8Eg==}
+    engines: {node: '>=18'}
 
-  '@ethereumjs/block@10.1.3':
-    resolution: {integrity: sha512-6c0U1T1VMv44l7WXL6RWDiP26o/Cv53Z+9C07+5WJHNrYM7S2S/DsOCVog95Hhh0E9KCRjoCu3bzSsxQynu8Og==}
-    engines: {node: '>=20'}
+  '@ethereumjs/block@10.1.0':
+    resolution: {integrity: sha512-W2GR/ejYn/idfX4fxQ2DRbrbOF5U04Q2wDiMuxtvnOr8zdVCBSlVYCC348N73ufkrqY5ltTlEUZYWLWWobcS/Q==}
+    engines: {node: '>=18'}
 
-  '@ethereumjs/common@10.1.3':
-    resolution: {integrity: sha512-ECWwbc4s8Ji7U0mkfZP6gIDy1FxXe0ZyVOTt0adkztPQRzX2DbH2ul7a83DSS8qYAiG6//vVXMkP60TyYOnv8Q==}
+  '@ethereumjs/common@10.1.0':
+    resolution: {integrity: sha512-zIHCy0i2LFmMDp+QkENyoPGxcoD3QzeNVhx6/vE4nJk4uWGNXzO8xJ2UC4gtGW4UJTAOXja8Z1yZMVeRc2/+Ew==}
 
-  '@ethereumjs/evm@10.1.3':
-    resolution: {integrity: sha512-7C6oo3f1rvtsFAQOURcmEkyUTBTePBbQUgWTfzrual8kbb0R8053rY+PolvFDETfVSK/TrPzZFhFe5sgz+Clgw==}
-    engines: {node: '>=20'}
+  '@ethereumjs/evm@10.1.0':
+    resolution: {integrity: sha512-RD6tjysXEWPfyBHmMxsg3s3T2JdbPVYvsDDDUR0laFaHWtHMnOeW/EIZ5njUx75nG+i72w34Sh6NhhkpkhMGDg==}
+    engines: {node: '>=18'}
 
-  '@ethereumjs/mpt@10.1.3':
-    resolution: {integrity: sha512-pN43KoH8V0afpIltMFJf0tSSpX9Xssp9LGAyamnYc93oe0r8bRafeizPWR9aDsS+WXSg/IWQscoZ3xTybQSYoA==}
-    engines: {node: '>=20'}
+  '@ethereumjs/mpt@10.1.0':
+    resolution: {integrity: sha512-gWxx8n1OB2Js3EFWNeSdsUdYvw1P5WvdKxHmeq+giO03mt5fGRbuSh3ruXzreG4JRugpNSW6Dwqk+StVwjrQ4Q==}
+    engines: {node: '>=18'}
 
-  '@ethereumjs/rlp@10.1.3':
-    resolution: {integrity: sha512-d795YWkN6O8EJh/PgJ2zZKCdBMl8OlqkuVQESoidH666gaFtUuJ01jDtiuqfyOqTNcTdGhHi8LkQv1WEZzvZZw==}
-    engines: {node: '>=20'}
+  '@ethereumjs/rlp@10.1.0':
+    resolution: {integrity: sha512-r67BJbwilammAqYI4B5okA66cNdTlFzeWxPNJOolKV52ZS/flo0tUBf4x4gxWXBgh48OgsdFV1Qp5pRoSe8IhQ==}
+    engines: {node: '>=18'}
     hasBin: true
 
-  '@ethereumjs/statemanager@10.1.3':
-    resolution: {integrity: sha512-d56NBae8xjh/ZY+orqvIfE30WLHOn2okacUekbM9J7VZrokjxQ2800sb6K6srffoSekcgbHxIWFJ3r+81jzrrA==}
+  '@ethereumjs/statemanager@10.1.0':
+    resolution: {integrity: sha512-n4AB8olDocXtq/V6SClbZ5zEDfJL7cw3MmkGUb/MVQwJBgYZ143oll4UfGaK7jWQfF5Gth68KEJZQay5Hh3h6g==}
 
-  '@ethereumjs/tx@10.1.3':
-    resolution: {integrity: sha512-5uk9qB2MjyF4axL6GGPvYODe3uR/h6k36boDbvjH81WYFphw/JAIrI1thkWQX4BCyF8bi6suxORhi+vDc3lPlg==}
-    engines: {node: '>=20'}
+  '@ethereumjs/tx@10.1.0':
+    resolution: {integrity: sha512-svG6pyzUZDpunafszf2BaolA6Izuvo8ZTIETIegpKxAXYudV1hmzPQDdSI+d8nHCFyQfEFbQ6tfUq95lNArmmg==}
+    engines: {node: '>=18'}
 
-  '@ethereumjs/util@10.1.3':
-    resolution: {integrity: sha512-PhezOVe4DFaC+QLIsnK/tiOaXjpjS2F9AH4Ez0EfWevFw9NWNSg95l7I0dWuHF0B7v9odm2Ijqwo0EnARXtUmA==}
-    engines: {node: '>=20'}
+  '@ethereumjs/util@10.1.0':
+    resolution: {integrity: sha512-GGTCkRu1kWXbz2JoUnIYtJBOoA9T5akzsYa91Bh+DZQ3Cj4qXj3hkNU0Rx6wZlbcmkmhQfrjZfVt52eJO/y2nA==}
+    engines: {node: '>=18'}
 
-  '@ethereumjs/vm@10.1.3':
-    resolution: {integrity: sha512-tnhWnQOgA6AkgWTjDg2dcF11tlTV9eOq/VJdyzo06DwN7PzKHDEacI3tge+40Izqt9KqX16Nc37Agd8dqhDYMw==}
-    engines: {node: '>=20'}
+  '@ethereumjs/vm@10.1.0':
+    resolution: {integrity: sha512-5OxHK4hdccDeSiBeSZj8WITl9uB6NbXA6/yf2wAPoflVxZKzOM5h6ssFrOAhz2faD130UoU62pnT23WClgrXSQ==}
+    engines: {node: '>=18'}
 
   '@floating-ui/core@1.8.0':
     resolution: {integrity: sha512-0CIZ5itps/8x7BG8dEIhs53BvCUH2PCoogtakwRTut+Arm58sJooJ0AuZhLw2HJYIR5cMLNPBSS728sPho2khQ==}
@@ -1354,21 +1364,17 @@ packages:
     resolution: {integrity: sha512-2I0gnIVPtfnMw9ee9h1dJG7tp81+8Ob3OJb3Mv37rx5L40/b0i7djjCVvGOVqc9AEIQyvyu1i6ypKdFw8R8gQw==}
     engines: {node: ^14.21.3 || >=16}
 
+  '@noble/curves@1.9.0':
+    resolution: {integrity: sha512-7YDlXiNMdO1YZeH6t/kvopHHbIZzlxrCV9WLqCY6QhcXOoXiNCMDqJIglZ9Yjx5+w7Dz30TITFrlTjnRg7sKEg==}
+    engines: {node: ^14.21.3 || >=16}
+
   '@noble/curves@1.9.1':
     resolution: {integrity: sha512-k11yZxZg+t+gWvBbIswW0yoJlu8cHOC7dhunwOzoWH/mXGBiYyR4YY6hAEK/3EUs4UpB8la1RfdRpeGsFHkWsA==}
     engines: {node: ^14.21.3 || >=16}
 
-  '@noble/curves@2.4.0':
-    resolution: {integrity: sha512-P4/62zrgfH33CneE3Dn4WhJVA22YUU0eR51wKIan4NVRvwsA0YnPTwWGpNbpuacSujmSFLvyzpyuR30+fbq2Ew==}
-    engines: {node: '>= 20.19.0'}
-
   '@noble/hashes@1.8.0':
     resolution: {integrity: sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A==}
     engines: {node: ^14.21.3 || >=16}
-
-  '@noble/hashes@2.4.0':
-    resolution: {integrity: sha512-X5XaVWZIBCT7HHZGm5I7ZQXDwLG+bGXuSrMQAW+7Zvl87h1kmc1ZB1VSRJcpUfoUrGQp4Fkoxm5kZ+Ms+aW+eA==}
-    engines: {node: '>= 20.19.0'}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2616,6 +2622,10 @@ packages:
 
   ethereum-cryptography@0.1.3:
     resolution: {integrity: sha512-w8/4x1SGGzc+tO97TASLja6SLd3fRIK2tLVcV2Gx4IB21hE19atll5Cq9o3d0ZmAYC/8aw0ipieTSiekAea4SQ==}
+
+  ethereum-cryptography@3.2.0:
+    resolution: {integrity: sha512-Urr5YVsalH+Jo0sYkTkv1MyI9bLYZwW8BENZCeE1QYaTHETEYx0Nv/SVsWkSqpYrzweg6d8KMY1wTjH/1m/BIg==}
+    engines: {node: ^14.21.3 || >=16, npm: '>=9'}
 
   ethereumjs-abi@0.6.8:
     resolution: {integrity: sha512-Tx0r/iXI6r+lRsdvkFDlut0N08jWMnKRZ6Gkq+Nmw75lZe4e6o3EkSnkaBP5NF6+m5PTGAr9JP43N3LyeoglsA==}
@@ -5575,97 +5585,97 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
-  '@ethereumjs/binarytree@10.1.3':
+  '@ethereumjs/binarytree@10.1.0':
     dependencies:
-      '@ethereumjs/rlp': 10.1.3
-      '@ethereumjs/util': 10.1.3
-      '@noble/hashes': 2.4.0
+      '@ethereumjs/rlp': 10.1.0
+      '@ethereumjs/util': 10.1.0
+      '@noble/hashes': 1.8.0
       debug: 4.4.3
+      ethereum-cryptography: 3.2.0
       lru-cache: 11.0.2
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/block@10.1.3':
+  '@ethereumjs/block@10.1.0':
     dependencies:
-      '@ethereumjs/common': 10.1.3
-      '@ethereumjs/mpt': 10.1.3
-      '@ethereumjs/rlp': 10.1.3
-      '@ethereumjs/tx': 10.1.3
-      '@ethereumjs/util': 10.1.3
-      '@noble/curves': 2.4.0
-      '@noble/hashes': 2.4.0
+      '@ethereumjs/common': 10.1.0
+      '@ethereumjs/mpt': 10.1.0
+      '@ethereumjs/rlp': 10.1.0
+      '@ethereumjs/tx': 10.1.0
+      '@ethereumjs/util': 10.1.0
+      ethereum-cryptography: 3.2.0
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/common@10.1.3':
+  '@ethereumjs/common@10.1.0':
     dependencies:
-      '@ethereumjs/util': 10.1.3
+      '@ethereumjs/util': 10.1.0
       eventemitter3: 5.0.4
 
-  '@ethereumjs/evm@10.1.3':
+  '@ethereumjs/evm@10.1.0':
     dependencies:
-      '@ethereumjs/common': 10.1.3
-      '@ethereumjs/statemanager': 10.1.3
-      '@ethereumjs/util': 10.1.3
-      '@noble/curves': 2.4.0
-      '@noble/hashes': 2.4.0
+      '@ethereumjs/binarytree': 10.1.0
+      '@ethereumjs/common': 10.1.0
+      '@ethereumjs/statemanager': 10.1.0
+      '@ethereumjs/util': 10.1.0
+      '@noble/curves': 1.9.1
       debug: 4.4.3
+      ethereum-cryptography: 3.2.0
       eventemitter3: 5.0.4
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/mpt@10.1.3':
+  '@ethereumjs/mpt@10.1.0':
     dependencies:
-      '@ethereumjs/rlp': 10.1.3
-      '@ethereumjs/util': 10.1.3
-      '@noble/hashes': 2.4.0
+      '@ethereumjs/rlp': 10.1.0
+      '@ethereumjs/util': 10.1.0
       debug: 4.4.3
+      ethereum-cryptography: 3.2.0
       lru-cache: 11.0.2
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/rlp@10.1.3': {}
+  '@ethereumjs/rlp@10.1.0': {}
 
-  '@ethereumjs/statemanager@10.1.3':
+  '@ethereumjs/statemanager@10.1.0':
     dependencies:
-      '@ethereumjs/binarytree': 10.1.3
-      '@ethereumjs/common': 10.1.3
-      '@ethereumjs/mpt': 10.1.3
-      '@ethereumjs/rlp': 10.1.3
-      '@ethereumjs/util': 10.1.3
+      '@ethereumjs/binarytree': 10.1.0
+      '@ethereumjs/common': 10.1.0
+      '@ethereumjs/mpt': 10.1.0
+      '@ethereumjs/rlp': 10.1.0
+      '@ethereumjs/util': 10.1.0
       '@js-sdsl/ordered-map': 4.4.2
-      '@noble/hashes': 2.4.0
+      '@noble/hashes': 1.8.0
       debug: 4.4.3
+      ethereum-cryptography: 3.2.0
       lru-cache: 11.0.2
     transitivePeerDependencies:
       - supports-color
 
-  '@ethereumjs/tx@10.1.3':
+  '@ethereumjs/tx@10.1.0':
     dependencies:
-      '@ethereumjs/common': 10.1.3
-      '@ethereumjs/rlp': 10.1.3
-      '@ethereumjs/util': 10.1.3
-      '@noble/curves': 2.4.0
-      '@noble/hashes': 2.4.0
+      '@ethereumjs/common': 10.1.0
+      '@ethereumjs/rlp': 10.1.0
+      '@ethereumjs/util': 10.1.0
+      ethereum-cryptography: 3.2.0
 
-  '@ethereumjs/util@10.1.3':
+  '@ethereumjs/util@10.1.0':
     dependencies:
-      '@ethereumjs/rlp': 10.1.3
-      '@noble/curves': 2.4.0
-      '@noble/hashes': 2.4.0
+      '@ethereumjs/rlp': 10.1.0
+      ethereum-cryptography: 3.2.0
 
-  '@ethereumjs/vm@10.1.3':
+  '@ethereumjs/vm@10.1.0':
     dependencies:
-      '@ethereumjs/block': 10.1.3
-      '@ethereumjs/common': 10.1.3
-      '@ethereumjs/evm': 10.1.3
-      '@ethereumjs/mpt': 10.1.3
-      '@ethereumjs/rlp': 10.1.3
-      '@ethereumjs/statemanager': 10.1.3
-      '@ethereumjs/tx': 10.1.3
-      '@ethereumjs/util': 10.1.3
-      '@noble/hashes': 2.4.0
+      '@ethereumjs/block': 10.1.0
+      '@ethereumjs/common': 10.1.0
+      '@ethereumjs/evm': 10.1.0
+      '@ethereumjs/mpt': 10.1.0
+      '@ethereumjs/rlp': 10.1.0
+      '@ethereumjs/statemanager': 10.1.0
+      '@ethereumjs/tx': 10.1.0
+      '@ethereumjs/util': 10.1.0
       debug: 4.4.3
+      ethereum-cryptography: 3.2.0
       eventemitter3: 5.0.4
     transitivePeerDependencies:
       - supports-color
@@ -5970,17 +5980,15 @@ snapshots:
 
   '@noble/ciphers@1.3.0': {}
 
+  '@noble/curves@1.9.0':
+    dependencies:
+      '@noble/hashes': 1.8.0
+
   '@noble/curves@1.9.1':
     dependencies:
       '@noble/hashes': 1.8.0
 
-  '@noble/curves@2.4.0':
-    dependencies:
-      '@noble/hashes': 2.4.0
-
   '@noble/hashes@1.8.0': {}
-
-  '@noble/hashes@2.4.0': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -7561,6 +7569,14 @@ snapshots:
       scrypt-js: 3.0.1
       secp256k1: 4.0.5
       setimmediate: 1.0.5
+
+  ethereum-cryptography@3.2.0:
+    dependencies:
+      '@noble/ciphers': 1.3.0
+      '@noble/curves': 1.9.0
+      '@noble/hashes': 1.8.0
+      '@scure/bip32': 1.7.0
+      '@scure/bip39': 1.6.0
 
   ethereumjs-abi@0.6.8:
     dependencies:
