@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "next build",
-    "build:solcjs-worker": "browserify -t babelify ./babel/solcWorker2.js > ./public/solcWorker.js",
+    "build:solcjs-worker": "browserify -x debug -t babelify ./babel/solcWorker2.js > ./public/solcWorker.js",
     "dev": "pnpm run build:solcjs-worker && next dev",
     "format": "prettier --write  --cache .",
     "serve": "pnpm run build && next start",
