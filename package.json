@@ -5,15 +5,15 @@
   "homepage": "https://github.com/duneanalytics/evm.codes",
   "license": "MIT",
   "scripts": {
-    "build": "next build",
+    "build": "next build --webpack",
     "build:solcjs-worker": "browserify -x debug -t babelify ./babel/solcWorker2.js > ./public/solcWorker.js",
-    "dev": "pnpm run build:solcjs-worker && next dev",
+    "dev": "pnpm run build:solcjs-worker && next dev --webpack",
     "format": "prettier --write  --cache .",
     "serve": "pnpm run build && next start",
     "lint": "eslint --ext js,jsx,ts,tsx .",
     "lint:package": "sort-package-json",
     "prepare": "husky",
-    "typecheck": "tsc --pretty"
+    "typecheck": "next typegen && tsc --pretty"
   },
   "dependencies": {
     "@babel/core": "^7.29.6",
@@ -48,7 +48,7 @@
     "kbar": "^0.1.0-beta.45",
     "lodash.debounce": "^4.0.8",
     "monaco-editor": "^0.47.0",
-    "next": "^12.3.7",
+    "next": "^16.3.5",
     "next-mdx-remote": "^6.0.0",
     "next-plausible": "^3.12.0",
     "next-themes": "^0.3.0",

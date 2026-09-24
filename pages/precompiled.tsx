@@ -4,7 +4,6 @@ import path from 'path'
 import React, { useContext, useEffect, ReactElement } from 'react'
 
 import matter from 'gray-matter'
-import getConfig from 'next/config'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { IItemDocs, IGasDocs, IDocMeta } from 'types'
@@ -17,8 +16,6 @@ import ContributeBox from 'components/ContributeBox'
 import HomeLayout from 'components/layouts/Home'
 import ReferenceTable from 'components/Reference'
 import { H1, H2, Container, RelativeLink as Link } from 'components/ui'
-
-const { serverRuntimeConfig } = getConfig()
 
 // It seems the memory expansion computation and constants did not change since frontier, but we have to keep an eye on new fork to keep this up to date
 const PrecompiledPage = ({
@@ -109,7 +106,7 @@ PrecompiledPage.getLayout = function getLayout(page: ReactElement) {
 }
 
 export const getStaticProps = async () => {
-  const docsPath = path.join(serverRuntimeConfig.APP_ROOT, 'docs/precompiled')
+  const docsPath = path.join(process.cwd(), 'docs/precompiled')
   const docs = fs.readdirSync(docsPath)
 
   const precompiledDocs: IItemDocs = {}

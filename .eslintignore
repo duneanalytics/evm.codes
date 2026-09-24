@@ -4,6 +4,7 @@ public
 @/
 tailwind.config.js
 .eslintrc.js
+next-env.d.ts
 
 # monorepo
 ethereumjs-monorepo
