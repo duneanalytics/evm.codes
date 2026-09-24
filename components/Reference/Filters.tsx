@@ -81,6 +81,7 @@ const Filters = ({ onSetFilter, isPrecompiled = false }: Props) => {
 
       <div className="bg-gray-100 dark:bg-black-500 rounded mr-3 pl-2 pr-1">
         <Select
+          instanceId="filter-by"
           onChange={handleSearchFilterChange}
           options={filterByOptions}
           defaultValue={{ label: 'Name', value: 'name' }}

@@ -110,7 +110,7 @@ const Editor = ({ readOnly = false }: Props) => {
   const [methodByteCode, setMethodByteCode] = useState<string | undefined>()
 
   const log = useCallback(
-    (line: string, type = 'info') => {
+    (line: string, type: IConsoleOutput['type'] = 'info') => {
       // See https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/
       setOutput((previous) => {
         const cloned = previous.map((x) => ({ ...x }))
@@ -136,7 +136,7 @@ const Editor = ({ readOnly = false }: Props) => {
   }, [callValue, unit])
 
   const deployByteCode = useCallback(
-    async (bc, args = '', callValue) => {
+    async (bc: string, args = '', callValue?: bigint) => {
       try {
         if (!callValue) {
           callValue = getCallValue()
@@ -521,6 +521,7 @@ const Editor = ({ readOnly = false }: Props) => {
                     />
 
                     <Select
+                      instanceId="call-value-unit"
                       onChange={(option: OnChangeValue<any, any>) =>
                         setUnit(option.value)
                       }

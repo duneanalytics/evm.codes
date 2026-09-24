@@ -109,6 +109,7 @@ const ChainSelector = () => {
           <Icon name="git-branch-line" className="text-indigo-500 mr-2" />
 
           <Select
+            instanceId="fork"
             onChange={handleForkChange}
             options={forkOptions}
             value={forkValue}

@@ -1,5 +1,6 @@
 import { NextApiResponse, NextApiRequest } from 'next'
-import { serialize } from 'next-mdx-remote/serialize'
+
+import { serializeDoc } from 'util/mdx'
 
 export default async function handler(
   req: NextApiRequest,
@@ -7,7 +8,7 @@ export default async function handler(
 ) {
   if (req.method === 'POST') {
     const { body } = req
-    res.status(200).json({ mdx: await serialize(body.content) })
+    res.status(200).json({ mdx: await serializeDoc(body.content) })
   } else {
     res.status(405)
   }

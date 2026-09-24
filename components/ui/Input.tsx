@@ -10,7 +10,7 @@ type Props = {
   className?: string
 } & React.ComponentPropsWithoutRef<'input'>
 
-export const Input: React.FC<Props> = forwardRef(
+export const Input = forwardRef<HTMLInputElement, Props>(
   (
     { searchable = false, onFocus, onBlur, className, ...rest },
     ref: ForwardedRef<HTMLInputElement>,

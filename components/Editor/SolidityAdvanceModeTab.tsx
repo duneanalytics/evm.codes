@@ -11,7 +11,7 @@ import React, {
 import { EVMError } from '@ethereumjs/evm'
 import { Address, createAddressFromString } from '@ethereumjs/util'
 import abi from 'ethereumjs-abi'
-import { BN, bufferToHex } from 'ethereumjs-util'
+import { bufferToHex } from 'ethereumjs-util'
 import Select, { OnChangeValue } from 'react-select'
 
 import { isEmpty } from 'util/string'
@@ -19,17 +19,17 @@ import { isEmpty } from 'util/string'
 import { EthereumContext } from '../../context/ethereumContext'
 import { Button, Icon, Input } from '../ui'
 
-import { Contract, MethodAbi, ValueUnit } from './types'
+import { Contract, IConsoleOutput, MethodAbi, ValueUnit } from './types'
 
 interface Props {
   show: boolean
-  log: (line: string, type?: string) => void
+  log: (line: string, type?: IConsoleOutput['type']) => void
   setShowSimpleMode: () => void
   handleCompile: () => void
   deployByteCode: (
     byteCode: string,
     args: string,
-    callValue: BN | undefined,
+    callValue: bigint | undefined,
   ) => Promise<
     | {
         error?: EVMError | undefined
@@ -336,6 +336,7 @@ const SolidityAdvanceModeTab: FC<Props> = ({
       <div className="flex flex-col md:flex-row md:items-center md:justify-between px-4 py-4 md:py-2 md:border-r border-gray-200 dark:border-black-500">
         <div className="flex flex-col md:flex-row md:gap-x-4 gap-y-2 md:gap-y-0 mb-4 md:mb-0">
           <Select
+            instanceId="method"
             options={methodOptions}
             onChange={(v: OnChangeValue<any, any>) => {
               setSelectedMethod(v)
@@ -384,6 +385,7 @@ const SolidityAdvanceModeTab: FC<Props> = ({
             className="bg-white dark:bg-black-500 w-52"
           />
           <Select
+            instanceId="call-value-unit-advanced"
             isDisabled={selectedMethod?.stateMutability !== 'payable'}
             onChange={(option: OnChangeValue<any, any>) =>
               setUnit(option.value)

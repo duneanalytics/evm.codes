@@ -38,6 +38,7 @@ const EditorHeader = ({ codeType, onCodeTypeChange }: Props) => {
 
       <div className="flex items-center justify-between w-full xl:w-auto">
         <Select
+          instanceId="code-type"
           onChange={onCodeTypeChange}
           options={codeLangOptions}
           value={codeTypeValue}

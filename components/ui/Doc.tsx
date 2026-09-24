@@ -7,7 +7,7 @@ import Link from 'next/link'
 const EMPTY_MARK = '*'
 
 type Props = {
-  children: string | JSX.Element
+  children?: React.ReactNode
 }
 
 type LinkProps = {

@@ -1,4 +1,5 @@
-import type { NextPage } from 'next'
+import { ReactNode } from 'react'
+
 import Head from 'next/head'
 
 import { getAbsoluteURL } from 'util/browser'
@@ -6,7 +7,7 @@ import { getAbsoluteURL } from 'util/browser'
 import Footer from './Footer'
 import Nav from './Nav'
 
-const HomeLayout: NextPage = ({ children }) => {
+const HomeLayout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Head>

@@ -157,7 +157,9 @@ export const CheckIfAfterMergeHardfork = (forkName?: string) => {
   return postMergeHardforkNames.indexOf(forkName) > -1
 }
 
-export const EthereumProvider: React.FC<{}> = ({ children }) => {
+export const EthereumProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [chains, setChains] = useState<IChain[]>([])
   const [forks, setForks] = useState<HardforkTransitionConfig[]>([])
   const [selectedChain, setSelectedChain] = useState<IChain>()
@@ -546,7 +548,8 @@ export const EthereumProvider: React.FC<{}> = ({ children }) => {
     while (!result.done) {
       // Convert full address (e.g., "0000...0001" or "0000...0100") to short form
       // Format: 0x01-0x0f (2 digits), 0x10-0x11 (2 digits), 0x100 (3 digits)
-      const addressString = '0x' + result.value.slice(2).replace(/^0+(?=..)/, '')
+      const addressString =
+        '0x' + result.value.slice(2).replace(/^0+(?=..)/, '')
 
       if (!meta[addressString]) {
         result = addressIterator.next()

@@ -1,4 +1,5 @@
-import type { NextPage } from 'next'
+import { ReactElement } from 'react'
+
 import Head from 'next/head'
 
 import ContractViewer from 'components/ContractViewer'
@@ -21,7 +22,7 @@ const ContractPage = () => {
   )
 }
 
-ContractPage.getLayout = function getLayout(page: NextPage) {
+ContractPage.getLayout = function getLayout(page: ReactElement) {
   return <HomeLayout>{page}</HomeLayout>
 }
 
