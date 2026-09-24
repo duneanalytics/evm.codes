@@ -6,9 +6,6 @@ const nodeModuleReplacement = require('./webpack/nodeModuleReplacement')
 
 module.exports = withPlausibleProxy()({
   reactStrictMode: true,
-  serverRuntimeConfig: {
-    APP_ROOT: __dirname,
-  },
   webpack: (config, options) => {
     const { dir, defaultLoaders } = options
 
@@ -18,7 +15,15 @@ module.exports = withPlausibleProxy()({
       include: [dir],
       use: [
         defaultLoaders.babel,
-        { loader: 'ts-loader', options: { transpileOnly: true } },
+        {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true,
+            // Next forces "jsx": "react-jsx" in tsconfig; leave JSX to babel so
+            // styled-jsx still sees <style jsx>.
+            compilerOptions: { jsx: 'preserve' },
+          },
+        },
       ],
     })
 

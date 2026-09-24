@@ -7,12 +7,11 @@ import { Common, HardforkTransitionConfig, Mainnet } from '@ethereumjs/common'
 import {
   EVM,
   EVMError,
+  ExecResult,
   getActivePrecompiles,
   InterpreterStep,
   createEVM,
 } from '@ethereumjs/evm'
-import type { RunState } from '@ethereumjs/evm/dist/cjs/interpreter'
-import type { Opcode, OpcodeList } from '@ethereumjs/evm/dist/cjs/opcodes/codes'
 import { TypedTransaction, TxData, createTx } from '@ethereumjs/tx'
 import {
   Address,
@@ -48,6 +47,11 @@ import { toHex, fromBuffer } from 'util/string'
 
 let vm: VM
 let common: Common
+// @ethereumjs/evm doesn't export these types from its package entry point.
+type RunState = NonNullable<ExecResult['runState']>
+type OpcodeList = ReturnType<EVM['getActiveOpcodes']>
+type Opcode = OpcodeList extends Map<number, infer O> ? O : never
+
 let currentOpcodes: OpcodeList | undefined
 
 const storageMemory = new Map()

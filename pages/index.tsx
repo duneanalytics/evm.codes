@@ -4,7 +4,6 @@ import path from 'path'
 import { useContext, ReactElement } from 'react'
 
 import matter from 'gray-matter'
-import getConfig from 'next/config'
 import Head from 'next/head'
 import { IItemDocs, IGasDocs, IDocMeta } from 'types'
 
@@ -16,8 +15,6 @@ import ContributeBox from 'components/ContributeBox'
 import HomeLayout from 'components/layouts/Home'
 import ReferenceTable from 'components/Reference'
 import { H1, Container } from 'components/ui'
-
-const { serverRuntimeConfig } = getConfig()
 
 const HomePage = ({
   opcodeDocs,
@@ -66,7 +63,7 @@ HomePage.getLayout = function getLayout(page: ReactElement) {
 }
 
 export const getStaticProps = async () => {
-  const docsPath = path.join(serverRuntimeConfig.APP_ROOT, 'docs/opcodes')
+  const docsPath = path.join(process.cwd(), 'docs/opcodes')
   const docs = fs.readdirSync(docsPath)
 
   const opcodeDocs: IItemDocs = {}

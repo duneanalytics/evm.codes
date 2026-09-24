@@ -245,20 +245,17 @@ const ReferenceTable = ({
                       <div className="flex items-center flex-wrap">
                         {cell.column.id === 'opcodeOrAddress' && (
                           <Link
-                            legacyBehavior
                             href={
                               isPrecompiled
                                 ? `/precompiled?fork=${selectedFork?.name}#${opcodeOrAddress}`
                                 : `/?fork=${selectedFork?.name}#${opcodeOrAddress}`
                             }
-                            passHref
+                            className="underline font-mono"
                           >
-                            <a className="underline font-mono">
-                              <Icon
-                                name="links-line"
-                                className="text-indigo-500 mr-2"
-                              />
-                            </a>
+                            <Icon
+                              name="links-line"
+                              className="text-indigo-500 mr-2"
+                            />
                           </Link>
                         )}
                         {cell.render('Cell')}

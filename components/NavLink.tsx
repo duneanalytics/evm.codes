@@ -23,8 +23,8 @@ const NavLink: React.FC<Props> = ({
         className,
       )}
     >
-      <Link legacyBehavior href={href} passHref={external}>
-        <a target={external ? '_blank' : '_self'}>{children}</a>
+      <Link href={href} target={external ? '_blank' : '_self'}>
+        {children}
       </Link>
     </li>
   )
