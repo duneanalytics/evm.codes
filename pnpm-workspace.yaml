@@ -13,6 +13,8 @@ onlyBuiltDependencies:
 overrides:
   '@types/react': ^18.3.0
   '@types/react-dom': ^18.3.0
+  # Security patch for the tmp version pinned by solc.
+  'tmp@<0.2.7': ^0.2.7
   # @ethereumjs 10.1.2 removed EOF support, which the EOF fork view relies on.
   '@ethereumjs/binarytree': 10.1.0
   '@ethereumjs/block': 10.1.0

@@ -7,6 +7,7 @@ settings:
 overrides:
   '@types/react': ^18.3.0
   '@types/react-dom': ^18.3.0
+  tmp@<0.2.7: ^0.2.7
   '@ethereumjs/binarytree': 10.1.0
   '@ethereumjs/block': 10.1.0
   '@ethereumjs/common': 10.1.0
@@ -4471,8 +4472,8 @@ packages:
     resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==}
     engines: {node: '>=12.0.0'}
 
-  tmp@0.2.6:
-    resolution: {integrity: sha512-5sJPdPjfI5Kx+qbrDesxkglRBxW//g7hCsqspEjwkewGvBMGIKMOTKzLt1hFVJzyadba3lDUN20O9qhvbQUSTA==}
+  tmp@0.2.7:
+    resolution: {integrity: sha512-e0votIpp4Uo2AJYSzVHV6xCcawuiez3DzqDAbrTc3YxBkplN6e+dM13ZeIcZnDg/QpSuU2zfZ3rzwY8ukEnaXw==}
     engines: {node: '>=14.14'}
 
   to-buffer@1.2.2:
@@ -9972,7 +9973,7 @@ snapshots:
       js-sha3: 0.8.0
       memorystream: 0.3.1
       semver: 5.7.2
-      tmp: 0.2.6
+      tmp: 0.2.7
     transitivePeerDependencies:
       - debug
 
@@ -10243,7 +10244,7 @@ snapshots:
       fdir: 6.5.0(picomatch@4.0.7)
       picomatch: 4.0.7
 
-  tmp@0.2.6: {}
+  tmp@0.2.7: {}
 
   to-buffer@1.2.2:
     dependencies:
