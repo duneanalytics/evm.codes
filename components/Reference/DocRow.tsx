@@ -108,6 +108,13 @@ const DocRow = ({
                 'flex-1 lg:pr-8': referenceItem.dynamicFee,
               })}
             >
+              {referenceItem.description && (
+                <div className="mb-6">
+                  <h2 className="text-lg font-medium mb-4">Description</h2>
+                  <p>{referenceItem.description}</p>
+                </div>
+              )}
+
               <MDXRemote {...itemDoc.mdxSource} components={docComponents} />
               {dynamicFeeForkName && dynamicFeeDocMdx && (
                 <MDXRemote {...dynamicFeeDocMdx} components={docComponents} />
