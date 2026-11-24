@@ -1,5 +1,6 @@
 import { Common, HardforkTransitionConfig } from '@ethereumjs/common'
-import { setLengthRight, BN } from 'ethereumjs-util'
+import { setLengthRight } from '@ethereumjs/util'
+import BN from 'bn.js'
 import { IReferenceItem } from 'types'
 
 interface SstoreInputs {
@@ -731,7 +732,9 @@ export const calculateOpcodeDynamicFee = (
 
 function getAdjustedExponentLength(exponent: BN): BN {
   const expLen = new BN(exponent.byteLength())
-  let firstExpBytes = Buffer.from(exponent.toArray().slice(0, 32)) // first word of the exponent data
+  let firstExpBytes: Uint8Array = Uint8Array.from(
+    exponent.toArray().slice(0, 32),
+  ) // first word of the exponent data
   firstExpBytes = setLengthRight(firstExpBytes, 32) // reading past the data reads virtual zeros
   let firstExpBN = new BN(firstExpBytes)
   let max32expLen = 0

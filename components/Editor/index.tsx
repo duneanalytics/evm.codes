@@ -10,10 +10,10 @@ import React, {
   Fragment,
 } from 'react'
 
+import { bytesToHex } from '@ethereumjs/util'
 import { encode, decode } from '@kunigi/string-compression'
 import cn from 'classnames'
 import copy from 'copy-to-clipboard'
-import { bufferToHex } from 'ethereumjs-util'
 import { useRouter } from 'next/router'
 import Select, { OnChangeValue } from 'react-select'
 import SCEditor from 'react-simple-code-editor'
@@ -155,7 +155,7 @@ const Editor = ({ readOnly = false }: Props) => {
           !result.error &&
           result.returnValue
         ) {
-          setMethodByteCode(bufferToHex(Buffer.from(result.returnValue)))
+          setMethodByteCode(bytesToHex(result.returnValue))
         }
         return result
       } catch (error) {

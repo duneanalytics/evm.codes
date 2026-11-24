@@ -1,4 +1,4 @@
-import { BN } from 'ethereumjs-util'
+import BN from 'bn.js'
 import { IInstruction, IReferenceItem } from 'types'
 
 import { EOF_FORK_NAME } from './constants'
