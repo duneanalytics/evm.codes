@@ -17,11 +17,8 @@ overrides:
   'tmp@<0.2.7': ^0.2.7
   'fast-uri@<3.1.9': ^3.1.9
   'follow-redirects@<1.16.2': ^1.16.2
-  'shell-quote@<1.11.0': ^1.11.0
   'source-map-js@<1.2.2': ^1.2.2
-  'pbkdf2@<3.1.7': ^3.1.7
   'postcss-selector-parser@<6.1.5': ^6.1.5
-  'qs@<6.16.1': ^6.16.1
   'minimatch@>=7 <11.0.1': ^11.0.1
   # @ethereumjs 10.1.2 removed EOF support, which the EOF fork view relies on.
   '@ethereumjs/binarytree': 10.1.0

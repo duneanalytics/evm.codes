@@ -9,11 +9,11 @@ import React, {
 } from 'react'
 
 import { EVMError } from '@ethereumjs/evm'
-import { Address, createAddressFromString } from '@ethereumjs/util'
-import abi from 'ethereumjs-abi'
-import { bufferToHex } from 'ethereumjs-util'
+import { Address, createAddressFromString, bytesToHex } from '@ethereumjs/util'
 import Select, { OnChangeValue } from 'react-select'
+import { decodeAbiParameters, encodeFunctionData } from 'viem'
 
+import { encodeArguments, parseArguments } from 'util/abi'
 import { isEmpty } from 'util/string'
 
 import { EthereumContext } from '../../context/ethereumContext'
@@ -144,10 +144,14 @@ const SolidityAdvanceModeTab: FC<Props> = ({
       selectedMethod.name + '(' + selectedMethod.inputTypes + ')'
 
     try {
-      const byteCodeBuffer =
-        methodArgsArray.length > 0 && selectedMethod.inputs?.length > 0
-          ? abi.simpleEncode(methodRawSignature, ...methodArgsArray)
-          : abi.simpleEncode(methodRawSignature)
+      const byteCode = encodeFunctionData({
+        abi: [selectedMethod],
+        functionName: selectedMethod.name,
+        args: parseArguments(
+          selectedMethod.inputs,
+          selectedMethod.inputs?.length ? methodArgsArray : [],
+        ),
+      })
 
       if (methodArgs.length > 0 && selectedMethod.inputs?.length > 0) {
         log(`run method ${methodRawSignature} with ${methodArgsArray}.`)
@@ -160,7 +164,7 @@ const SolidityAdvanceModeTab: FC<Props> = ({
         log(`run method ${methodRawSignature}.`)
       }
 
-      return bufferToHex(byteCodeBuffer).substring(2)
+      return byteCode.substring(2)
     } catch (error) {
       log("Can't encode method, please check your arguments.", 'error')
       return ''
@@ -177,11 +181,15 @@ const SolidityAdvanceModeTab: FC<Props> = ({
         log('Please input args', 'error')
         return
       }
-      const abiBuffer = abi.rawEncode(
-        selectedMethod.inputs.map((mi) => mi.type),
-        methodArgsArray,
-      )
-      args = bufferToHex(abiBuffer).substring(2)
+      try {
+        args = encodeArguments(
+          selectedMethod.inputs,
+          methodArgsArray,
+        ).substring(2)
+      } catch (error) {
+        log("Can't encode constructor, please check your arguments.", 'error')
+        return
+      }
     }
     deployByteCode(selectedContract.code, args, undefined)
   }, [selectedContract, selectedMethod, deployByteCode, methodArgsArray, log])
@@ -219,9 +227,9 @@ const SolidityAdvanceModeTab: FC<Props> = ({
         selectedMethod.outputs.length > 0
       ) {
         log(
-          `run method complete, the response is ${abi.rawDecode(
-            selectedMethod.outputs.map((mi) => mi.type),
-            Buffer.from(result.returnValue),
+          `run method complete, the response is ${decodeAbiParameters(
+            selectedMethod.outputs,
+            bytesToHex(result.returnValue),
           )}`,
         )
       } else if (!result.error) {
