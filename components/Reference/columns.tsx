@@ -42,7 +42,7 @@ const columns = (isPrecompiled: boolean) => [
       />
     ),
     width: 200,
-    className: 'hidden lg:table-cell',
+    className: 'hidden md:table-cell',
   },
   {
     Header: !isPrecompiled ? 'Stack Output' : 'Output',
@@ -54,7 +54,7 @@ const columns = (isPrecompiled: boolean) => [
       />
     ),
     width: 100,
-    className: 'hidden lg:table-cell',
+    className: 'hidden md:table-cell',
   },
   {
     Header: 'Description',
