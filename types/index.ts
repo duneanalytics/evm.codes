@@ -54,12 +54,17 @@ export interface ITransientStorage {
   value: string
 }
 
+export interface IMemoryWord {
+  offset: string
+  data: string
+}
+
 export interface IExecutionState {
   programCounter: number | undefined
   stack: string[]
   storage: IStorage[]
   transientStorage: ITransientStorage[]
-  memory: string | undefined
+  memory: IMemoryWord[] | undefined
   totalGas: string | undefined
   currentGas: string | undefined
   returnValue: string | undefined

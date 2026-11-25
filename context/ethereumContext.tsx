@@ -43,7 +43,7 @@ import {
   calculateOpcodeDynamicFee,
   calculatePrecompiledDynamicFee,
 } from 'util/gas'
-import { toHex, fromBuffer } from 'util/string'
+import { toHex, fromBuffer, formatEvmMemory } from 'util/string'
 
 let vm: VM
 let common: Common
@@ -785,9 +785,11 @@ export const EthereumProvider: React.FC<{ children: React.ReactNode }> = ({
       programCounter: pc,
       stack: stack.map((value) => value.toString(16)).reverse(),
       totalGas: totalGasSpent.toString(),
-      memory: fromBuffer(Buffer.from(memory)).substring(
-        0,
-        Number(memoryWordCount) * 64,
+      memory: formatEvmMemory(
+        fromBuffer(Buffer.from(memory)).substring(
+          0,
+          Number(memoryWordCount) * 64,
+        ),
       ),
       transientStorage,
       storage,
