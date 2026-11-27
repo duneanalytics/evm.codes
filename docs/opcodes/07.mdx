@@ -7,7 +7,7 @@ group: Stop and Arithmetic Operations
 
 ## Notes
 
-All values are treated as two's complement 256-bit signed integers. Note the overflow semantic when −2<sup>255</sup> is negated.
+All values are treated as two's complement 256-bit signed integers. The result has the same sign as the numerator `a`, and the sign of the denominator `b` is ignored. There is no overflow case: −2<sup>255</sup> modulo −1 is 0.
 
 ## Stack input
 
