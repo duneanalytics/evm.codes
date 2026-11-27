@@ -9,7 +9,7 @@ group: System operations
 
 Creates a new sub [context](/about) and executes the [code](/about) of the given account, then resumes the current one. Note that an account with no code will return success as true (1).
 
-This instruction is equivalent to [CALL](/#F1), except that it does not allow any state modifying instructions or sending ETH in the sub [context](/about). The disallowed instructions are [CREATE](/#F0), [CREATE2](/#F5), [LOG0](/#A0), [LOG1](/#A1), [LOG2](/#A2), [LOG3](/#A3), [LOG4](/#A4), [SSTORE](/#55), [SELFDESTRUCT](/#FF), [EOFCREATE](/#EC), as well as [CALL](/#F1) or [EXTCALL](/#F8) if the [value](/#34) sent is not 0.
+This instruction is equivalent to [CALL](/#F1), except that it does not allow any state modifying instructions or sending ETH in the sub [context](/about). The disallowed instructions are [CREATE](/#F0), [CREATE2](/#F5), [LOG0](/#A0), [LOG1](/#A1), [LOG2](/#A2), [LOG3](/#A3), [LOG4](/#A4), [SSTORE](/#55), [TSTORE](/#5D), [SELFDESTRUCT](/#FF), [EOFCREATE](/#EC), as well as [CALL](/#F1) or [EXTCALL](/#F8) if the [value](/#34) sent is not 0.
 
 If the size of the [return data](/about) is not known, it can also be retrieved after the call with the instructions [RETURNDATASIZE](/#3D) and [RETURNDATACOPY](/#3E) (since the Byzantium fork).
 

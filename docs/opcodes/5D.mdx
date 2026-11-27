@@ -37,3 +37,4 @@ group: Stack Memory Storage and Flow Operations
 The state changes done by the current context are [reverted](#FD) in those cases:
 - Not enough gas.
 - Stack overflow.
+- The current execution context is from a [STATICCALL](/#FA) or an [EXTSTATICCALL](/#FB) (since EOF fork).
